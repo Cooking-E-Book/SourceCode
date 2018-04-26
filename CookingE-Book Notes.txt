@@ -1,0 +1,125 @@
+Cooking
+
+
+Recipe                                         string?
+    ingredient List HashMap<Ingredient, quantity> ingedient
+    Description
+    User - creator
+    List User - People who tried it
+    Rating
+    Date & time recipe added
+    List Category categories
+    Preparation time
+    Cooking Time
+    Ready time = preparation + cooking
+    Image images
+    
+
+Category - editable by admin
+    name 
+    Category() { }
+    
+
+Ingredient 
+    name
+
+        
+User (date, nickname, pass, name, address, cooking interests(), favorite products
+    Administrator
+        
+
+    Authors
+        Created Recipes
+        Liked
+        Rating
+
+    Readers
+        Favourites
+        Liked
+
+Image
+    width
+    height
+    title
+    alt
+    description
+
+Share - may be method
+    
+Social Network
+    name enum - facebook, 
+    User
+    
+
+Interfaces
+    Likeble
+    Ratable
+    Favourable
+    Sharable
+	
+Vladi:
+
+ - Project prerequisites:
+ 
+ Please define and implement the following object-oriented assets in your project:
+	At least 5 interfaces (with one or more implementations) -> ok (downloadable, likable, ratable, repliable (review, comment), editable (deletable for admins & authors), recoverable (if deleted), sharable, favorable, etc.)
+	At least 15 classes (implementing the application logic) -> not ok (user (author, reader, administrator), 
+																		recipe, 
+																		book, 
+																		nutritionInformation, 
+																		socialNetworks (Facebook (all), Instagram (photo), Twitter (text)), 
+																		Subscription, 
+																		Message (Summary, Review, Comment, Reply), 
+																		Help,
+																		Measurement unit (teaspoon, tablespoon, gr, ounce, count)
+																		Ingredients (Countable -> fruits & vegetables, Uncountable - flour, sugar, etc.)
+																		***UnitConverter (ounce -> gr/ kg, pinch/ teaspoon/ tablespoon -> gr/ kg)
+																		***CaloriesCalculator
+																		
+																=> at most 7 classes (missing 8 classes) 
+																=> we can possibly create class Shop related to the cooking e-book as in www.allrecipes.com => origin of other classes such as class PurchaseItems, etc.
+																=> we can create class Help with info about how to get in touch with the Administrator, reset password, FAQ, etc.
+																=> create class Subscription (i.e., members (users) can use different plans: FREE, MONTHLY, YEARLY, etc. (plan type can be implemented  as ENUMERATION)
+																=> create class Review (users to write reviews of recipes)
+																=> create class Comments (properties: user name, title, date of entry, date of update, body; methods: rate - like/ unlike)
+																=> create class measurement units (properties: name)???
+	At least 3 abstract classes (with inheritors) -> not ok (user (author, user, admin) and ingredients (countable -> fruits & vegetables, uncountable - flour, yougurt, sugars) are the only abstract classes)
+	
+	At least 1 custom exception class (with usage in your code) -> ok (could be created; e.g., if a number is enter and not a letter)
+	At least 3 levels of depth in inheritance -> ??? not ok (cannot come up with 3 levels of inheritance depth)
+	At least 1 polymorphism usage -> ok
+	At least 1 enumeration -> ok (e.g., categories => SALAD, DESSERT, MEAT, VEGAN, SANDWICHES, etc.; subscription plans, measurement units)
+	Prefer the StreamingAPI over loops, when applicable -> ok (we can use lambda functions/ streams for list creation)
+		DO NOT use StreamingAPI at any cost, only when it makes sense
+
+
+ - abstract classes:
+	- User (childs: Author, Reader, Administrator)
+	- Recipe (???)
+	- ???
+
+ - class User can be an abstract class, which would then be inherited by classes Author, Reader, Administrator
+ - need a class Book to hold:
+	- recipes (created in a book which will have a constructor with an empty list of recipes at the start and an empty list of users as well)
+	- create users
+	- post recipes
+	- edit (update / delete) recipes, in which case we need to update also the date and time of update (only author can update his/ her recipe)
+	- clear book only by Administrator
+	- search for recipes
+	- review recipes
+	- browse recipes (in alphabetic order or by category); i.e., we need to sort recipes by name and/ or by category
+	- through this class we can implement functionality of liking / downloading / sharing recipes (same as slack - search in list of recipies if found and likable/ downloadable/ sharable, perform action else handle exception)
+	- select category of recipes (make that category current, which would allow to directly add a new recipe to that category instead of having to select a category at time of recipe creation)
+	
+ - add to class Authors:
+	- business card (i.e., brief business summary, like CV)
+	
+ - recipes add functionalities:
+	- editable by their author (interface)
+	- subject to deletion by Administrator
+	- marked as read by user
+	- downloadable by user (interface)
+	- print by user
+	
+ - create class NutritionInformation (i.e., calories, fats, cholesterol, protein, carbohydrates, sugars, vitamin A, vitamin C, iron, magnesium, etc.)
+ - create class Review used by Users to write reviews of recipes
