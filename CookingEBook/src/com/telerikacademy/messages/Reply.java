@@ -13,6 +13,7 @@ public class Reply extends Message implements Likable {
 	public Reply(String author, Timestamp timestamp, String reply, String commentReplied) {
 		super(author, timestamp);
 		likes = 0;
+		dislikes = 0;
 		this.reply = reply;
 		this.commentReplied = commentReplied; // should be somehow linked to the currently selected comment
 	}
@@ -37,6 +38,12 @@ public class Reply extends Message implements Likable {
 	@Override
 	public void like(String user) {
 		String log = String.format("%s liked %s", user, reply);
+		System.out.println(log);
+	}
+	
+	@Override
+	public void dislike(String user) {
+		String log = String.format("%s disliked %s", user, reply);
 		System.out.println(log);
 	}
 }

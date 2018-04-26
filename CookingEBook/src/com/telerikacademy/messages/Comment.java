@@ -4,15 +4,18 @@ import com.telerikacademy.interfaces.Likable;
 import com.telerikacademy.interfaces.Ratable;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Comment extends Message implements Likable, Ratable {
 	
 	private String comment;
+	private List<Reply> replies;
 	
 	public Comment(String author, Timestamp timestamp, String comment) {
 		super(author, timestamp);
 		this.comment = comment;
-		this.likes = likes;
+		likes = 0;
+		dislikes = 0;
 	}
 	
 	private void setComment(String comment) {
@@ -21,6 +24,10 @@ public class Comment extends Message implements Likable, Ratable {
 	
 	public String getComment() {
 		return comment;
+	}
+	
+	public void addReply(Reply reply) {
+		replies.add(reply);
 	}
 	
 	@Override
@@ -36,37 +43,47 @@ public class Comment extends Message implements Likable, Ratable {
 	}
 	
 	@Override
+	public void dislike(String user) {
+		String log = String.format("%s disliked %s", user, comment);
+		System.out.println(log);
+		dislikes++;
+	}
+	
+	@Override
 	public double getRating(Message comment) {
 		
 		double rating = 0;
-		if (likes == 0) {
-			rating = 0;
+		
+		if (likes == 0 && dislikes == 0) {
+			return rating;
 		}
-		if (likes > 0) {
+		
+		double score = likes / (likes + dislikes);
+		if (score <= 0.1) {
+			rating = 0.5;
+		}
+		else if (likes <= 0.2) {
 			rating = 1;
 		}
-		if (likes > 5) {
+		else if (likes <= 0.3) {
 			rating = 1.5;
 		}
-		if (likes > 20) {
+		else if (likes <= 0.4) {
 			rating = 2;
 		}
-		if (likes > 25) {
+		else if (likes <= 0.5) {
 			rating = 2.5;
 		}
-		if (likes > 30) {
+		else if (likes <= 0.6) {
 			rating = 3;
 		}
-		if (likes > 35) {
+		else if (likes <= 0.7) {
 			rating = 3.5;
 		}
-		if (likes > 40) {
+		else if (likes <= 0.8) {
 			rating = 4;
 		}
-		if (likes > 45) {
-			rating = 4.5;
-		}
-		if (likes > 45 && likes <= 50) {
+		else if (likes <= 0.9) {
 			rating = 4.5;
 		}
 		else {
