@@ -1,10 +1,13 @@
 package com.telerikacademy.users;
 
+import com.telerikacademy.enumerations.UserType;
+
 public class Author extends Visitor {
 
     private String password;
     private String name;
     private String email;
+    private final UserType userType = UserType.AUTHOR;
 
     Author() {
 

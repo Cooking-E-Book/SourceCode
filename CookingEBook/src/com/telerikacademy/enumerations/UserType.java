@@ -1,6 +1,6 @@
 package com.telerikacademy.enumerations;
 
-public enum UserTypes {
+public enum UserType {
 
     VISITOR, AUTHOR, ADMIN
 
