@@ -1,8 +1,6 @@
 package com.telerikacademy.users;
 
 import com.telerikacademy.enumerations.UserType;
-import com.telerikacademy.interfaces.Loggable;
-import com.telerikacademy.Globals;
 
 public class Visitor extends User {
 
