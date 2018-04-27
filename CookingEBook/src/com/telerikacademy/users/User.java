@@ -1,46 +1,19 @@
 package com.telerikacademy.users;
 
-public abstract class User {
+import com.telerikacademy.Globals;
+import com.telerikacademy.interfaces.Loggable;
 
-    private String username;
-    private String password;
-    private String name;
-    private String email;
+abstract class User implements Loggable {
 
 
-    public String getUsername() {
-        return username;
+    @Override
+    public void logIn(User user) {
+        Globals.currentUser = user;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    @Override
+    public void logOut() {
 
-    public String getName() {
-        return name;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void changePassword(String oldPassword, String newPassword) {
-
-        if (oldPassword.equals(this.password)) {
-            this.password = newPassword;
-        }
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }

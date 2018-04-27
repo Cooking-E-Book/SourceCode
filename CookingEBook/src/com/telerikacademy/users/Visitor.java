@@ -3,15 +3,20 @@ package com.telerikacademy.users;
 import com.telerikacademy.interfaces.Loggable;
 import com.telerikacademy.Globals;
 
-public class Visitor extends User implements Loggable {
+public class Visitor extends User {
 
-    @Override
-    public void logIn(User user) {
-        Globals.currentUser = user;
+    private String username;
+
+    Visitor() {
+        this.username = "Visitor";
     }
 
-    @Override
-    public void logOut() {
-
+    public String getUsername() {
+        return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 }
