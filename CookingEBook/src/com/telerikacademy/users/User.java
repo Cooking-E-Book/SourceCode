@@ -1,6 +1,6 @@
-package com.telerikacademy;
+package com.telerikacademy.users;
 
-public class User {
+public abstract class User {
 
     private String username;
     private String password;
@@ -42,4 +42,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
