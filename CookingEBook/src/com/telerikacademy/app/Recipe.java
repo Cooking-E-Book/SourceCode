@@ -9,7 +9,8 @@ import java.util.Map;
 public class Recipe {
     private String title;
     private User author;
-    private Map<Component, Double> recipe = new HashMap<Component, Double>();
-
+    private Map<Double, Component> recipe = new HashMap<>();
+    private String description;
+    private Double rating;
 
 }

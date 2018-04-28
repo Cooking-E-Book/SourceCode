@@ -11,7 +11,7 @@ public abstract class Ingredient implements Component{
 
     public Ingredient(String name, Unit unit, Double quantity, Integer kcal) {
         this.name = name;
-        this.unit = unit;
+        this.setUnit(unit);
         this.quantity = quantity;
         this.kcal = kcal;
     }
@@ -37,19 +37,26 @@ public abstract class Ingredient implements Component{
     }
 
     protected void setUnit(Unit unit) {
-        switch (unit)
+        for (Unit u: Unit.values())
         {
-            case COUNT:
-            case PINCH:
-            case TABLESPOON:
-            case TEASPOON:
-            case LITER:
-            case MILLILITER:
-            case GRAM:
-            case KILOGRAM:
-                this.unit = unit;
-            default: throw new NoSuchMeasurementException(  );
+            if (unit != u) {
+                throw new NoSuchMeasurementException(  );
+            }
         }
+        this.unit = unit;
+//        switch (unit)
+//        {
+//            case COUNT:
+//            case PINCH:
+//            case TABLESPOON:
+//            case TEASPOON:
+//            case LITER:
+//            case MILLILITER:
+//            case GRAM:
+//            case KILOGRAM:
+//
+//            default: throw new NoSuchMeasurementException(  );
+//        }
     }
 
     public Double getQuantity() {
