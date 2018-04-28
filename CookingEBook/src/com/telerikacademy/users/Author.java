@@ -64,7 +64,7 @@ public class Author extends Visitor implements Security {
     }
 
     @Override
-    public void logIn(String username, String password) {
+    public void logIn(User user) {
 
         Globals.currentUser = user;
     }

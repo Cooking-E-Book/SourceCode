@@ -2,8 +2,8 @@ package com.telerikacademy.users;
 
 import com.telerikacademy.enumerations.UserType;
 
-public class Admin extends Author {
+public class Admin {
 
-    private final UserType userType = UserType.ADMIN;
+//    private final UserType userType = UserType.ADMIN;
 
 }
