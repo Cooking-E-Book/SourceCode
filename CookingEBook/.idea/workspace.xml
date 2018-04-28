@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2430a778-1b07-46ca-a32a-1cb76ce9d972" name="Default" comment="Added packages: interfaces and messages">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/Globals.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/Globals.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Loggable.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/User.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java" />
-    </list>
+    <list default="true" id="2430a778-1b07-46ca-a32a-1cb76ce9d972" name="Default" comment="Added packages: interfaces and messages" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Author.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Author.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/users/Author.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
@@ -105,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Globals.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Globals.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/Globals.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -832,16 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/Globals.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -889,6 +872,16 @@
             <element signature="e#1088#1089#0" expanded="true" />
             <element signature="e#1491#1492#0" expanded="true" />
             <element signature="e#1551#1552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/Globals.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
