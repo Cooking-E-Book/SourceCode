@@ -5,6 +5,6 @@ import com.telerikacademy.users.Visitor;
 
 public class Globals {
 
-    public static User currentUser = new Visitor();
+    public static User currentUser = new Visitor("visitor");
 
 }
