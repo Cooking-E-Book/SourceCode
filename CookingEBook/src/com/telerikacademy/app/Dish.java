@@ -2,6 +2,7 @@ package com.telerikacademy.app;
 
 import com.telerikacademy.components.Step;
 import com.telerikacademy.enumerations.DishCategory;
+import com.telerikacademy.users.User;
 
 import java.sql.Timestamp;
 import java.util.LinkedList;
@@ -14,6 +15,8 @@ public abstract class Dish {
     private Recipe recipe;
     private Timestamp time;
     private Queue<Step> steps;
+    private List<User> users;
+    private Double rating;
 
     public Dish(DishCategory category, Recipe recipe, Timestamp time) {
         this.category = category;

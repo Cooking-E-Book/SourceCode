@@ -28,7 +28,7 @@ public class MechanicalTreatedDish extends Dish {
         for (MechanicalTreatType u: MechanicalTreatType.values())
         {
             if (type != u) {
-                throw new NoSuchTreatmentException(  );
+                throw new NoSuchTreatmentException( type.toString() );
             }
         }
         this.type = type;

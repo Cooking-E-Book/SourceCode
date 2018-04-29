@@ -40,7 +40,7 @@ public abstract class Ingredient implements Component{
         for (Unit u: Unit.values())
         {
             if (unit != u) {
-                throw new NoSuchMeasurementException(  );
+                throw new NoSuchMeasurementException(unit.toString());
             }
         }
         this.unit = unit;
