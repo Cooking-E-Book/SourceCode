@@ -19,8 +19,4 @@ public class BulkIngredient extends Ingredient{
         this.unit = unit;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Ingredient -> %s%nQuantity -> %s %s%nKcal -> %s%n", this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
-    }
 }

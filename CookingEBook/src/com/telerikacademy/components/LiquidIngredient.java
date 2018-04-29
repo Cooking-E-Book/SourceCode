@@ -19,14 +19,10 @@ public class LiquidIngredient  extends Ingredient{
 
     @Override
     protected void setUnit(Unit unit) {
-        if (unit != Unit.MILLILITER || unit != Unit.LITER || unit != Unit.TEACUP) {
+        if (!(unit.equals(Unit.MILLILITER) || unit.equals(Unit.LITER) || unit.equals(Unit.TEACUP))) {
             throw new NoSuchLiquidMeasurementException();
         }
         this.unit = unit;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Ingredient -> %s%nQuantity -> %s %s%nKcal -> %s%n", this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
-    }
 }

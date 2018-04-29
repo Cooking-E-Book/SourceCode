@@ -46,4 +46,9 @@ public abstract class Ingredient implements Component{
 
     protected abstract void setUnit(Unit unit);
 
+    @Override
+    public String toString() {
+        return String.format("Ingredient -> %s%nQuantity -> %s %s%nKcal -> %s%n", this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
+    }
+
 }

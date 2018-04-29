@@ -19,14 +19,10 @@ public class SolidIngredient extends Ingredient {
 
     @Override
     protected void setUnit(Unit unit) {
-        if (unit != Unit.GRAM || unit != Unit.KILOGRAM || unit != Unit.COUNT) {
+        if (!(unit.equals(Unit.GRAM) || unit.equals(Unit.KILOGRAM) || unit.equals(Unit.COUNT))) {
             throw new NoSuchSolidMeasurementException();
         }
         this.unit = unit;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Ingredient -> %s%nQuantity -> %s %s%nKcal -> %s%n", this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
-    }
 }
