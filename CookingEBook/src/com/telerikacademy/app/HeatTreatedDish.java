@@ -51,4 +51,9 @@ public class HeatTreatedDish extends Dish{
 
     }
 
+    @Override
+    public void like(String user) {
+
+    }
+
 }

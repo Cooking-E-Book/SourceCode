@@ -1,6 +1,7 @@
 package com.telerikacademy.components;
 
 import com.telerikacademy.enumerations.Unit;
+import com.telerikacademy.exceptions.NoSuchLiquidMeasurementException;
 import com.telerikacademy.exceptions.NoSuchMeasurementException;
 
 public class LiquidIngredient  extends Ingredient{
@@ -12,9 +13,14 @@ public class LiquidIngredient  extends Ingredient{
     }
 
     @Override
+    public Unit getUnit() {
+        return unit;
+    }
+
+    @Override
     protected void setUnit(Unit unit) {
         if (unit != Unit.MILLILITER || unit != Unit.LITER || unit != Unit.TEACUP) {
-            throw new NoSuchMeasurementException(unit.toString());
+            throw new NoSuchLiquidMeasurementException(unit.toString());
         }
         this.unit = unit;
     }

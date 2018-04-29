@@ -2,14 +2,16 @@ package com.telerikacademy.app;
 
 import com.telerikacademy.components.Step;
 import com.telerikacademy.enumerations.DishCategory;
+import com.telerikacademy.interfaces.Likable;
 import com.telerikacademy.users.User;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public abstract class Dish {
+public abstract class Dish implements Likable {
 
     private DishCategory category;
     private Recipe recipe;
@@ -23,6 +25,7 @@ public abstract class Dish {
         this.recipe = recipe;
         this.time = time;
         this.steps = new LinkedList<>(  );
+        this.users = new ArrayList<>(  );
     }
 
     public DishCategory getCategory() {

@@ -1,7 +1,8 @@
 package com.telerikacademy.components;
 
 import com.telerikacademy.enumerations.Unit;
-import com.telerikacademy.exceptions.NoSuchMeasurementException;
+
+import com.telerikacademy.exceptions.NoSuchSolidMeasurementException;
 
 public class SolidIngredient extends Ingredient {
 
@@ -12,9 +13,14 @@ public class SolidIngredient extends Ingredient {
     }
 
     @Override
+    public Unit getUnit() {
+        return unit;
+    }
+
+    @Override
     protected void setUnit(Unit unit) {
         if (unit != Unit.GRAM || unit != Unit.KILOGRAM || unit != Unit.COUNT) {
-            throw new NoSuchMeasurementException(unit.toString());
+            throw new NoSuchSolidMeasurementException(unit.toString());
         }
         this.unit = unit;
     }

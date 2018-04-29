@@ -35,9 +35,12 @@ public class MechanicalTreatedDish extends Dish {
     }
 
     @Override
-
     protected void addStep(Step step) {
 
     }
 
+    @Override
+    public void like(String user) {
+
+    }
 }

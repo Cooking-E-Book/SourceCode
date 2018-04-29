@@ -31,9 +31,7 @@ public abstract class Ingredient implements Component{
         this.name = name;
     }
 
-    public Unit getUnit() {
-        return unit;
-    }
+    public abstract Unit getUnit();
 
     public Double getQuantity() {
         return quantity;
