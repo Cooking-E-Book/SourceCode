@@ -1,10 +1,21 @@
 package com.telerikacademy.components;
 
 import com.telerikacademy.enumerations.Unit;
+import com.telerikacademy.exceptions.NoSuchMeasurementException;
 
 public class LiquidIngredient  extends Ingredient{
+    private Unit unit;
 
-    public LiquidIngredient(String name, Unit unit, Double quantity, Integer kcal) {
-        super( name, unit, quantity, kcal );
+    public LiquidIngredient(String name, Double quantity, Integer kcal, Unit unit) {
+        super( name, quantity, kcal );
+        this.setUnit( unit );
+    }
+
+    @Override
+    protected void setUnit(Unit unit) {
+        if (unit != Unit.MILLILITER || unit != Unit.LITER || unit != Unit.TEACUP) {
+            throw new NoSuchMeasurementException(unit.toString());
+        }
+        this.unit = unit;
     }
 }
