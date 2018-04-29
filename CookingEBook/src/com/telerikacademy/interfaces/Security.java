@@ -4,14 +4,14 @@ import com.telerikacademy.users.User;
 
 public interface Security {
 
-    void register();
+    void register(String username, String password, String name, String email);
 
-    void logIn(User user);
+    void logIn(String username, String password);
 
     void logOut();
 
-    void setPassword(String password);
-
     void changePassword(String oldPassword, String newPassword);
+
+    void editUser();
 
 }
