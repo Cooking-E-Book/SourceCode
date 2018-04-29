@@ -30,6 +30,22 @@ public class HeatTreatedDish extends Dish{
         this.steps = new LinkedList<>(  );
     }
 
+    public Double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
+    }
+
+    public HeatTreatType getHeatTreatType() {
+        return heatTreatType;
+    }
+
+    public void setHeatTreatType(HeatTreatType heatTreatType) {
+        this.heatTreatType = heatTreatType;
+    }
+
     @Override
     public void addStep(Step step) {
 

@@ -3,6 +3,7 @@ package com.telerikacademy.app;
 import com.telerikacademy.components.Step;
 import com.telerikacademy.enumerations.DishCategory;
 import com.telerikacademy.enumerations.MechanicalTreatType;
+import com.telerikacademy.exceptions.NoSuchTreatmentException;
 
 import java.sql.Timestamp;
 import java.util.LinkedList;
@@ -19,7 +20,22 @@ public class MechanicalTreatedDish extends Dish {
         this.steps = new LinkedList<>();
     }
 
+    public MechanicalTreatType getType() {
+        return type;
+    }
+
+    public void setType(MechanicalTreatType type) {
+        for (MechanicalTreatType u: MechanicalTreatType.values())
+        {
+            if (type != u) {
+                throw new NoSuchTreatmentException(  );
+            }
+        }
+        this.type = type;
+    }
+
     @Override
+
     protected void addStep(Step step) {
 
     }
