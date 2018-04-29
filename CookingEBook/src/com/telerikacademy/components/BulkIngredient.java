@@ -7,13 +7,8 @@ public class BulkIngredient extends Ingredient{
     private Unit unit;
 
     public BulkIngredient(String name, Double quantity, Integer kcal, Unit unit) {
-        super( name, quantity, kcal );
+        super( name, quantity, kcal, unit );
         this.setUnit( unit );
-    }
-
-    @Override
-    public Unit getUnit() {
-        return unit;
     }
 
     @Override

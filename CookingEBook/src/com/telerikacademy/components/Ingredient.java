@@ -9,10 +9,11 @@ public abstract class Ingredient implements Component{
     private Double quantity;
     private Integer kcal;
 
-    public Ingredient(String name, Double quantity, Integer kcal) {
+    public Ingredient(String name, Double quantity, Integer kcal, Unit unit) {
         this.name = name;
         this.quantity = quantity;
         this.kcal = kcal;
+        this.unit = unit;
     }
 
     public Integer getkCal() {
@@ -31,7 +32,9 @@ public abstract class Ingredient implements Component{
         this.name = name;
     }
 
-    public abstract Unit getUnit();
+    public Unit getUnit(){
+        return unit;
+    }
 
     public Double getQuantity() {
         return quantity;
