@@ -1,21 +1,30 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.interfaces.Likable;
-import com.telerikacademy.interfaces.Ratable;
+import com.sun.tools.corba.se.idl.constExpr.Times;
+import com.telerikacademy.interfaces.*;
 
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Comment extends Message implements Likable, Ratable {
+public class Comment extends Message implements Likable, Dislikable, Editable, Deletable {
 
 	private String comment;
 	private List<Reply> replies;
+	//private Timestamp timestamp;
+	private int likes;
+	private int dislikes;
+	private boolean isDeleted;
 
 	public Comment(String author, Timestamp timestamp, String comment) {
 		super(author, timestamp);
+		//timestamp = new Timestamp(System.currentTimeMillis());
 		this.comment = comment;
 		likes = 0;
 		dislikes = 0;
+		replies = new ArrayList<>();
+		isDeleted = false;
 	}
 
 	private void setComment(String comment) {
@@ -25,70 +34,48 @@ public class Comment extends Message implements Likable, Ratable {
 	public String getComment() {
 		return comment;
 	}
-
+	
+	public int getLikes() {
+		return likes;
+	}
+	
+	public int getDislikes() {
+		return dislikes;
+	}
+	
 	public void addReply(Reply reply) {
 		replies.add(reply);
+	}
+	
+	public boolean isDeletedCheck() {
+		return isDeleted;
 	}
 
 	@Override
 	public void postMessage() {
 		System.out.println(this);
 	}
-
-	@Override
+	
 	public void like(String user) {
 		String log = String.format("%s liked %s", user, comment);
 		System.out.println(log);
 		likes++;
 	}
-
-	@Override
+	
 	public void dislike(String user) {
 		String log = String.format("%s disliked %s", user, comment);
 		System.out.println(log);
 		dislikes++;
 	}
-
-	@Override
-	public double getRating(Message comment) {
-
-		double rating = 0;
-
-		if (likes == 0 && dislikes == 0) {
-			return rating;
-		}
-
-		double score = likes / (likes + dislikes);
-		if (score <= 0.1) {
-			rating = 0.5;
-		}
-		else if (likes <= 0.2) {
-			rating = 1;
-		}
-		else if (likes <= 0.3) {
-			rating = 1.5;
-		}
-		else if (likes <= 0.4) {
-			rating = 2;
-		}
-		else if (likes <= 0.5) {
-			rating = 2.5;
-		}
-		else if (likes <= 0.6) {
-			rating = 3;
-		}
-		else if (likes <= 0.7) {
-			rating = 3.5;
-		}
-		else if (likes <= 0.8) {
-			rating = 4;
-		}
-		else if (likes <= 0.9) {
-			rating = 4.5;
+	
+	// modify to be deleted only by admin and/ or author
+	public void delete(String user) {
+		if (!isDeleted) {
+			String log = String.format("%s deleted %s", user, comment);
+			System.out.println(log);
 		}
 		else {
-			rating = 5;
+			System.out.printf("Comment \"%s\": already deleted!", comment);
 		}
-		return rating;
 	}
 }
