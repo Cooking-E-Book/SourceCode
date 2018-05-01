@@ -1,16 +1,10 @@
 package com.telerikacademy.app;
 
-import com.telerikacademy.users.User;
+import com.telerikacademy.cooking.Recipe;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CookBook {
-
-   private HashMap<Recipe, Integer> cookbook;
-
-
-
-
+   private HashMap<Integer, Recipe> recipesByRecipeId;
 
 }

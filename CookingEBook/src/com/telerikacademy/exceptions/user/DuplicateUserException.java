@@ -1,4 +1,4 @@
-package com.telerikacademy.exceptions;
+package com.telerikacademy.exceptions.user;
 
 public class DuplicateUserException extends RuntimeException {
 

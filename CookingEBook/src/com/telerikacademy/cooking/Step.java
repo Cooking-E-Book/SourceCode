@@ -1,4 +1,4 @@
-package com.telerikacademy.components;
+package com.telerikacademy.cooking;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

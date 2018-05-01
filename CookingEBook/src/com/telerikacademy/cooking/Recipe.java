@@ -1,11 +1,13 @@
-package com.telerikacademy.app;
+package com.telerikacademy.cooking;
 
-import com.telerikacademy.components.Step;
+import com.telerikacademy.cooking.Step;
 import com.telerikacademy.users.User;
 
 import java.awt.*;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Queue;
 
 /*
 Recipe                                         string?
@@ -22,10 +24,17 @@ Recipe                                         string?
     +Image images
  */
 public class Recipe {
+    private Integer id;
     private String title;
     private User author;
     private Map<Double, Component> recipe = new HashMap<>();
     private String description;
     private Image image;
+    private Queue<Step> steps;
+    private Timestamp recipeAdded;
+
+
+    protected  void addStep(Step step){}
+
 
 }

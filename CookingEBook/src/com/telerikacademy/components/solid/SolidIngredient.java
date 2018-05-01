@@ -1,10 +1,11 @@
-package com.telerikacademy.components;
+package com.telerikacademy.components.solid;
 
+import com.telerikacademy.components.Ingredient;
 import com.telerikacademy.enumerations.Unit;
 
-import com.telerikacademy.exceptions.NoSuchSolidMeasurementException;
+import com.telerikacademy.exceptions.measurement.NoSuchSolidMeasurementException;
 
-public class SolidIngredient extends Ingredient {
+public abstract class SolidIngredient extends Ingredient {
 
     private Unit unit;
     public SolidIngredient(String name, Double quantity, Integer kcal, Unit unit) {
@@ -24,5 +25,7 @@ public class SolidIngredient extends Ingredient {
         }
         this.unit = unit;
     }
+
+    public abstract String getSource();
 
 }

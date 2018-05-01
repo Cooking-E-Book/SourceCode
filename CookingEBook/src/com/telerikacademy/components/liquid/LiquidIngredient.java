@@ -1,10 +1,10 @@
-package com.telerikacademy.components;
+package com.telerikacademy.components.liquid;
 
+import com.telerikacademy.components.Ingredient;
 import com.telerikacademy.enumerations.Unit;
-import com.telerikacademy.exceptions.NoSuchLiquidMeasurementException;
-import com.telerikacademy.exceptions.NoSuchMeasurementException;
+import com.telerikacademy.exceptions.measurement.NoSuchLiquidMeasurementException;
 
-public class LiquidIngredient  extends Ingredient{
+public abstract class LiquidIngredient  extends Ingredient {
     private Unit unit;
 
     public LiquidIngredient(String name, Double quantity, Integer kcal, Unit unit) {
@@ -24,5 +24,7 @@ public class LiquidIngredient  extends Ingredient{
         }
         this.unit = unit;
     }
+
+    public abstract String getSource();
 
 }

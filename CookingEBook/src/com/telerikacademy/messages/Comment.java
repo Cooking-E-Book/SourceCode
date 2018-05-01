@@ -1,6 +1,5 @@
 package com.telerikacademy.messages;
 
-import com.sun.tools.corba.se.idl.constExpr.Times;
 import com.telerikacademy.interfaces.*;
 
 import java.sql.Time;

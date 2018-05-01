@@ -1,13 +1,11 @@
-package com.telerikacademy.app;
+package com.telerikacademy.cooking;
 
-import com.telerikacademy.components.Step;
 import com.telerikacademy.enumerations.DishCategory;
+import com.telerikacademy.exceptions.NoSuchTreatmentException;
 
 import java.sql.Timestamp;
-import java.util.LinkedList;
-import java.util.Queue;
 
-public class HeatTreatedDish extends Dish{
+public class HeatTreatedDish extends Dish {
 
     public enum HeatTreatType {
         BOILING,
@@ -21,13 +19,11 @@ public class HeatTreatedDish extends Dish{
 
     private Double temperature;
     private HeatTreatType heatTreatType;
-    private Queue<Step> steps;
 
-    public HeatTreatedDish(DishCategory category, Recipe recipe, Timestamp time, Double temperature, HeatTreatType type) {
+    public HeatTreatedDish(DishCategory category, Recipe recipe, Timestamp time, Double temperature, HeatTreatType heatTreatType) {
         super( category, recipe, time );
         this.temperature = temperature;
-        this.heatTreatType = type;
-        this.steps = new LinkedList<>(  );
+        this.setType(heatTreatType);
     }
 
     public Double getTemperature() {
@@ -42,18 +38,15 @@ public class HeatTreatedDish extends Dish{
         return heatTreatType;
     }
 
-    public void setHeatTreatType(HeatTreatType heatTreatType) {
+    public void setType(HeatTreatType heatTreatType) {
+        for (HeatTreatType u: HeatTreatType.values())
+        {
+            if (!heatTreatType.equals(u)) {
+                throw new NoSuchTreatmentException( heatTreatType.toString() );
+            }
+        }
+
         this.heatTreatType = heatTreatType;
-    }
-
-    @Override
-    public void addStep(Step step) {
-
-    }
-
-    @Override
-    public void like(String user) {
-
     }
 
 }

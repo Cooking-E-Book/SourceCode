@@ -1,4 +1,4 @@
-package com.telerikacademy.components;
+package com.telerikacademy.interfaces;
 
 import com.telerikacademy.enumerations.Unit;
 

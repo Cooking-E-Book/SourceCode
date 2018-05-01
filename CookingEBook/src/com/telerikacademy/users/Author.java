@@ -2,13 +2,11 @@ package com.telerikacademy.users;
 
 import com.telerikacademy.Globals;
 import com.telerikacademy.enumerations.UserType;
-import com.telerikacademy.exceptions.DuplicateUserException;
-import com.telerikacademy.exceptions.InvalidUsernameException;
+import com.telerikacademy.exceptions.user.DuplicateUserException;
+import com.telerikacademy.exceptions.user.InvalidUsernameException;
 import com.telerikacademy.interfaces.Security;
-import com.telerikacademy.users.UserList;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Author extends Visitor implements Security {
 

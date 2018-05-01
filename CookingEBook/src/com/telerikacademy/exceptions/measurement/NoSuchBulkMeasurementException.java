@@ -1,4 +1,4 @@
-package com.telerikacademy.exceptions;
+package com.telerikacademy.exceptions.measurement;
 
 public class NoSuchBulkMeasurementException extends NoSuchMeasurementException {
 

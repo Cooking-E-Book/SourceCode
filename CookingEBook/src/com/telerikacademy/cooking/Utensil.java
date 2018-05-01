@@ -1,4 +1,4 @@
-package com.telerikacademy.components;
+package com.telerikacademy.cooking;
 
 public class Utensil {
     private String name;

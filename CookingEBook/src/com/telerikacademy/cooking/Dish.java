@@ -1,30 +1,24 @@
-package com.telerikacademy.app;
+package com.telerikacademy.cooking;
 
-import com.telerikacademy.components.Step;
 import com.telerikacademy.enumerations.DishCategory;
-import com.telerikacademy.interfaces.Likable;
 import com.telerikacademy.users.User;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
-public abstract class Dish implements Likable {
+public abstract class Dish {
 
     private DishCategory category;
     private Recipe recipe;
     private Timestamp time;
-    private Queue<Step> steps;
-    private List<User> users;
+    private List<User> users;// some users who set the rating after testing
     private Double rating;
 
     public Dish(DishCategory category, Recipe recipe, Timestamp time) {
         this.category = category;
         this.recipe = recipe;
         this.time = time;
-        this.steps = new LinkedList<>(  );
         this.users = new ArrayList<>(  );
     }
 
@@ -52,9 +46,4 @@ public abstract class Dish implements Likable {
         this.time = time;
     }
 
-    public Queue<Step> getSteps() {
-        return steps;
-    }
-
-    protected abstract void addStep(Step step);
 }

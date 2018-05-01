@@ -1,9 +1,11 @@
 package com.telerikacademy.components;
 
 import com.telerikacademy.enumerations.Unit;
-import com.telerikacademy.exceptions.NoSuchMeasurementException;
+import com.telerikacademy.interfaces.Component;
+import com.telerikacademy.interfaces.Sourceable;
 
-public abstract class Ingredient implements Component{
+public abstract class Ingredient implements Component, Sourceable {
+    private static int ingredientCounter = 1;
     private String name;
     private Unit unit;
     private Double quantity;
@@ -46,9 +48,11 @@ public abstract class Ingredient implements Component{
 
     protected abstract void setUnit(Unit unit);
 
+    public abstract String getSource();
+
     @Override
     public String toString() {
-        return String.format("Ingredient -> %s%nQuantity -> %s %s%nKcal -> %s%n", this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
+        return String.format("%s. %s%nQuantity -> %s %s%nKcal -> %s%nSource -> ", ingredientCounter++, this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
     }
 
 }

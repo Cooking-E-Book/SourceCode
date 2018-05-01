@@ -1,4 +1,4 @@
-package com.telerikacademy.exceptions;
+package com.telerikacademy.exceptions.measurement;
 
 public abstract class NoSuchMeasurementException extends RuntimeException{
 
@@ -7,7 +7,4 @@ public abstract class NoSuchMeasurementException extends RuntimeException{
     public NoSuchMeasurementException(String unit) {
             super(String.format("%s %s", INVALID_UNIT, unit));
         }
-    public NoSuchMeasurementException() {
-        super();
-    }
 }
