@@ -33,16 +33,16 @@ public class RecipeBox extends JFrame {
         panel.add(enterButt, 1);
         frame.add(panel);
 
-        try {
-            String textLine;
-            FileReader fr = new FileReader( "file.txt" );
-            BufferedReader reader = new BufferedReader(fr);
-            textArea.read(reader, "file.txt" );
-        }
-        catch (IOException ioe) {
-            System.err.println(ioe);
-            System.exit(1);
-        }
+//        try {
+//            String textLine;
+//            FileReader fr = new FileReader( "file.txt" );
+//            BufferedReader reader = new BufferedReader(fr);
+//            textArea.read(reader, "file.txt" );
+//        }
+//        catch (IOException ioe) {
+//            System.err.println(ioe);
+//            System.exit(1);
+//        }
 //        textField.addActionListener(new ActionListener() {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
