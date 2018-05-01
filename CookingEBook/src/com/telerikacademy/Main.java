@@ -14,7 +14,7 @@ import com.telerikacademy.io.RecipeBox;
 public class Main {
 
     public static void main(String[] args) {
-        RecipeBox box = new RecipeBox();
+        //RecipeBox box = new RecipeBox();
         Component rise, potato, milk = null;
         try{
 //            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
