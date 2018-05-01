@@ -1,10 +1,28 @@
 package help;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Help {
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		
+	
+	
+	private ArrayList<FAQ> FAQ;
+	private ContactInfo contactInfo;
+	
+	public Help(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
+		FAQ = new ArrayList<>();
+	}
+	
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
+	}
+	
+	public ContactInfo getContactInfo() {
+		return contactInfo;
+	}
+	
+	// set some form of FAQ verification using try catch & exception handler
+	public void addFAQ(FAQ faq) {
+		FAQ.add(faq);
 	}
 }
