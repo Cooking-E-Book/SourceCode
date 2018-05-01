@@ -35,9 +35,9 @@ public class RecipeBox extends JFrame {
 
         try {
             String textLine;
-            FileReader fr = new FileReader( "resources/file.txt" );
+            FileReader fr = new FileReader( "file.txt" );
             BufferedReader reader = new BufferedReader(fr);
-            textArea.read(reader, "resources/file.txt" );
+            textArea.read(reader, "file.txt" );
         }
         catch (IOException ioe) {
             System.err.println(ioe);
