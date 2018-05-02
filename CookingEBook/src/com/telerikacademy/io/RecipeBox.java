@@ -2,9 +2,7 @@ package com.telerikacademy.io;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class RecipeBox extends JFrame {
 
@@ -33,16 +31,21 @@ public class RecipeBox extends JFrame {
         panel.add(enterButt, 1);
         frame.add(panel);
 
-//        try {
-//            String textLine;
-//            FileReader fr = new FileReader( "file.txt" );
-//            BufferedReader reader = new BufferedReader(fr);
-//            textArea.read(reader, "file.txt" );
-//        }
-//        catch (IOException ioe) {
-//            System.err.println(ioe);
-//            System.exit(1);
-//        }
+        File file = new File("recipes/recipes.txt");
+        PrintWriter printWriter = null;
+
+        try {
+            printWriter = new PrintWriter(file);
+            printWriter.println("test");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (printWriter != null) {
+                printWriter.close();
+            }
+        }
+
+
 //        textField.addActionListener(new ActionListener() {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
