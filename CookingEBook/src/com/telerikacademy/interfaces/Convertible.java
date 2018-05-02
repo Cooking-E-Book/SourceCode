@@ -2,6 +2,6 @@ package com.telerikacademy.interfaces;
 
 import com.telerikacademy.enumerations.Unit;
 
-public interface Convertable {
+public interface Convertible {
 	double convert();
 }

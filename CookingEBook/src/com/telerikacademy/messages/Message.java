@@ -13,7 +13,7 @@ public abstract class Message {
     private String author;
     private Timestamp timestamp;
     
-    public Message(String author, Timestamp timestamp) {
+    public Message(String author) {
         this.author = author;
         timestamp = new Timestamp(System.currentTimeMillis());
     }
@@ -25,8 +25,6 @@ public abstract class Message {
     public Timestamp getTimestamp() {
         return timestamp;
     }
-    
-    public abstract void postMessage();
     
     @Override
     public String toString() {

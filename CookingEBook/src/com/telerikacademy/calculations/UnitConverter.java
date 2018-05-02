@@ -2,9 +2,10 @@ package com.telerikacademy.calculations;
 
 import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.exceptions.incompatibility.IncompatibleUnitTypes;
-import com.telerikacademy.interfaces.Convertable;
+import com.telerikacademy.exceptions.measurement.NegativeNumberUnitConversion;
+import com.telerikacademy.interfaces.Convertible;
 
-public class UnitConverter implements Convertable {
+public class UnitConverter implements Convertible {
 	private Unit inputUnit;
 	private Unit outputUnit;
 	private double inputQuantity;
@@ -22,6 +23,10 @@ public class UnitConverter implements Convertable {
 	}*/
 	
 	public double convert() {
+		
+		if (inputQuantity < 0) {
+			throw new NegativeNumberUnitConversion(inputQuantity);
+		}
 		
 		switch(inputUnit) {
 			case TEACUP:
@@ -45,6 +50,7 @@ public class UnitConverter implements Convertable {
 						outputQuantity = -999;
 					break;
 				}
+			break;
 			case TABLESPOON:
 				switch (outputUnit) {
 					case TEACUP:
@@ -66,6 +72,7 @@ public class UnitConverter implements Convertable {
 						outputQuantity = -999;
 						break;
 				}
+			break;
 			case TEASPOON:
 				switch (outputUnit) {
 					case TEACUP:
@@ -87,6 +94,7 @@ public class UnitConverter implements Convertable {
 						outputQuantity = -999;
 						break;
 				}
+			break;
 			case MILLILITER:
 				switch (outputUnit) {
 					case TEACUP:
@@ -108,6 +116,7 @@ public class UnitConverter implements Convertable {
 						outputQuantity = -999;
 						break;
 				}
+			break;
 			case GRAM:
 				switch (outputUnit) {
 					case GRAM:
@@ -120,9 +129,13 @@ public class UnitConverter implements Convertable {
 						outputQuantity = -999;
 					break;
 				}
+			break;
+			default:
+				outputQuantity = -999;
+			break;
 		}
 		
-		if (outputQuantity < 0) {
+		if (outputQuantity == -999) {
 			throw new IncompatibleUnitTypes(inputUnit, outputUnit);
 		}
 		
