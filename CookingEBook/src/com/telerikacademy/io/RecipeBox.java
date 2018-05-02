@@ -31,7 +31,7 @@ public class RecipeBox extends JFrame {
         panel.add(enterButt, 1);
         frame.add(panel);
 
-        File file = new File("recipes/recipes.txt");
+        File file = new File("recipes/file.txt");
         PrintWriter printWriter = null;
 
         try {
