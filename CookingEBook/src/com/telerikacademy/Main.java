@@ -10,11 +10,14 @@ import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
 import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
 import com.telerikacademy.exceptions.source.NoSuchPlantSourceException;
+import com.telerikacademy.interfaces.Security;
 import com.telerikacademy.interfaces.Sourceable;
 import com.telerikacademy.io.RecipeBox;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Review;
 import com.telerikacademy.interfaces.Component;
+import com.telerikacademy.users.Author;
+import com.telerikacademy.users.User;
 
 public class Main {
 
@@ -82,5 +85,8 @@ public class Main {
     
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
+
+
+        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
     }
 }

@@ -49,19 +49,13 @@ public class Author extends Visitor implements Security {
         }
     }
 
-    @Override
-    public void register(String username, String password, String name, String email) {
-        if (userExists(UserList.users, username)) {
-            throw new DuplicateUserException(String.format("Username \"%s\" already exists.", username));
-        } else {
-            Author author = new Author(username, password, name, email);
-            UserList.users.add(author);
-        }
-    }
+
 
     @Override
-    public void editUser() {
-
+    public void editUser(String username, String name, String email) {
+        this.username = username;
+        this.name = name;
+        this.email = email;
     }
 
     @Override
