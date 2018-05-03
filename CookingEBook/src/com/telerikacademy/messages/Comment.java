@@ -1,94 +1,112 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.interfaces.Likable;
-import com.telerikacademy.interfaces.Ratable;
+import com.telerikacademy.interfaces.*;
+import com.telerikacademy.interfaces.Readable;
 
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Comment extends Message implements Likable, Ratable {
+public class Comment extends Message implements Likable, Dislikable, Editable, Deletable, Readable {
 
 	private String comment;
-	private List<Reply> replies;
+	private List<Comment> replies;
+	private int likes;
+	private int dislikes;
+	private boolean isDeleted;
 
-	public Comment(String author, Timestamp timestamp, String comment) {
-		super(author, timestamp);
+	public Comment(String author, String comment) {
+		super(author);
+		super.getTimestamp();
 		this.comment = comment;
 		likes = 0;
 		dislikes = 0;
-	}
-
-	private void setComment(String comment) {
-		this.comment = comment;
+		replies = new ArrayList<>();
+		isDeleted = false;
 	}
 
 	public String getComment() {
 		return comment;
 	}
-
-	public void addReply(Reply reply) {
+	
+	public int getLikes() {
+		return likes;
+	}
+	
+	public int getDislikes() {
+		return dislikes;
+	}
+	
+	public void addReply(Comment reply) {
 		replies.add(reply);
 	}
-
-	@Override
-	public void postMessage() {
-		System.out.println(this);
-	}
-
+	
+	/*public boolean isDeletedCheck() {
+		return isDeleted;
+	}*/
+	
 	@Override
 	public void like(String user) {
-		String log = String.format("%s liked %s", user, comment);
+		String log = String.format("%s liked: \"%s\"", user, comment);
 		System.out.println(log);
 		likes++;
 	}
-
+	
 	@Override
 	public void dislike(String user) {
-		String log = String.format("%s disliked %s", user, comment);
+		String log = String.format("%s disliked: \"%s\"", user, comment);
 		System.out.println(log);
 		dislikes++;
 	}
-
+	
+	// modify to be deleted only by admin and/ or author
 	@Override
-	public double getRating(Message comment) {
-
-		double rating = 0;
-
-		if (likes == 0 && dislikes == 0) {
-			return rating;
-		}
-
-		double score = likes / (likes + dislikes);
-		if (score <= 0.1) {
-			rating = 0.5;
-		}
-		else if (likes <= 0.2) {
-			rating = 1;
-		}
-		else if (likes <= 0.3) {
-			rating = 1.5;
-		}
-		else if (likes <= 0.4) {
-			rating = 2;
-		}
-		else if (likes <= 0.5) {
-			rating = 2.5;
-		}
-		else if (likes <= 0.6) {
-			rating = 3;
-		}
-		else if (likes <= 0.7) {
-			rating = 3.5;
-		}
-		else if (likes <= 0.8) {
-			rating = 4;
-		}
-		else if (likes <= 0.9) {
-			rating = 4.5;
+	public void delete(String user) {
+		if (!isDeleted) {
+			if (user.equals(this.getAuthor())/* || user == admin*/) {
+				String log = String.format("%s deleted \"%s\"", user, comment);
+				System.out.println(log);
+				isDeleted = true;
+				replies.remove(this);
+			}
+			else {
+				String log = String.format("%s does not have the rights to delete this message!", user);
+				System.out.println(log);
+			}
 		}
 		else {
-			rating = 5;
+			System.out.printf("Comment \"%s\": already deleted!", comment);
+			System.out.println();
 		}
-		return rating;
+	}
+	
+	@Override
+	public void edit(String user, String comment) {
+		String prevComment = this.comment;
+		if (!isDeleted) {
+			if (user.equals(this.getAuthor()) /*|| user == admin*/) {
+				this.comment = comment;
+				String log = String.format("%s edited \"%s\"\n into \"%s\"!", user, prevComment, comment);
+				System.out.println(log);
+			}
+			else {
+				String log = String.format("%s does not have the rights to edit this comment!", user);
+				System.out.println(log);
+			}
+		}
+		else {
+			String log = String.format("Comment \"%s\": already deleted!", this.comment);
+			System.out.println(log);
+		}
+	}
+	
+	// print all non-deleted replies
+	@Override
+	public void readReplies() {
+		for (Comment reply : replies) {
+			if (reply.isDeleted == false) {
+				System.out.printf("%s: %s wrote: \"%s\"", reply.getTimestamp(), reply.getAuthor(), reply.getComment());
+				System.out.println();
+			}
+		}
 	}
 }
