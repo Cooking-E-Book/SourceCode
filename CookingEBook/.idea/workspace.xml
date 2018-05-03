@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2430a778-1b07-46ca-a32a-1cb76ce9d972" name="Default" comment="Added packages: interfaces and messages">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/UserList.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/app/CookBook.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/app/CookBook.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Editable.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Editable.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/User.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java" />
-    </list>
+    <list default="true" id="2430a778-1b07-46ca-a32a-1cb76ce9d972" name="Default" comment="Added packages: interfaces and messages" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +22,8 @@
       <file leaf-file-name="Author.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/users/Author.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+            <state relative-caret-position="271">
+              <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2756#2757#0" expanded="true" />
@@ -886,8 +877,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/users/Author.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="81" column="57" lean-forward="true" selection-start-line="81" selection-start-column="57" selection-end-line="81" selection-end-column="57" />
+        <state relative-caret-position="271">
+          <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2756#2757#0" expanded="true" />
