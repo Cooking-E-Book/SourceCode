@@ -1,4 +1,4 @@
-package help;
+package com.telerikacademy.help;
 
 public class Answer {
 	private String answer;

@@ -2,19 +2,23 @@ package com.telerikacademy.messages;
 
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.interfaces.Readable;
+import com.telerikacademy.users.Admin;
+import com.telerikacademy.users.Author;
+import com.telerikacademy.users.User;
+import com.telerikacademy.users.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Comment extends Message implements Likable, Dislikable, Editable, Deletable, Readable {
-
+	
 	private String comment;
 	private List<Comment> replies;
 	private int likes;
 	private int dislikes;
 	private boolean isDeleted;
-
-	public Comment(String author, String comment) {
+	
+	public Comment(User author, String comment) {
 		super(author);
 		super.getTimestamp();
 		this.comment = comment;
@@ -23,7 +27,7 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 		replies = new ArrayList<>();
 		isDeleted = false;
 	}
-
+	
 	public String getComment() {
 		return comment;
 	}
@@ -45,31 +49,43 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	}*/
 	
 	@Override
-	public void like(String user) {
-		String log = String.format("%s liked: \"%s\"", user, comment);
-		System.out.println(log);
-		likes++;
+	public void like(User user) {
+		if (user instanceof Admin || user instanceof Author) {
+			String log = String.format("%s liked: \"%s\"", user.getUsername(), comment);
+			System.out.println(log);
+			likes++;
+		}
+		else {
+			String log = String.format("%s is a visitor. In order to like, please sign up or log in your profile first!", user.getUsername());
+			System.out.println(log);
+		}
 	}
 	
 	@Override
-	public void dislike(String user) {
-		String log = String.format("%s disliked: \"%s\"", user, comment);
-		System.out.println(log);
-		dislikes++;
+	public void dislike(User user) {
+		if (user instanceof Admin || user instanceof Author) {
+			String log = String.format("%s disliked: \"%s\"", user.getUsername(), comment);
+			System.out.println(log);
+			dislikes++;
+		}
+		else {
+			String log = String.format("%s is a visitor. In order to dislike, please sign up or log in your profile first!", user.getUsername());
+			System.out.println(log);
+		}
 	}
 	
 	// modify to be deleted only by admin and/ or author
 	@Override
-	public void delete(String user) {
+	public void delete(User user) {
 		if (!isDeleted) {
-			if (user.equals(this.getAuthor())/* || user == admin*/) {
-				String log = String.format("%s deleted \"%s\"", user, comment);
+			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
+				String log = String.format("%s deleted \"%s\"", user.getUsername(), comment);
 				System.out.println(log);
 				isDeleted = true;
 				replies.remove(this);
 			}
 			else {
-				String log = String.format("%s does not have the rights to delete this message!", user);
+				String log = String.format("%s does not have the rights to delete this message!", user.getUsername());
 				System.out.println(log);
 			}
 		}
@@ -80,16 +96,16 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	}
 	
 	@Override
-	public void edit(String user, String comment) {
+	public void edit(User user, String comment) {
 		String prevComment = this.comment;
 		if (!isDeleted) {
-			if (user.equals(this.getAuthor()) /*|| user == admin*/) {
+			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
 				this.comment = comment;
-				String log = String.format("%s edited \"%s\"\n into \"%s\"!", user, prevComment, comment);
+				String log = String.format("%s edited \"%s\"\n into \"%s\"!", user.getUsername(), prevComment, comment);
 				System.out.println(log);
 			}
 			else {
-				String log = String.format("%s does not have the rights to edit this comment!", user);
+				String log = String.format("%s does not have the rights to edit this comment!", user.getUsername());
 				System.out.println(log);
 			}
 		}
@@ -104,7 +120,7 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	public void readReplies() {
 		for (Comment reply : replies) {
 			if (reply.isDeleted == false) {
-				System.out.printf("%s: %s wrote: \"%s\"", reply.getTimestamp(), reply.getAuthor(), reply.getComment());
+				System.out.printf("%s: %s wrote: \"%s\"", reply.getTimestamp(), reply.getAuthor().getUsername(), reply.getComment());
 				System.out.println();
 			}
 		}

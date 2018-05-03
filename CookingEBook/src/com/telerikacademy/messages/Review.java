@@ -1,15 +1,18 @@
 package com.telerikacademy.messages;
 
 import com.telerikacademy.interfaces.*;
+import com.telerikacademy.users.Admin;
+import com.telerikacademy.users.Author;
+import com.telerikacademy.users.User;
 
 public class Review extends Message implements Likable, Dislikable, Editable, Deletable, Ratable {
-
+    
     private String review;
     private int likes;
     private int dislikes;
     private boolean isDeleted;
     
-    public Review(String author, String review) {
+    public Review(User author, String review) {
         super(author);
         super.getTimestamp();
         this.review = review;
@@ -19,30 +22,42 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     }
     
     @Override
-    public void like(String user) {
-        String log = String.format("%s liked: \"%s\"", user, review);
-        System.out.println(log);
-        likes++;
+    public void like(User user) {
+        if (user instanceof Admin || user instanceof Author) {
+            String log = String.format("%s liked: \"%s\"", user.getUsername(), review);
+            System.out.println(log);
+            likes++;
+        }
+        else {
+            String log = String.format("%s is a visitor. In order to like, please sign up or log in your profile first!", user.getUsername());
+            System.out.println(log);
+        }
     }
     
     @Override
-    public void dislike(String user) {
-        String log = String.format("%s disliked: \"%s\"", user, review);
-        System.out.println(log);
-        dislikes++;
+    public void dislike(User user) {
+        if (user instanceof Admin || user instanceof Author) {
+            String log = String.format("%s disliked: \"%s\"", user.getUsername(), review);
+            System.out.println(log);
+            dislikes++;
+        }
+        else {
+            String log = String.format("%s is a visitor. In order to dislike, please sign up or log in your profile first!", user.getUsername());
+            System.out.println(log);
+        }
     }
     
     // modify to be deleted only by admin and/ or author
     @Override
-    public void delete(String user) {
+    public void delete(User user) {
         if (!isDeleted) {
-            if (user.equals(this.getAuthor())/* || user == admin*/) {
-                String log = String.format("%s deleted \"%s\"", user, review);
+            if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
+                String log = String.format("%s deleted \"%s\"", user.getUsername(), review);
                 System.out.println(log);
                 isDeleted = true;
             }
             else {
-                String log = String.format("%s does not have the rights to delete this review!", user);
+                String log = String.format("%s does not have the rights to delete this review!", user.getUsername());
                 System.out.println(log);
             }
         }
@@ -53,16 +68,16 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     }
     
     @Override
-    public void edit(String user, String review) {
+    public void edit(User user, String review) {
         String prevReview = this.review;
         if (!isDeleted) {
-            if (user.equals(this.getAuthor()) /*|| user == admin*/) {
+            if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
                 this.review = review;
-                String log = String.format("%s edited \"%s\"\n into \"%s\"!", user, prevReview, review);
+                String log = String.format("%s edited \"%s\"\n into \"%s\"!", user.getUsername(), prevReview, review);
                 System.out.println(log);
             }
             else {
-                String log = String.format("%s does not have the rights to edit this review!", user);
+                String log = String.format("%s does not have the rights to edit this review!", user.getUsername());
                 System.out.println(log);
             }
         }
