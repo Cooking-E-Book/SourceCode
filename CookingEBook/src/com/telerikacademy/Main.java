@@ -5,11 +5,16 @@ import com.telerikacademy.calculations.UnitConverter;
 import com.telerikacademy.components.bulk.PlantBulkIngredient;
 import com.telerikacademy.components.liquid.AnimalLiquidIngredient;
 import com.telerikacademy.components.solid.PlantSolidIngredient;
+import com.telerikacademy.cooking.Dish;
+import com.telerikacademy.cooking.HeatTreatedDish;
+import com.telerikacademy.cooking.Recipe;
+import com.telerikacademy.enumerations.DishCategory;
 import com.telerikacademy.enumerations.TemperatureScale;
 import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
 import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
 import com.telerikacademy.exceptions.source.NoSuchPlantSourceException;
+import com.telerikacademy.interfaces.Dislikable;
 import com.telerikacademy.interfaces.Security;
 import com.telerikacademy.interfaces.Sourceable;
 import com.telerikacademy.io.RecipeBox;
@@ -25,7 +30,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Oxana's code:
-        /*RecipeBox box = new RecipeBox();
+        RecipeBox box = new RecipeBox();
         Component rise, potato, milk = null;
         try{
 //            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
@@ -41,8 +46,9 @@ public class Main {
             throw new NoSuchBulkMeasurementException();
         } catch (NoSuchPlantSourceException e){
             throw new NoSuchPlantSourceException();
-        }*/
-
+        }
+    
+        
         // Pavel's code (testing register, login, logout of Author)
         // Info:
         // Visitor cannot comment or create recipes, does not have name and email
@@ -134,11 +140,15 @@ public class Main {
 
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
-
-
-
-
-
+    
+        Recipe rcp = new Recipe("Stake", Globals.currentUser, "Description");
+        Recipe rcp1 = new Recipe("Stake", Globals.currentUser, "Description");
+        HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  rcp, 200, HeatTreatedDish.HeatTreatType.BAKING);
+    
+        System.out.println(htd);
+    
+        System.out.println(rcp.getId());
+        System.out.println(rcp1.getId());
 
 
     }

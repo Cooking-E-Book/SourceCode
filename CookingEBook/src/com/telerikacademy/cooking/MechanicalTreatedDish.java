@@ -10,8 +10,9 @@ public class MechanicalTreatedDish extends Dish {
 
     private MechanicalTreatType type;
 
-    public MechanicalTreatedDish(DishCategory category, Recipe recipe, Timestamp time, MechanicalTreatType type) {
-        super( category, recipe, time );
+    public MechanicalTreatedDish(DishCategory category, Recipe recipe, MechanicalTreatType type) {
+        super( category, recipe);
+        super.getTime();
         this.setType(type);
     }
 

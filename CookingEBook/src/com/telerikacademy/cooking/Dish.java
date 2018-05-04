@@ -15,10 +15,10 @@ public abstract class Dish {
     private List<User> users;// some users who set the rating after testing
     private Double rating;
 
-    public Dish(DishCategory category, Recipe recipe, Timestamp time) {
+    public Dish(DishCategory category, Recipe recipe) {
         this.category = category;
         this.recipe = recipe;
-        this.time = time;
+        this.time = new Timestamp(System.currentTimeMillis());
         this.users = new ArrayList<>(  );
     }
 
@@ -45,5 +45,15 @@ public abstract class Dish {
     public void setTime(Timestamp time) {
         this.time = time;
     }
-
+    
+    @Override
+    public String toString() {
+        return "Dish{" +
+            "category=" + category +
+            ", recipe=" + recipe +
+            ", time=" + time +
+            ", users=" + users +
+            ", rating=" + rating +
+            '}';
+    }
 }

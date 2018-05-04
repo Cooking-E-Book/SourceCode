@@ -17,13 +17,14 @@ public class HeatTreatedDish extends Dish {
         MICROWAVED
     }
 
-    private Double temperature;
+    private double temperature;
     private HeatTreatType heatTreatType;
 
-    public HeatTreatedDish(DishCategory category, Recipe recipe, Timestamp time, Double temperature, HeatTreatType heatTreatType) {
-        super( category, recipe, time );
+    public HeatTreatedDish(DishCategory category, Recipe recipe, double temperature, HeatTreatType heatTreatType) {
+        super(category, recipe);
+        super.getTime();
         this.temperature = temperature;
-        this.setType(heatTreatType);
+        this.heatTreatType = heatTreatType; //this.setType(heatTreatType);
     }
 
     public Double getTemperature() {
@@ -38,7 +39,7 @@ public class HeatTreatedDish extends Dish {
         return heatTreatType;
     }
 
-    public void setType(HeatTreatType heatTreatType) {
+    /*public void setType(HeatTreatType heatTreatType) {
         for (HeatTreatType u: HeatTreatType.values())
         {
             if (!heatTreatType.equals(u)) {
@@ -47,6 +48,6 @@ public class HeatTreatedDish extends Dish {
         }
 
         this.heatTreatType = heatTreatType;
-    }
+    }*/
 
 }
