@@ -150,6 +150,7 @@ public class Main {
         HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  rcp, 200, HeatTreatedDish.HeatTreatType.BAKING);
     
         System.out.println(htd);
+        
     
         System.out.println(rcp.getId());
         System.out.println(rcp1.getId());
