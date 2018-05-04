@@ -16,12 +16,19 @@ import com.telerikacademy.io.RecipeBox;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Review;
 import com.telerikacademy.interfaces.Component;
+<<<<<<< HEAD
+=======
+import com.telerikacademy.users.Admin;
+import com.telerikacademy.users.Author;
+import com.telerikacademy.users.User;
+import com.telerikacademy.users.Visitor;
+>>>>>>> 627cc55f008b17f6c98054c475284b7dc3442aea
 
 public class Main {
-
+    
     public static void main(String[] args) {
         // Oxana's code:
-        RecipeBox box = new RecipeBox();
+        /*RecipeBox box = new RecipeBox();
         Component rise, potato, milk = null;
         try{
 //            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
@@ -37,54 +44,66 @@ public class Main {
             throw new NoSuchBulkMeasurementException();
         } catch (NoSuchPlantSourceException e){
             throw new NoSuchPlantSourceException();
-        }
-    
+        }*/
+        
         // Vladi's code (testing classes' functionality):
-        Comment ms = new Comment("Vladi", "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
-    
+        Author vladi = new Author("Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
+        
+        Admin pepi = new Admin("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
+        
+        Visitor sashka = new Visitor("Sashka");
+        
+        Comment ms = new Comment(vladi, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
+        
         System.out.println(ms.getTimestamp());
-        System.out.println(ms.getAuthor());
+        System.out.println(ms.getAuthor().getUsername());
         System.out.println(ms.getComment());
         System.out.println(ms.getLikes());
-    
-        ms.like("Pepi");
+        
+        ms.like(pepi);
         System.out.println(ms.getLikes());
-        ms.dislike("Sashka");
+        ms.dislike(sashka);
         System.out.println(ms.getDislikes());
-    
-        Comment rp = new Comment("Pepi", "This is an awful recipe! How could anyone post it here?!");
-        Comment rp1 = new Comment("Vladi", "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        
+        Comment rp = new Comment(pepi, "This is an awful recipe! How could anyone post it here?!");
+        Comment rp1 = new Comment(vladi, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
         
         ms.addReply(rp);
         ms.addReply(rp1);
-        rp.delete("Vladi");
-        rp.delete("Pepi");
+        rp.delete(vladi);
+        rp.delete(pepi);
         ms.readReplies();
-    
-        ms.delete("Vladi");
         
-        Comment ddd = new Comment("Sashka", "Recipe was total failure!");
-        ddd.delete("Sashka");
+        ms.delete(vladi);
         
-        ms.edit("Vladi", "Best recipe ever! 10x!");
-        ms.edit("Sashka", "Can we use chicken instead of pork for this recipe?");
-    
-        Review rv = new Review("Vladi", "This is a professionally made dish!");
+        Comment ddd = new Comment(sashka, "Recipe was total failure!");
+        ddd.delete(sashka);
         
-        rv.like("Pepi");
-        rv.like("Asen");
-        rv.dislike("Vanya");
-        rv.like("Ayshe");
-    
+        ms.edit(vladi, "Best recipe ever! 10x!");
+        ms.edit(sashka, "Can we use chicken instead of pork for this recipe?");
+        
+        Review rv = new Review(vladi, "This is a professionally made dish!");
+        
+        rv.like(pepi);
+        
+        Visitor asen = new Visitor("Asen");
+        rv.like(asen);
+        
+        Author vanya = new Author("Vanya", "passwordVanya", "Vanya Vaneva", "vanya@gmail.com");
+        
+        Admin ayshe = new Admin("Ayshe", "passwordAyshe", "Ayshe Aysheva", "ayshe@abv.bg");
+        rv.dislike(vanya);
+        rv.like(ayshe);
+        
         System.out.println(rv.rate());
-    
+        
         UnitConverter uc = new UnitConverter(Unit.TEACUP, 1, Unit.TABLESPOON);
         System.out.println(uc.convert());
-    
+        
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
-
-
+        
+        
         Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
 
         for (int i = 0; i < Security.users.size(); i++) {

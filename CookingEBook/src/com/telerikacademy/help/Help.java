@@ -1,4 +1,4 @@
-package help;
+package com.telerikacademy.help;
 
 import java.util.ArrayList;
 

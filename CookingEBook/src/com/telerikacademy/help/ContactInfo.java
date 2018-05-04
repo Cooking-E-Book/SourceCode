@@ -1,4 +1,4 @@
-package help;
+package com.telerikacademy.help;
 
 // make this class reachable only for admin(s) & add some form of input verification
 public class ContactInfo {

@@ -1,4 +1,4 @@
-package help;
+package com.telerikacademy.help;
 
 public class FAQ {
 	private Question question;

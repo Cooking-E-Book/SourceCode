@@ -1,5 +1,7 @@
 package com.telerikacademy.interfaces;
 
+import com.telerikacademy.users.User;
+
 public interface Dislikable {
-	void dislike(String user);
+	void dislike(User user);
 }
