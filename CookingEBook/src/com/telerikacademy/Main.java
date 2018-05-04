@@ -16,13 +16,10 @@ import com.telerikacademy.io.RecipeBox;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Review;
 import com.telerikacademy.interfaces.Component;
-<<<<<<< HEAD
-=======
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
 import com.telerikacademy.users.User;
 import com.telerikacademy.users.Visitor;
->>>>>>> 627cc55f008b17f6c98054c475284b7dc3442aea
 
 public class Main {
     
@@ -45,66 +42,19 @@ public class Main {
         } catch (NoSuchPlantSourceException e){
             throw new NoSuchPlantSourceException();
         }*/
-        
-        // Vladi's code (testing classes' functionality):
-        Author vladi = new Author("Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
-        
-        Admin pepi = new Admin("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
-        
-        Visitor sashka = new Visitor("Sashka");
-        
-        Comment ms = new Comment(vladi, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
-        
-        System.out.println(ms.getTimestamp());
-        System.out.println(ms.getAuthor().getUsername());
-        System.out.println(ms.getComment());
-        System.out.println(ms.getLikes());
-        
-        ms.like(pepi);
-        System.out.println(ms.getLikes());
-        ms.dislike(sashka);
-        System.out.println(ms.getDislikes());
-        
-        Comment rp = new Comment(pepi, "This is an awful recipe! How could anyone post it here?!");
-        Comment rp1 = new Comment(vladi, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
-        
-        ms.addReply(rp);
-        ms.addReply(rp1);
-        rp.delete(vladi);
-        rp.delete(pepi);
-        ms.readReplies();
-        
-        ms.delete(vladi);
-        
-        Comment ddd = new Comment(sashka, "Recipe was total failure!");
-        ddd.delete(sashka);
-        
-        ms.edit(vladi, "Best recipe ever! 10x!");
-        ms.edit(sashka, "Can we use chicken instead of pork for this recipe?");
-        
-        Review rv = new Review(vladi, "This is a professionally made dish!");
-        
-        rv.like(pepi);
-        
-        Visitor asen = new Visitor("Asen");
-        rv.like(asen);
-        
-        Author vanya = new Author("Vanya", "passwordVanya", "Vanya Vaneva", "vanya@gmail.com");
-        
-        Admin ayshe = new Admin("Ayshe", "passwordAyshe", "Ayshe Aysheva", "ayshe@abv.bg");
-        rv.dislike(vanya);
-        rv.like(ayshe);
-        
-        System.out.println(rv.rate());
-        
-        UnitConverter uc = new UnitConverter(Unit.TEACUP, 1, Unit.TABLESPOON);
-        System.out.println(uc.convert());
-        
-        TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
-        System.out.println(tc.convert());
-        
-        
+
+        // Pavel's code (testing register, login, logout of Author)
+        // Info:
+        // Visitor cannot comment or create recipes, does not have name and email
+        // Can only read
+
+
         Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
+        Security.register("Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
+        Security.register("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
+
+        // Exception Test - working
+//        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
 
         for (int i = 0; i < Security.users.size(); i++) {
             System.out.println(Security.users.get(i).getName());
@@ -114,20 +64,79 @@ public class Main {
 
         Security.logOut();
 
-        System.out.println(Globals.currentUser.getUsername());
-
-        Security.logOut();
-
-        System.out.println(Globals.currentUser.getUsername());
+        // Vladi's code (testing classes' functionality):
 
         Security.logIn("pavel", "pass");
-
-        System.out.println(Globals.currentUser.getUsername());
+        
+        Comment ms = new Comment(Globals.currentUser, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
+        
+        System.out.println(ms.getTimestamp());
+        System.out.println(ms.getAuthor().getUsername());
+        System.out.println(ms.getComment());
+        System.out.println(ms.getLikes());
 
         Security.logOut();
+        Security.logIn("Vladi", "passwordVladi");
+        
+        ms.like(Globals.currentUser);
+        System.out.println(ms.getLikes());
 
-        // Exception Test - working
-//        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
+        Security.logOut();
+        Security.logIn("Pepi", "passwordPepi");
+
+        ms.dislike(Globals.currentUser);
+        System.out.println(ms.getDislikes());
+
+        Comment rp = new Comment(Globals.currentUser, "This is an awful recipe! How could anyone post it here?!");
+
+        Security.logOut();
+        Security.logIn("Vladi", "passwordVladi");
+
+        Comment rp1 = new Comment(Globals.currentUser, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+
+        ms.addReply(rp);
+        ms.addReply(rp1);
+        rp.delete(Globals.currentUser);
+        rp.delete(Globals.currentUser);
+        ms.readReplies();
+
+        Security.logOut();
+        Security.logIn("pavel", "pass");
+
+        ms.delete(Globals.currentUser);
+
+        Comment ddd = new Comment(Globals.currentUser, "Recipe was total failure!");
+        ddd.delete(Globals.currentUser);
+
+        Security.logOut();
+        Security.logIn("Vladi", "passwordVladi");
+        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
+
+        Security.logOut();
+        Security.logIn("Pepi", "passwordPepi");
+        ms.edit(Globals.currentUser, "Can we use chicken instead of pork for this recipe?");
+
+        Review rv = new Review(Globals.currentUser, "This is a professionally made dish!");
+
+        Security.logIn("Vladi", "passwordVladi");
+        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
+        rv.like(Globals.currentUser);
+
+        Security.logOut();
+        Security.logIn("pavel", "pass");
+        rv.like(Globals.currentUser);
+        
+
+        System.out.println(rv.rate());
+
+        UnitConverter uc = new UnitConverter(Unit.TEACUP, 1, Unit.TABLESPOON);
+        System.out.println(uc.convert());
+
+        TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
+        System.out.println(tc.convert());
+
+
+
 
 
 
