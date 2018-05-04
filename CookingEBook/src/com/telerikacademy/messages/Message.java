@@ -1,5 +1,6 @@
 package com.telerikacademy.messages;
 
+import com.telerikacademy.Globals;
 import com.telerikacademy.interfaces.Deletable;
 import com.telerikacademy.interfaces.Dislikable;
 import com.telerikacademy.interfaces.Editable;
@@ -11,11 +12,10 @@ import java.sql.Timestamp;
 
 public abstract class Message {
     
-    private User author;
+    private User author = Globals.currentUser;
     private Timestamp timestamp;
     
-    public Message(User author) {
-        this.author = author;
+    public Message() {
         timestamp = new Timestamp(System.currentTimeMillis());
     }
     

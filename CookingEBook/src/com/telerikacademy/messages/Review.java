@@ -1,5 +1,6 @@
 package com.telerikacademy.messages;
 
+import com.telerikacademy.Globals;
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
@@ -12,9 +13,8 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     private int dislikes;
     private boolean isDeleted;
     
-    public Review(User author, String review) {
-        super(author);
-        super.getTimestamp();
+    public Review(String review) {
+        super();
         this.review = review;
         likes = 0;
         dislikes = 0;
@@ -22,34 +22,45 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     }
     
     @Override
-    public void like(User user) {
-        if (user instanceof Admin || user instanceof Author) {
+    public void like() {
+        User user = Globals.currentUser;
+        if (isDeleted) {
+            String log = String.format("\"%s\" cannot be liked because the review is already deleted!", review);
+            System.out.println(log);
+        }
+        else if (user instanceof Admin || user instanceof Author) {
             String log = String.format("%s liked: \"%s\"", user.getUsername(), review);
             System.out.println(log);
             likes++;
         }
         else {
-            String log = String.format("%s is a visitor. In order to like, please sign up or log in your profile first!", user.getUsername());
+            String log = String.format("%s is a visitor. In order to like, please first sign up or log into your profile!", user.getUsername());
             System.out.println(log);
         }
     }
     
     @Override
-    public void dislike(User user) {
-        if (user instanceof Admin || user instanceof Author) {
+    public void dislike() {
+        User user = Globals.currentUser;
+        if (isDeleted) {
+            String log = String.format("\"%s\" cannot be disliked because the review is already deleted!", review);
+            System.out.println(log);
+        }
+        else if (user instanceof Admin || user instanceof Author) {
             String log = String.format("%s disliked: \"%s\"", user.getUsername(), review);
             System.out.println(log);
             dislikes++;
         }
         else {
-            String log = String.format("%s is a visitor. In order to dislike, please sign up or log in your profile first!", user.getUsername());
+            String log = String.format("%s is a visitor. In order to dislike, please first sign up or log into your profile!", user.getUsername());
             System.out.println(log);
         }
     }
     
     // modify to be deleted only by admin and/ or author
     @Override
-    public void delete(User user) {
+    public void delete() {
+        User user = Globals.currentUser;
         if (!isDeleted) {
             if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
                 String log = String.format("%s deleted \"%s\"", user.getUsername(), review);
@@ -68,7 +79,8 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     }
     
     @Override
-    public void edit(User user, String review) {
+    public void edit(String review) {
+        User user = Globals.currentUser;
         String prevReview = this.review;
         if (!isDeleted) {
             if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {

@@ -30,7 +30,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Oxana's code:
-        RecipeBox box = new RecipeBox();
+        /*RecipeBox box = new RecipeBox();
         Component rise, potato, milk = null;
         try{
 //            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
@@ -46,7 +46,7 @@ public class Main {
             throw new NoSuchBulkMeasurementException();
         } catch (NoSuchPlantSourceException e){
             throw new NoSuchPlantSourceException();
-        }
+        }*/
     
         
         // Pavel's code (testing register, login, logout of Author)
@@ -74,7 +74,7 @@ public class Main {
 
         Security.logIn("pavel", "pass");
         
-        Comment ms = new Comment(Globals.currentUser, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
+        Comment ms = new Comment("This is one of my favorite recipes I have ever tried! Thank you for sharing!");
         
         System.out.println(ms.getTimestamp());
         System.out.println(ms.getAuthor().getUsername());
@@ -84,53 +84,57 @@ public class Main {
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
         
-        ms.like(Globals.currentUser);
+        ms.like();
         System.out.println(ms.getLikes());
+        ms.delete();
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
 
-        ms.dislike(Globals.currentUser);
+        ms.dislike();
         System.out.println(ms.getDislikes());
 
-        Comment rp = new Comment(Globals.currentUser, "This is an awful recipe! How could anyone post it here?!");
+        Comment rp = new Comment("This is an awful recipe! How could anyone post it here?!");
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
 
-        Comment rp1 = new Comment(Globals.currentUser, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        Comment rp1 = new Comment("Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        Comment rp2 = new Comment("Pepi, tick-tack!");
 
         ms.addReply(rp);
         ms.addReply(rp1);
-        rp.delete(Globals.currentUser);
-        rp.delete(Globals.currentUser);
+        ms.addReply(rp2);
+        rp.delete();
+        rp1.delete();
         ms.readReplies();
 
         Security.logOut();
         Security.logIn("pavel", "pass");
 
-        ms.delete(Globals.currentUser);
+        ms.delete();
 
-        Comment ddd = new Comment(Globals.currentUser, "Recipe was total failure!");
-        ddd.delete(Globals.currentUser);
+        Comment ddd = new Comment("Recipe was total failure!");
+        ddd.delete();
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
-        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
+        ms.like();
+        ms.edit("Best recipe ever! 10x!");
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
-        ms.edit(Globals.currentUser, "Can we use chicken instead of pork for this recipe?");
+        ms.edit("Can we use chicken instead of pork for this recipe?");
 
-        Review rv = new Review(Globals.currentUser, "This is a professionally made dish!");
+        Review rv = new Review("This is a professionally made dish!");
 
         Security.logIn("Vladi", "passwordVladi");
-        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
-        rv.like(Globals.currentUser);
+        ms.edit("Best recipe ever! 10x!");
+        rv.like();
 
         Security.logOut();
         Security.logIn("pavel", "pass");
-        rv.like(Globals.currentUser);
+        rv.like();
         
 
         System.out.println(rv.rate());

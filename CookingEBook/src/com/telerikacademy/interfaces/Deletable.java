@@ -6,6 +6,6 @@ public interface Deletable {
     
     //void delete(Object object);
     
-    void delete(User user);
+    void delete();
     
 }
