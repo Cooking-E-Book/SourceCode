@@ -2,7 +2,7 @@ package com.telerikacademy.users;
 
 import com.telerikacademy.enumerations.UserType;
 
-public class Admin extends Author {
+public class Admin {
 
 //    private String password;
 //    private String name;
@@ -13,14 +13,14 @@ public class Admin extends Author {
 //
 //    }
 
-    private Admin(String username, String password, String name, String email) {
-
-        this.username = username;
-//        this.password = password;
-//        this.name = name;
-//        this.email = email;
-
-    }
+//    private Admin(String username, String password, String name, String email) {
+//
+//        this.username = username;
+////        this.password = password;
+////        this.name = name;
+////        this.email = email;
+//
+//    }
 
 
 }

@@ -16,8 +16,6 @@ import com.telerikacademy.io.RecipeBox;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Review;
 import com.telerikacademy.interfaces.Component;
-import com.telerikacademy.users.Author;
-import com.telerikacademy.users.User;
 
 public class Main {
 
@@ -88,5 +86,32 @@ public class Main {
 
 
         Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
+
+        for (int i = 0; i < Security.users.size(); i++) {
+            System.out.println(Security.users.get(i).getName());
+        }
+
+        System.out.println(Globals.currentUser.getUsername());
+
+        Security.logOut();
+
+        System.out.println(Globals.currentUser.getUsername());
+
+        Security.logOut();
+
+        System.out.println(Globals.currentUser.getUsername());
+
+        Security.logIn("pavel", "pass");
+
+        System.out.println(Globals.currentUser.getUsername());
+
+        Security.logOut();
+
+        // Exception Test - working
+//        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
+
+
+
+
     }
 }
