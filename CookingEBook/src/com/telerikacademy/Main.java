@@ -5,26 +5,21 @@ import com.telerikacademy.calculations.UnitConverter;
 import com.telerikacademy.components.bulk.PlantBulkIngredient;
 import com.telerikacademy.components.liquid.AnimalLiquidIngredient;
 import com.telerikacademy.components.solid.PlantSolidIngredient;
-import com.telerikacademy.cooking.Dish;
 import com.telerikacademy.cooking.HeatTreatedDish;
 import com.telerikacademy.cooking.Recipe;
+import com.telerikacademy.cooking.Step;
+import com.telerikacademy.cooking.Utensil;
 import com.telerikacademy.enumerations.DishCategory;
 import com.telerikacademy.enumerations.TemperatureScale;
 import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
 import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
 import com.telerikacademy.exceptions.source.NoSuchPlantSourceException;
-import com.telerikacademy.interfaces.Dislikable;
 import com.telerikacademy.interfaces.Security;
 import com.telerikacademy.interfaces.Sourceable;
-import com.telerikacademy.io.RecipeBox;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Review;
 import com.telerikacademy.interfaces.Component;
-import com.telerikacademy.users.Admin;
-import com.telerikacademy.users.Author;
-import com.telerikacademy.users.User;
-import com.telerikacademy.users.Visitor;
 
 public class Main {
     
@@ -66,7 +61,7 @@ public class Main {
             System.out.println(Security.users.get(i).getName());
         }
 
-        System.out.println(Globals.currentUser.getUsername());
+        System.out.println(Global.currentUser.getUsername());
 
         Security.logOut();
 
@@ -74,7 +69,7 @@ public class Main {
 
         Security.logIn("pavel", "pass");
         
-        Comment ms = new Comment(Globals.currentUser, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
+        Comment ms = new Comment(Global.currentUser, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
         
         System.out.println(ms.getTimestamp());
         System.out.println(ms.getAuthor().getUsername());
@@ -84,53 +79,53 @@ public class Main {
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
         
-        ms.like(Globals.currentUser);
+        ms.like(Global.currentUser);
         System.out.println(ms.getLikes());
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
 
-        ms.dislike(Globals.currentUser);
+        ms.dislike(Global.currentUser);
         System.out.println(ms.getDislikes());
 
-        Comment rp = new Comment(Globals.currentUser, "This is an awful recipe! How could anyone post it here?!");
+        Comment rp = new Comment(Global.currentUser, "This is an awful recipe! How could anyone post it here?!");
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
 
-        Comment rp1 = new Comment(Globals.currentUser, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        Comment rp1 = new Comment(Global.currentUser, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
 
         ms.addReply(rp);
         ms.addReply(rp1);
-        rp.delete(Globals.currentUser);
-        rp.delete(Globals.currentUser);
+        rp.delete(Global.currentUser);
+        rp.delete(Global.currentUser);
         ms.readReplies();
 
         Security.logOut();
         Security.logIn("pavel", "pass");
 
-        ms.delete(Globals.currentUser);
+        ms.delete(Global.currentUser);
 
-        Comment ddd = new Comment(Globals.currentUser, "Recipe was total failure!");
-        ddd.delete(Globals.currentUser);
+        Comment ddd = new Comment(Global.currentUser, "Recipe was total failure!");
+        ddd.delete(Global.currentUser);
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
-        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
+        ms.edit(Global.currentUser, "Best recipe ever! 10x!");
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
-        ms.edit(Globals.currentUser, "Can we use chicken instead of pork for this recipe?");
+        ms.edit(Global.currentUser, "Can we use chicken instead of pork for this recipe?");
 
-        Review rv = new Review(Globals.currentUser, "This is a professionally made dish!");
+        Review rv = new Review(Global.currentUser, "This is a professionally made dish!");
 
         Security.logIn("Vladi", "passwordVladi");
-        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
-        rv.like(Globals.currentUser);
+        ms.edit(Global.currentUser, "Best recipe ever! 10x!");
+        rv.like(Global.currentUser);
 
         Security.logOut();
         Security.logIn("pavel", "pass");
-        rv.like(Globals.currentUser);
+        rv.like(Global.currentUser);
         
 
         System.out.println(rv.rate());
@@ -141,15 +136,27 @@ public class Main {
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
     
-        Recipe stake = new Recipe("Stake", Globals.currentUser, "Description");
-        Recipe salad = new Recipe("Salad", Globals.currentUser, "Tomato, Mocarella");
-        Recipe vegSoup = new Recipe("Vegetable Soup", Globals.currentUser, "Description");
-        Recipe cream = new Recipe("Cream-Karamel", Globals.currentUser, "Eggs, Milk, Sugar");
+        Recipe stake = new Recipe("Stake", Global.currentUser, "Description");
+        Recipe salad = new Recipe("Salad", Global.currentUser, "Serves: 12\t Pressure Cooking Time 18 minutes");
+        Recipe vegSoup = new Recipe("Vegetable Soup", Global.currentUser, "Description");
+        Recipe cream = new Recipe("Cream-Karamel", Global.currentUser, "Eggs, Milk, Sugar");
 
         HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  stake, 200, HeatTreatedDish.HeatTreatType.BAKING);
     
         System.out.println(htd);
 
+        System.out.println(stake);
+        System.out.println(salad);
+        System.out.println(salad.getId());
+        System.out.println(vegSoup);
+        System.out.println(vegSoup.getId());
+        System.out.println(cream);
+        System.out.println(cream.getId());
+        System.out.println(stake.getId());
+        Step step = new Step( "Heat oil in cooker for about 2 minutes. Add mustard seeds. When crackling, add turmeric powder, mangoes and salt. Mix. Add water. Stir.\n", 2.0 );
+        System.out.println(step);
+        Utensil sourcePan = new Utensil( "Source Pan", "Stainless steel" );
+        System.out.println(sourcePan);
 
     }
 }

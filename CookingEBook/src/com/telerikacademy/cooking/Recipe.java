@@ -1,7 +1,6 @@
 package com.telerikacademy.cooking;
 
-import com.telerikacademy.Globals;
-import com.telerikacademy.exceptions.incompatibility.IncompatibleUnitTypes;
+import com.telerikacademy.Global;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.users.User;
 
@@ -40,64 +39,64 @@ public class Recipe {
     private Timestamp recipeAdded;
 
     public Recipe(String title, User author, String description) {
-        this.id++;
+        this.setId();
         this.title = title;
         this.author = author;
         this.description = description;
         steps = new LinkedList<>();
         recipe = new HashMap<>();
-        comments = new ArrayList<>(  );
+        comments = new ArrayList<>();
     }
 
 
     public int getId() {
         return id;
     }
-    
+
     public void setId() {
-        this.id++;
+        this.id = Global.RECIPE_ID++;
     }
-    
+
     public String getTitle() {
         return title;
     }
-    
+
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     public User getAuthor() {
         return author;
     }
-    
+
     public void setAuthor(User author) {
         this.author = author;
     }
-    
+
     public Map<Double, Component> getRecipe() {
         return recipe;
     }
-    
+
     public void addRecipe(Double amount, Component ingredient) {
-            this.recipe.put( amount, ingredient );
+        this.recipe.put( amount, ingredient );
     }
-    
+
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public Image getImage() {
         return image;
     }
-    
+
     public void setImage(Image image) {
         this.image = image;
     }
-    
+
     public Queue<Step> getSteps() {
         return steps;
     }
@@ -105,14 +104,18 @@ public class Recipe {
     public Timestamp getRecipeAdded() {
         return recipeAdded;
     }
-    
+
     public void setRecipeAdded(Timestamp recipeAdded) {
         this.recipeAdded = recipeAdded;
     }
-    
-    public   void addStep(Step step){
+
+    public void addStep(Step step) {
         this.steps.add( step );
     }
 
-
+    @Override
+    public String toString() {
+        return String.format( "%s. %s, Author -> %s%n%s ", this.getId(), this.getTitle(), this.getAuthor(),
+                this.getDescription() );
+    }
 }

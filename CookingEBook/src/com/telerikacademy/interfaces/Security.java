@@ -1,11 +1,9 @@
 package com.telerikacademy.interfaces;
 
-import com.telerikacademy.Globals;
+import com.telerikacademy.Global;
 import com.telerikacademy.exceptions.user.DuplicateUserException;
 import com.telerikacademy.exceptions.user.InvalidUsernameException;
 import com.telerikacademy.users.Author;
-import com.telerikacademy.users.User;
-import com.telerikacademy.users.UserList;
 import com.telerikacademy.users.Visitor;
 
 import java.util.ArrayList;
@@ -20,7 +18,7 @@ public interface Security {
         } else {
             Author author = new Author(username, password, name, email);
             users.add(author);
-            Globals.currentUser = author;
+            Global.currentUser = author;
         }
     }
 
@@ -33,10 +31,10 @@ public interface Security {
             for (int i = 0; i < users.size(); i++) {
                 Author user = users.get(i);
                 if (user.getUsername().equals(username)) {
-                    Globals.currentUser = user;
+                    Global.currentUser = user;
                     validUsername = true;
                     if (user.getPassword("security").equals(password)) {
-                        Globals.currentUser = user;
+                        Global.currentUser = user;
                     } else {
                         throw new InvalidUsernameException("Wrong Password");
                     }
@@ -50,7 +48,7 @@ public interface Security {
     }
 
     static void logOut() {
-        Globals.currentUser = new Visitor("visitor");
+        Global.currentUser = new Visitor("visitor");
     }
 
     void changePassword(String oldPassword, String newPassword);
