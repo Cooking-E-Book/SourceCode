@@ -25,4 +25,8 @@ public class AnimalLiquidIngredient extends LiquidIngredient {
         this.animalSource = animalSource;
     }
 
+    @Override
+    public String toString() {
+        return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
 }

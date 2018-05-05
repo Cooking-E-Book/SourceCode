@@ -47,6 +47,7 @@ public class Recipe {
         steps = new LinkedList<>();
         recipe = new HashMap<>();
         comments = new ArrayList<>();
+        this.recipeAdded = new Timestamp(System.currentTimeMillis());
     }
 
 
@@ -62,40 +63,20 @@ public class Recipe {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public User getAuthor() {
         return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
     }
 
     public Map<String, Component> getRecipe() {
         return recipe;
     }
 
-    public void addIngredient(String amount, Component ingredient) {
-        this.recipe.put( amount, ingredient );
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Image getImage() {
         return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
     }
 
     public Queue<Step> getSteps() {
@@ -106,13 +87,19 @@ public class Recipe {
         return recipeAdded;
     }
 
-    public void setRecipeAdded(Timestamp recipeAdded) {
-        this.recipeAdded = recipeAdded;
+    public void addIngredient(String amount, Component ingredient) {
+        this.recipe.put( amount, ingredient );
     }
+
 
     public void addStep(Step step) {
         this.steps.add( step );
     }
+
+    public void addComment(Comment comment) {
+        this.comments.add( comment );
+    }
+
 
     @Override
     public String toString() {

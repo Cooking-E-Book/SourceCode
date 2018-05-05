@@ -29,4 +29,9 @@ public class PlantLiquidIngredient extends LiquidIngredient {
         this.plantSource = plantSource;
     }
 
+    @Override
+    public String toString() {
+        return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+
 }
