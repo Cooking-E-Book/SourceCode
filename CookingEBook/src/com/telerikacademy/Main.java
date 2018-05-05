@@ -4,6 +4,7 @@ import com.telerikacademy.calculations.TemperatureConverter;
 import com.telerikacademy.calculations.UnitConverter;
 import com.telerikacademy.components.bulk.PlantBulkIngredient;
 import com.telerikacademy.components.liquid.AnimalLiquidIngredient;
+import com.telerikacademy.components.solid.AnimalSolidIngredient;
 import com.telerikacademy.components.solid.PlantSolidIngredient;
 import com.telerikacademy.cooking.HeatTreatedDish;
 import com.telerikacademy.cooking.Recipe;
@@ -24,24 +25,6 @@ import com.telerikacademy.interfaces.Component;
 public class Main {
     
     public static void main(String[] args) {
-        // Oxana's code:
-       // RecipeBox box = new RecipeBox();
-        Component rise, potato, milk = null;
-        try{
-//            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
-//            System.out.println(bulk);
-            rise = new PlantBulkIngredient( "Rise", 1.5,  158, Unit.TEACUP, Sourceable.PlantSource.GRAIN);
-            potato = new PlantSolidIngredient( "Red Potato", 500.0, 108, Unit.GRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
-            milk = new AnimalLiquidIngredient( "Milk", 1.0,  308, Unit.LITER,Sourceable.AnimalSource.MAMMALS );
-           System.out.println(rise);
-            System.out.println(potato);
-            System.out.println(milk);
-
-        } catch (NoSuchMeasurementException e){
-            throw new NoSuchBulkMeasurementException();
-        } catch (NoSuchPlantSourceException e){
-            throw new NoSuchPlantSourceException();
-        }
     
         
         // Pavel's code (testing register, login, logout of Author)
@@ -135,28 +118,51 @@ public class Main {
 
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
-    
-        Recipe stake = new Recipe("Stake", Global.currentUser, "Description");
-        Recipe salad = new Recipe("Salad", Global.currentUser, "Serves: 12\t Pressure Cooking Time 18 minutes");
-        Recipe vegSoup = new Recipe("Vegetable Soup", Global.currentUser, "Description");
-        Recipe cream = new Recipe("Cream-Karamel", Global.currentUser, "Eggs, Milk, Sugar");
 
-        HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  stake, 200, HeatTreatedDish.HeatTreatType.BAKING);
-    
-        System.out.println(htd);
+        // RecipeBox box = new RecipeBox();
+        // Gajar Halwa
+        Component rise, potato, milk, ghee, mavaCrumbled = null;
+        try{
 
-        System.out.println(stake);
-        System.out.println(salad);
-        System.out.println(salad.getId());
-        System.out.println(vegSoup);
-        System.out.println(vegSoup.getId());
-        System.out.println(cream);
-        System.out.println(cream.getId());
-        System.out.println(stake.getId());
-        Step step = new Step( "Heat oil in cooker for about 2 minutes. Add mustard seeds. When crackling, add turmeric powder, mangoes and salt. Mix. Add water. Stir.\n", 2.0 );
-        System.out.println(step);
-        Utensil sourcePan = new Utensil( "Source Pan", "Stainless steel" );
-        System.out.println(sourcePan);
+            rise = new PlantBulkIngredient( "Sugar", 2.0,  158, Unit.TEACUP, Sourceable.PlantSource.FRUIT);
+            potato = new PlantSolidIngredient( "Red carrots", 1.75, 324, Unit.KILOGRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
+            milk = new AnimalLiquidIngredient( "Milk", 0.25,  89, Unit.TEACUP, Sourceable.AnimalSource.MAMMALS );
+            ghee = new AnimalLiquidIngredient( "Ghee", 7.0,  158, Unit.TABLESPOON, Sourceable.AnimalSource.MAMMALS);
+            mavaCrumbled = new PlantBulkIngredient( "Mava crumbled", 400.0,  328, Unit.GRAM, Sourceable.PlantSource.GRAIN);
+            potato = new PlantSolidIngredient( "Almounds", 20.0, 224, Unit.COUNT, Sourceable.PlantSource.FRUIT );
 
+            Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", Global.currentUser, "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");
+            Utensil pressureCooker = new Utensil( "Pressure cooker", "5 Litre, from stainless steel" );
+            Utensil ladle = new Utensil( "Ladle" , "Wood ladle");
+            System.out.println(pressureCooker);
+            Step firstStep = new Step( "Put carrots and milk into cooker\n", 2.0 );
+            Step secondStep = new Step( "Close cooker. Bring to full pressure on high heat(15 minutes). Remove cooker immediately from heat.\n" +
+                    "Press finger-tip control/lift vent weight lightly to release pressure. Open cooker.\n", 15.0 );
+            Step thirdStep = new Step( "Place open cooker with carrots and milk on high heat. Add sugar.\n" +
+                    "Cook till liquid dries up (approximately 15 minutes), stirring occasionally. Add mava and ghee.\n", 15.0 );
+            Step fourthStep = new Step( "Cook till ghee shows separately (approximately 10 minutes), stirring constantly. Serve hot, garnished with almonds\n", 10.0 );
+            HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  gajar_halwa, 100, HeatTreatedDish.HeatTreatType.BOILING);
+            firstStep.add(pressureCooker);
+            firstStep.add(ladle);
+            secondStep.add(pressureCooker);
+            thirdStep.add(pressureCooker);
+            fourthStep.add(pressureCooker);
+            System.out.println(gajar_halwa);
+            System.out.println(gajar_halwa.getId());
+
+
+            System.out.println(htd);
+
+
+            System.out.println(firstStep);
+            System.out.println(secondStep);
+            System.out.println(thirdStep);
+            System.out.println(fourthStep);
+
+        } catch (NoSuchMeasurementException e){
+            throw new NoSuchBulkMeasurementException();
+        } catch (NoSuchPlantSourceException e){
+            throw new NoSuchPlantSourceException();
+        }
     }
 }

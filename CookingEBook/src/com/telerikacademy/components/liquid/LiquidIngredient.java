@@ -19,7 +19,8 @@ public abstract class LiquidIngredient  extends Ingredient {
 
     @Override
     protected void setUnit(Unit unit) {
-        if (!(unit.equals(Unit.MILLILITER) || unit.equals(Unit.LITER) || unit.equals(Unit.TEACUP))) {
+        if (!(unit.equals(Unit.MILLILITER) || unit.equals(Unit.LITER)
+                || unit.equals(Unit.TEACUP) || unit.equals( Unit.TABLESPOON ))) {
             throw new NoSuchLiquidMeasurementException();
         }
         this.unit = unit;

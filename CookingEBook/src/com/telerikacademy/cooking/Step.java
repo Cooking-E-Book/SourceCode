@@ -40,8 +40,26 @@ public class Step {
         return utensils;
     }
 
+    private String printUtensils(){
+        StringBuffer sb = new StringBuffer( );
+        int length = this.getUtensils().size();
+        for (int i = 0; i < length - 1; i++) {
+            sb.append( this.getUtensils().get( i ).getName() );
+            sb.append( ", " );
+        }
+        sb.append( this.getUtensils().get( length - 1 ).getName() ).toString();
+
+       return sb.toString();
+
+    }
+
+
     @Override
     public String toString() {
-        return String.format("%s. %s minutes, %s%n%s", this.getId(), this.getTime(), this.getUtensils(), getDescription());
+        return String.format("Step %s. Time -> %s minutes, Utensils: %s%n%s", this.getId(), this.getTime(), this.printUtensils(), getDescription());
+    }
+
+    public void add(Utensil utensil) {
+        this.utensils.add( utensil );
     }
 }

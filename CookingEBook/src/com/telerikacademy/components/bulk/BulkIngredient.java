@@ -14,7 +14,9 @@ public abstract class BulkIngredient extends Ingredient {
 
     @Override
     public void setUnit(Unit unit) {
-        if (!(unit.equals(Unit.TABLESPOON) || unit.equals(Unit.TEASPOON) || unit.equals(Unit.TEACUP) || unit.equals(Unit.PINCH))) {
+        if (!(unit.equals(Unit.TABLESPOON)
+                || unit.equals(Unit.TEASPOON) || unit.equals(Unit.TEACUP)
+                || unit.equals(Unit.PINCH) || unit.equals(Unit.GRAM))) {
             throw new NoSuchBulkMeasurementException();
         }
         this.unit = unit;

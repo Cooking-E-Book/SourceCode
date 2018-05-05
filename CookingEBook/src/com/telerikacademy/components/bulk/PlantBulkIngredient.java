@@ -15,7 +15,7 @@ public class PlantBulkIngredient extends BulkIngredient {
     }
 
     private void setSource(PlantSource plantSource) {
-        if (!plantSource.equals(PlantSource.GRAIN)) {
+        if (!(plantSource.equals(PlantSource.GRAIN) || plantSource.equals(PlantSource.FRUIT))) {
             throw new NoSuchPlantSourceException("Grain");
         }
         this.plantSource = plantSource;
