@@ -1,6 +1,7 @@
 package com.telerikacademy.cooking;
 
 import com.telerikacademy.Global;
+import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.users.User;
 
@@ -34,7 +35,7 @@ public class Recipe {
     private String description;
     private Image image;
     private Queue<Step> steps;
-    private Map<Double, Component> recipe = new HashMap<>();
+    private Map<String, Component> recipe = new HashMap<>();
     private List<Comment> comments;
     private Timestamp recipeAdded;
 
@@ -73,11 +74,11 @@ public class Recipe {
         this.author = author;
     }
 
-    public Map<Double, Component> getRecipe() {
+    public Map<String, Component> getRecipe() {
         return recipe;
     }
 
-    public void addRecipe(Double amount, Component ingredient) {
+    public void addIngredient(String amount, Component ingredient) {
         this.recipe.put( amount, ingredient );
     }
 
@@ -115,7 +116,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return String.format( "%s. %s, Author -> %s%n%s ", this.getId(), this.getTitle(), this.getAuthor(),
+        return String.format( "Recipe %s. %s, Author -> %s%n%s ", this.getId(), this.getTitle(), this.getAuthor(),
                 this.getDescription() );
     }
 }

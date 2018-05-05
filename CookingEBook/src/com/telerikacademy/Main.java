@@ -121,17 +121,30 @@ public class Main {
 
         // RecipeBox box = new RecipeBox();
         // Gajar Halwa
-        Component rise, potato, milk, ghee, mavaCrumbled = null;
+        Component rise, potato, milk, ghee, mavaCrumbled, almonds = null;
         try{
-
-            rise = new PlantBulkIngredient( "Sugar", 2.0,  158, Unit.TEACUP, Sourceable.PlantSource.FRUIT);
-            potato = new PlantSolidIngredient( "Red carrots", 1.75, 324, Unit.KILOGRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
-            milk = new AnimalLiquidIngredient( "Milk", 0.25,  89, Unit.TEACUP, Sourceable.AnimalSource.MAMMALS );
-            ghee = new AnimalLiquidIngredient( "Ghee", 7.0,  158, Unit.TABLESPOON, Sourceable.AnimalSource.MAMMALS);
-            mavaCrumbled = new PlantBulkIngredient( "Mava crumbled", 400.0,  328, Unit.GRAM, Sourceable.PlantSource.GRAIN);
-            potato = new PlantSolidIngredient( "Almounds", 20.0, 224, Unit.COUNT, Sourceable.PlantSource.FRUIT );
-
             Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", Global.currentUser, "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");
+            rise = new PlantBulkIngredient( "Sugar", 2.0,  158, Unit.TEACUP, Sourceable.PlantSource.FRUIT);
+            String riseAmount = "" + rise.getQuantity() + rise.getUnit().toString();
+            gajar_halwa.addIngredient( riseAmount, rise );
+
+            potato = new PlantSolidIngredient( "Red carrots", 1.75, 324, Unit.KILOGRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
+            String potatoAmount = "" + potato.getQuantity() + potato.getUnit().toString();
+            gajar_halwa.addIngredient( potatoAmount, potato );
+            milk = new AnimalLiquidIngredient( "Milk", 0.25,  89, Unit.TEACUP, Sourceable.AnimalSource.MAMMALS );
+            String milkAmount = "" + milk.getQuantity() + milk.getUnit().toString();
+            gajar_halwa.addIngredient( milkAmount, milk );
+            ghee = new AnimalLiquidIngredient( "Ghee", 7.0,  158, Unit.TABLESPOON, Sourceable.AnimalSource.MAMMALS);
+            String gheeAmount = "" + ghee.getQuantity() + ghee.getUnit().toString();
+            gajar_halwa.addIngredient( gheeAmount, ghee );
+            mavaCrumbled = new PlantBulkIngredient( "Mava crumbled", 400.0,  328, Unit.GRAM, Sourceable.PlantSource.GRAIN);
+            String mavaAmount = "" + mavaCrumbled.getQuantity() + mavaCrumbled.getUnit().toString();
+            gajar_halwa.addIngredient( mavaAmount, mavaCrumbled );
+            almonds = new PlantSolidIngredient( "Almonds", 20.0, 224, Unit.COUNT, Sourceable.PlantSource.FRUIT );
+            String almondsAmount = "" + almonds.getQuantity() + almonds.getUnit().toString();
+            gajar_halwa.addIngredient( almondsAmount, almonds );
+
+
             Utensil pressureCooker = new Utensil( "Pressure cooker", "5 Litre, from stainless steel" );
             Utensil ladle = new Utensil( "Ladle" , "Wood ladle");
             System.out.println(pressureCooker);
@@ -148,16 +161,15 @@ public class Main {
             thirdStep.add(pressureCooker);
             fourthStep.add(pressureCooker);
             System.out.println(gajar_halwa);
-            System.out.println(gajar_halwa.getId());
 
 
             System.out.println(htd);
 
 
-            System.out.println(firstStep);
-            System.out.println(secondStep);
-            System.out.println(thirdStep);
-            System.out.println(fourthStep);
+           // System.out.println(firstStep);
+           // System.out.println(secondStep);
+           // System.out.println(thirdStep);
+            //System.out.println(fourthStep);
 
         } catch (NoSuchMeasurementException e){
             throw new NoSuchBulkMeasurementException();
