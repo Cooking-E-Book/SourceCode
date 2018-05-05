@@ -32,14 +32,14 @@ D. **Step** – represents a given step (phase) in the entire cooking process (e
 E. **Ingredient** – represented by a name, quantity, measurement unit, energy count (kcal). It is categorized into **BulkIngredient** (of mineral or plant origin), **LiquidIngredient** (animal, mineral, or plant origin), **SolidIngredient** (animal, mushroom, or plant origin) depending on the origin/ source of the ingredient. Each of the possible origins (sources) are defined within the **Sourceable** interface. **Exception handlers** are defined for each ingredient type and are implemented in the process of origin (source) setting (e.g., vegetable oil cannot be of animal origin) and unit type setting (e.g., solid ingredients cannot be measured in ml / liters, etc.).
 
 F.   **Message** – has an author and a timestamp, and is used for communication between users. Depending on its specific purpose in the communication process, it is assigned to several categories:
-  1. **i.**** Comment** – used by laymen (amateur cooks) to express opinions about a given recipe and as replies to other comments. Each has an author, a timestamp, and a body. Other of its features include number of likes, dislikes, replies and an indicator whether it has been deleted. If deleted, no action can be performed upon it. Only its author or an administrator of the cookbook can delete/ edit it.
-  2. **ii.**** Review **– used by** Author**(i.e., chefs) to express opinions about other authors&#39; recipes. They have same characteristics as of**Comment **but can be also rated based on the number of likes and dislikes posted by** Subscriber**.
-  3. **iii.**** Summary **– used by** Author**(i.e., chefs) to summarize his/ her recipe and facilitates the decision-making process of readers when deciding whether to read the full recipe or continue browsing other recipes. Has same properties as**Review**, but different purpose.
+  1. **Comment** – used by laymen (amateur cooks) to express opinions about a given recipe and as replies to other comments. Each has an author, a timestamp, and a body. Other of its features include number of likes, dislikes, replies and an indicator whether it has been deleted. If deleted, no action can be performed upon it. Only its author or an administrator of the cookbook can delete/ edit it.
+  2. **Review** – used by **Author** (i.e., chefs) to express opinions about other authors&#39; recipes. They have same characteristics as of **Comment** but can be also rated based on the number of likes and dislikes posted by **Subscriber**.
+  3. **Summary** – used by **Author** (i.e., chefs) to summarize his/ her recipe and facilitates the decision-making process of readers when deciding whether to read the full recipe or continue browsing other recipes. Has same properties as **Review**, but different purpose.
 
   The cookbook also contains:
 
-    - **Help** section with **ContactInformation** and **FAQ** list;
+  - **Help** section with **ContactInformation** and **FAQ** list;
 
-    - **UnitConverter** which helps users find the required quantities of each Ingredient in their preferred units (e.g., ounces, pounds, ml, liters, etc.). **Exception handlers** are defined and implemented when attempting to convert between units of incomparable type (e.g., kg to ml) or when attempting to use negative quantities in the conversion process.
+  - **UnitConverter** which helps users find the required quantities of each Ingredient in their preferred units (e.g., ounces, pounds, ml, liters, etc.). **Exception handlers** are defined and implemented when attempting to convert between units of incomparable type (e.g., kg to ml) or when attempting to use negative quantities in the conversion process.
 
-    - **TemperatureConverter** facilitates easy conversion from Fahrenheit degrees to Celsius degrees and vice versa, depending on user&#39;s preference.
+  - **TemperatureConverter** facilitates easy conversion from Fahrenheit degrees to Celsius degrees and vice versa, depending on user&#39;s preference.
