@@ -1,10 +1,10 @@
-package com.telerikacademy.components.bulk;
+package com.telerikacademy.components;
 
-import com.telerikacademy.components.Ingredient;
 import com.telerikacademy.enumerations.Unit;
-import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
+import com.telerikacademy.exceptions.NoSuchBulkMeasurementException;
+import com.telerikacademy.interfaces.IngredientSource;
 
-public abstract class BulkIngredient extends Ingredient {
+public abstract class BulkIngredient extends Ingredient{
     private Unit unit;
 
     public BulkIngredient(String name, Double quantity, Integer kcal, Unit unit) {
