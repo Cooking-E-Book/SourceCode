@@ -13,14 +13,10 @@ public class Admin extends Author {
 //
 //    }
 
-    private Admin(String username, String password, String name, String email) {
-
-        this.username = username;
-//        this.password = password;
-//        this.name = name;
-//        this.email = email;
-
+    public Admin(String username, String password, String name, String email) {
+        super(username, password, name, email); // Vladi: Pavka sorry, ama sveteshe v cherveno i go korigirah :)
     }
+
 
 
 }

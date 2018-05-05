@@ -1,9 +1,11 @@
 package com.telerikacademy.interfaces;
 
-public interface Deletable {
+import com.telerikacademy.users.User;
 
+public interface Deletable {
+    
     //void delete(Object object);
     
-    void delete(String user);
-
+    void delete(User user);
+    
 }
