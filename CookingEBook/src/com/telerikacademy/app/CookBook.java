@@ -20,5 +20,6 @@ import com.telerikacademy.interfaces.Sourceable;
 import java.util.HashMap;
 
 public class CookBook {
+    RecipeCreator recipeCreator = new RecipeCreator();
 
 }
