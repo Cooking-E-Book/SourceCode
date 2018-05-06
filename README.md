@@ -1,6 +1,6 @@
 I. **Team name:**
 
-- **MasterChef**  :)
+- **Thanos**
 
 II. **Team list:**
 
