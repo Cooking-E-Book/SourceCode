@@ -1,0 +1,445 @@
+{
+  "formatVersion": 3,
+  "id": "root",
+  "ideas": {
+    "1": {
+      "title": "Cook E-Book:\n\n",
+      "id": 1,
+      "attr": {
+        "style": {
+          "width": 90.4375
+        },
+        "position": [
+          -63,
+          -59.19999998807907,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Help",
+          "id": 51,
+          "attr": {
+            "position": [
+              238,
+              -239.19999998807907,
+              4
+            ],
+            "style": {
+              "background": "#99CC00"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "FAQ",
+              "id": 119,
+              "ideas": {
+                "1": {
+                  "title": "properties: question & answer (no authors)",
+                  "id": 120,
+                  "attr": {
+                    "style": {
+                      "background": "#808080"
+                    }
+                  }
+                }
+              }
+            },
+            "2": {
+              "title": "Contacts & password reset",
+              "id": 121,
+              "attr": {
+                "style": {
+                  "background": "#808080"
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "title": "Message (abstract)",
+          "id": 47,
+          "attr": {
+            "position": [
+              239,
+              -165.19999998807907,
+              3
+            ],
+            "style": {
+              "background": "#008000"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Comment",
+              "id": 75,
+              "ideas": {
+                "1": {
+                  "title": "Repliable, Editable by its author,\n\nContains list with replies",
+                  "id": 93,
+                  "attr": {
+                    "style": {
+                      "background": "#808080"
+                    }
+                  },
+                  "ideas": {}
+                }
+              }
+            },
+            "2": {
+              "title": "Reply",
+              "id": 76,
+              "attr": {
+                "style": {
+                  "width": 50
+                }
+              },
+              "ideas": {}
+            },
+            "3": {
+              "title": "Summary",
+              "id": 77,
+              "ideas": {
+                "1": {
+                  "title": "Ratable (based on # likes & # dislikes), ",
+                  "id": 95,
+                  "attr": {
+                    "style": {
+                      "background": "#808080"
+                    }
+                  }
+                }
+              }
+            },
+            "4": {
+              "title": "Review",
+              "id": 78,
+              "ideas": {
+                "1": {
+                  "title": "Ratable (based on # likes & # dislikes)",
+                  "id": 118,
+                  "attr": {
+                    "style": {
+                      "background": "#808080"
+                    }
+                  }
+                }
+              }
+            },
+            "5": {
+              "title": "author, entry date and time, update date and time;\nLikable, Dislikable, Editable by its author/ admin, Deletable by its author/ admin",
+              "id": 117,
+              "attr": {
+                "style": {
+                  "background": "#808080"
+                }
+              }
+            }
+          }
+        },
+        "3": {
+          "title": "UnitConverter",
+          "id": 55,
+          "attr": {
+            "style": {
+              "background": "#800080"
+            },
+            "position": [
+              687,
+              32.64444273710251,
+              22
+            ]
+          }
+        },
+        "4": {
+          "title": "CaloriesCalculator",
+          "id": 56,
+          "attr": {
+            "style": {
+              "background": "#800080"
+            },
+            "position": [
+              681,
+              69.64444273710251,
+              23
+            ]
+          }
+        },
+        "14": {
+          "title": "SocialNetwork (abstract)",
+          "id": 50,
+          "attr": {
+            "position": [
+              122.20000076293945,
+              210.39999693632126,
+              19
+            ],
+            "style": {
+              "background": "#FF0000"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Facebook (all functionalities)",
+              "id": 82
+            },
+            "2": {
+              "title": "Instagram (only photos)",
+              "id": 83
+            },
+            "3": {
+              "title": "Twitter (only text)",
+              "id": 84
+            },
+            "4": {
+              "title": "ENUM: FREE, MONTHLY, ANNUAL",
+              "id": 92,
+              "attr": {}
+            }
+          }
+        },
+        "-1": {
+          "title": "User (abstract)",
+          "id": 46,
+          "attr": {
+            "position": [
+              81.79999923706055,
+              239.00000303983688,
+              20
+            ],
+            "style": {
+              "background": "#FF0000"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Administrator",
+              "id": 79
+            },
+            "2": {
+              "title": "Author",
+              "id": 80,
+              "ideas": {
+                "1": {
+                  "title": "Deletable by admin\n\nContains list of own recipes, followers (fans)\n\nContains CV: Michelin chef, past experience, etc",
+                  "id": 105,
+                  "attr": {
+                    "style": {
+                      "background": "#808080"
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": "Reader",
+              "id": 81,
+              "ideas": {
+                "1": {
+                  "title": "Deletable by admin\n\nContains list of followed authors, read/ liked/ disliked/ favorite recipes\n",
+                  "id": 114,
+                  "attr": {
+                    "style": {
+                      "background": "#808080"
+                    }
+                  }
+                }
+              }
+            },
+            "2.5": {
+              "title": "First and Last name, nickname, password, password update, email, date of birth, residence town/ country, date he/ she joined the E-Book, favorite cousins, etc.",
+              "id": 116,
+              "attr": {
+                "position": [
+                  197.99993896484375,
+                  20.44443702697754,
+                  1
+                ],
+                "style": {
+                  "background": "#808080"
+                }
+              }
+            }
+          }
+        },
+        "-0.25": {
+          "title": "NutritionInfo",
+          "id": 49,
+          "attr": {
+            "position": [
+              302,
+              -197.59999924898148,
+              17
+            ],
+            "style": {
+              "background": "#FF9900"
+            }
+          }
+        },
+        "1.5": {
+          "title": "SubscriptionPlan",
+          "id": 48,
+          "attr": {
+            "position": [
+              293,
+              -218.19999998807907,
+              5
+            ],
+            "style": {
+              "background": "#99CC00"
+            }
+          }
+        },
+        "-0.375": {
+          "title": "Ingredient (abstract)",
+          "id": 54,
+          "attr": {
+            "position": [
+              418,
+              -63.599999248981476,
+              15
+            ],
+            "style": {
+              "background": "#FF6600"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "BulkIngredient (abstract)",
+              "id": 57,
+              "ideas": {
+                "1": {
+                  "title": "MineralBulkIngredient (Salt, Soda)",
+                  "id": 58
+                },
+                "2": {
+                  "title": "PlantBulkIngredient (Grain)",
+                  "id": 59
+                }
+              }
+            },
+            "2": {
+              "title": "LiquidIngredient (abstract)",
+              "id": 61,
+              "ideas": {
+                "1": {
+                  "title": "AnimalLiquidIngredient(Milk, Blood)",
+                  "id": 62
+                },
+                "2": {
+                  "title": "MineralLiquidIngredient(Water)",
+                  "id": 63
+                },
+                "3": {
+                  "title": "PlantLiquidIngredient (Juice, Wine, Beer, Boza, Kvas, Solid Alcoholic Beverage)",
+                  "id": 64
+                }
+              }
+            },
+            "1.5": {
+              "title": "SolidIngredient (abstract)",
+              "id": 104,
+              "attr": {
+                "style": {
+                  "background": "#808080"
+                },
+                "position": [
+                  94.99996948242188,
+                  -71.48888206481934,
+                  1
+                ]
+              },
+              "ideas": {
+                "1": {
+                  "title": "AnimalSolidIngredient(Fish, Meat)",
+                  "id": 105
+                },
+                "2": {
+                  "title": "MushroomSolidIngredient(Wild mushroom, Cultivated mushroom)",
+                  "id": 106
+                },
+                "3": {
+                   "title": "PlantSolidIngredient (Grain, Vegetable, Fruit, Berry)",
+                   "id": 107
+                }
+              }
+            },
+        "-0.3125": {
+          "title": "Recipe (abstract)",
+          "id": 45,
+          "attr": {
+            "position": [
+              389,
+              -129.59999924898148,
+              16
+            ],
+            "style": {
+              "background": "#FF9900",
+              "width": 72
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Soup",
+              "id": 69,
+              "attr": {}
+            },
+            "2": {
+              "title": "Dessert",
+              "id": 70,
+              "attr": {}
+            },
+            "3": {
+              "title": "Drink",
+              "id": 71
+            },
+            "4": {
+              "title": "MainCourse",
+              "id": 73
+            },
+            "5": {
+              "title": "Downloadable, Likable, Dislikable, Ratable (based on # likes & # dislikes), Favorable, Editable by its author & admin, Deletable by same, Searchable by keyword, Categorizable\n\nContains lists with ingredients, messages,  etc.)",
+              "id": 97,
+              "attr": {
+                "style": {
+                  "background": "#808080"
+                }
+              },
+              "ideas": {}
+            }
+          }
+        },
+        "-0.125": {
+          "title": "MeasurementUnit",
+          "id": 91,
+          "attr": {
+            "position": [
+              316.79999923706055,
+              -283.80000001192093,
+              18
+            ],
+            "style": {
+              "background": "#FF9900"
+            }
+          }
+        },
+        "-0.34375": {
+          "title": "Provide main functionality:\n- add users, recipes, messages, ingredients, nutritionInfo, etc.\n- contain lists with recipes (updated & deleted), users (only current ones), \n- search by keyword/ category, etc. (?) for recipes\n- add/ edit/ delete/ like/ etc. messages to recipes\n- link replies to messages",
+          "id": 100,
+          "attr": {
+            "style": {
+              "background": "#808080"
+            },
+            "position": [
+              167.77777862548828,
+              -147.244444668293,
+              21
+            ]
+          }
+        }
+      }
+    }
+  },
+  "title": "Cook E-Book:\n\n",
+  "links": []
+}
