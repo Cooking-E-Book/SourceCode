@@ -28,25 +28,8 @@ import com.telerikacademy.users.Visitor;
 
 public class Main {
     
-    public static void main(String[] args) {
-        // Oxana's code:
-        /*RecipeBox box = new RecipeBox();
-        Component rise, potato, milk = null;
-        try{
-//            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
-//            System.out.println(bulk);
-            rise = new PlantBulkIngredient( "Rise", 1.5,  158, Unit.TEACUP, Sourceable.PlantSource.GRAIN);
-            potato = new PlantSolidIngredient( "Red Potato", 500.0, 108, Unit.GRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
-            milk = new AnimalLiquidIngredient( "Milk", 1.0,  308, Unit.LITER,Sourceable.AnimalSource.MAMMALS );
-           System.out.println(rise);
-            System.out.println(potato);
-            System.out.println(milk);
-
-        } catch (NoSuchMeasurementException e){
-            throw new NoSuchBulkMeasurementException();
-        } catch (NoSuchPlantSourceException e){
-            throw new NoSuchPlantSourceException();
-        }*/
+    public static void main(String[] args) throws RecipeAlreadyExists {
+   
     
         
         // Pavel's code (testing register, login, logout of Author)
@@ -152,15 +135,11 @@ public class Main {
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
     
-        Recipe rcp = new Recipe("Stake", Global.currentUser, "Description");
-        Recipe rcp1 = new Recipe("Stake", Global.currentUser, "Description");
-        HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  rcp, 200, HeatTreatedDish.HeatTreatType.BAKING);
-    
-        System.out.println(htd);
-        
-    
-        System.out.println(rcp.getId());
-        System.out.println(rcp1.getId());
+         try{
+            RecipeCreator.createGajarHalwa();
+        } catch (RecipeAlreadyExists e){
+                throw new RecipeAlreadyExists();
+        }
 
 
     }
