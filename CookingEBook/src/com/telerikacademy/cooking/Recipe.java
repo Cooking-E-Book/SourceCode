@@ -14,20 +14,7 @@ import java.util.Queue;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-Recipe                                         string?
-    ingredient List HashMap<Ingredient, quantity> ingedient
-    Description
-    User - creator
-    List User - People who tried it
-    Rating
-    Date & time recipe added
-    +List Category categories
-    +Preparation time
-    +Cooking Time
-    +Ready time = preparation + cooking
-    +Image images
- */
+
 public class Recipe {
     private int id;
     private String title;

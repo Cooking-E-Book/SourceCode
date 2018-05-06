@@ -14,13 +14,6 @@ public class PlantBulkIngredient extends BulkIngredient {
         this.setSource( plantSource );
     }
 
-    private void setSource(PlantSource plantSource) {
-        if (!(plantSource.equals(PlantSource.GRAIN) || plantSource.equals(PlantSource.FRUIT))) {
-            throw new NoSuchPlantSourceException("Grain");
-        }
-        this.plantSource = plantSource;
-    }
-
     @Override
     public String getSource() {
         return this.plantSource.toString();
@@ -29,6 +22,13 @@ public class PlantBulkIngredient extends BulkIngredient {
     @Override
     public String toString() {
         return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+
+    private void setSource(PlantSource plantSource) {
+        if (!(plantSource.equals(PlantSource.GRAIN) || plantSource.equals(PlantSource.FRUIT))) {
+            throw new NoSuchPlantSourceException("Grain");
+        }
+        this.plantSource = plantSource;
     }
 
 }

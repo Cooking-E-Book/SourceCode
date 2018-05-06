@@ -12,8 +12,10 @@ public abstract class BulkIngredient extends Ingredient {
         this.setUnit( unit );
     }
 
+    public abstract String getSource();
+
     @Override
-    public void setUnit(Unit unit) {
+    protected void setUnit(Unit unit) {
         if (!(unit.equals(Unit.TABLESPOON)
                 || unit.equals(Unit.TEASPOON) || unit.equals(Unit.TEACUP)
                 || unit.equals(Unit.PINCH) || unit.equals(Unit.GRAM))) {
@@ -21,7 +23,5 @@ public abstract class BulkIngredient extends Ingredient {
         }
         this.unit = unit;
     }
-
-    public abstract String getSource();
 
 }
