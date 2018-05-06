@@ -1,5 +1,6 @@
 package com.telerikacademy.components;
 
+import com.telerikacademy.Global;
 import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.interfaces.Sourceable;
@@ -51,7 +52,7 @@ public abstract class Ingredient implements Component, Sourceable {
     public String toString() {
         return String.format("%s. %s%nQuantity -> %s %s%nKcal -> %s%nSource -> ", Global.INGREDIENT_ID++, this.getName(), this.getQuantity(), this.getUnit(), this.getkCal());
     }
-    
+
     protected abstract void setUnit(Unit unit);
 
 
