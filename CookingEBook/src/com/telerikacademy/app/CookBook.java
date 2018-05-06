@@ -5,6 +5,5 @@ import com.telerikacademy.cooking.Recipe;
 import java.util.HashMap;
 
 public class CookBook {
-   private HashMap<Integer, Recipe> recipesByRecipeId;
 
 }
