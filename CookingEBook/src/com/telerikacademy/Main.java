@@ -1,31 +1,17 @@
 package com.telerikacademy;
 
-import com.telerikacademy.app.CookBook;
 import com.telerikacademy.app.RecipeCreator;
 import com.telerikacademy.calculations.TemperatureConverter;
 import com.telerikacademy.calculations.UnitConverter;
-import com.telerikacademy.components.bulk.PlantBulkIngredient;
-import com.telerikacademy.components.liquid.AnimalLiquidIngredient;
-import com.telerikacademy.components.solid.AnimalSolidIngredient;
-import com.telerikacademy.components.solid.PlantSolidIngredient;
-import com.telerikacademy.cooking.HeatTreatedDish;
-import com.telerikacademy.cooking.Recipe;
-import com.telerikacademy.cooking.Step;
-import com.telerikacademy.cooking.Utensil;
-import com.telerikacademy.enumerations.DishCategory;
+
 import com.telerikacademy.enumerations.TemperatureScale;
 import com.telerikacademy.enumerations.Unit;
-import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
-import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
+
 import com.telerikacademy.exceptions.recipes.RecipeAlreadyExists;
-import com.telerikacademy.exceptions.source.NoSuchPlantSourceException;
 import com.telerikacademy.interfaces.Security;
-import com.telerikacademy.interfaces.Sourceable;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Review;
-import com.telerikacademy.interfaces.Component;
 
-import static com.telerikacademy.app.RecipeCreator.createGajarHalwa;
 
 public class Main {
     

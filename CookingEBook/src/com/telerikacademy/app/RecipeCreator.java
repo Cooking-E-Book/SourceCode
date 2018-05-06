@@ -13,6 +13,7 @@ import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
 import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
 import com.telerikacademy.exceptions.recipes.RecipeAlreadyExists;
+import com.telerikacademy.exceptions.source.NoSuchAnimalSourceException;
 import com.telerikacademy.exceptions.source.NoSuchPlantSourceException;
 import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.interfaces.Sourceable;
@@ -73,6 +74,8 @@ public class RecipeCreator {
             throw new NoSuchBulkMeasurementException();
         } catch (NoSuchPlantSourceException e){
             throw new NoSuchPlantSourceException();
+        } catch (NoSuchAnimalSourceException e){
+            throw new NoSuchAnimalSourceException();
         } catch (RecipeAlreadyExists recipeAlreadyExists) {
             throw new RecipeAlreadyExists();
         }
