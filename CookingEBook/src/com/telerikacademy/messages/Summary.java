@@ -1,6 +1,6 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.Globals;
+import com.telerikacademy.Global;
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
@@ -13,8 +13,8 @@ public class Summary extends Message implements Likable, Dislikable, Editable, D
 	private int dislikes;
 	private boolean isDeleted;
 	
-	public Summary(String summary) {
-		super();
+	public Summary(int recipeId, String summary) {
+		super(recipeId);
 		this.summary = summary;
 		likes = 0;
 		dislikes = 0;
@@ -23,7 +23,7 @@ public class Summary extends Message implements Likable, Dislikable, Editable, D
 	
 	@Override
 	public void like() {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		if (isDeleted) {
 			String log = String.format("\"%s\" cannot be liked because the summary is already deleted!", summary);
 			System.out.println(log);
@@ -41,7 +41,7 @@ public class Summary extends Message implements Likable, Dislikable, Editable, D
 	
 	@Override
 	public void dislike() {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		if (isDeleted) {
 			String log = String.format("\"%s\" cannot be disliked because the summary is already deleted!", summary);
 			System.out.println(log);
@@ -60,7 +60,7 @@ public class Summary extends Message implements Likable, Dislikable, Editable, D
 	// modify to be deleted only by admin and/ or author
 	@Override
 	public void delete() {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		if (!isDeleted) {
 			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
 				String log = String.format("%s deleted \"%s\"", user.getUsername(), summary);
@@ -80,7 +80,7 @@ public class Summary extends Message implements Likable, Dislikable, Editable, D
 	
 	@Override
 	public void edit(String summary) {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		String prevSummary = this.summary;
 		if (!isDeleted) {
 			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {

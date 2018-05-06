@@ -1,5 +1,6 @@
 package com.telerikacademy;
 
+import com.telerikacademy.cooking.Recipe;
 import com.telerikacademy.users.User;
 import com.telerikacademy.users.Visitor;
 

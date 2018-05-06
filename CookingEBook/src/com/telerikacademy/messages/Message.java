@@ -1,26 +1,26 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.Globals;
-import com.telerikacademy.interfaces.Deletable;
-import com.telerikacademy.interfaces.Dislikable;
-import com.telerikacademy.interfaces.Editable;
-import com.telerikacademy.interfaces.Likable;
+import com.telerikacademy.Global;
 import com.telerikacademy.users.User;
-
-import java.sql.Time;
 import java.sql.Timestamp;
 
 public abstract class Message {
     
-    private User author = Globals.currentUser;
+    private User author = Global.currentUser;
+    private int recipeId;
     private Timestamp timestamp;
     
-    public Message() {
+    public Message(int recipeId) {
+        this.recipeId = recipeId;
         timestamp = new Timestamp(System.currentTimeMillis());
     }
     
     public User getAuthor() {
         return author;
+    }
+    
+    public int getRecipeId() {
+        return recipeId;
     }
     
     public Timestamp getTimestamp() {

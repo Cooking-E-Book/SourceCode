@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class RecipeCreator {
     private static HashMap<Integer, Recipe> recipesByRecipeId = new HashMap<>(  );
 
-    public static void createGajarHalwa() throws RecipeAlreadyExists {
+        public static void createGajarHalwa() throws RecipeAlreadyExists {
         Component rise, potato, milk, ghee, mavaCrumbled, almonds = null;
         try{
             Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", Global.currentUser, "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");

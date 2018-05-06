@@ -1,6 +1,6 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.Globals;
+import com.telerikacademy.Global;
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
@@ -13,8 +13,8 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     private int dislikes;
     private boolean isDeleted;
     
-    public Review(String review) {
-        super();
+    public Review(int recipeId, String review) {
+        super(recipeId);
         this.review = review;
         likes = 0;
         dislikes = 0;
@@ -23,7 +23,7 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     
     @Override
     public void like() {
-        User user = Globals.currentUser;
+        User user = Global.currentUser;
         if (isDeleted) {
             String log = String.format("\"%s\" cannot be liked because the review is already deleted!", review);
             System.out.println(log);
@@ -41,7 +41,7 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     
     @Override
     public void dislike() {
-        User user = Globals.currentUser;
+        User user = Global.currentUser;
         if (isDeleted) {
             String log = String.format("\"%s\" cannot be disliked because the review is already deleted!", review);
             System.out.println(log);
@@ -60,7 +60,7 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     // modify to be deleted only by admin and/ or author
     @Override
     public void delete() {
-        User user = Globals.currentUser;
+        User user = Global.currentUser;
         if (!isDeleted) {
             if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
                 String log = String.format("%s deleted \"%s\"", user.getUsername(), review);
@@ -80,7 +80,7 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     
     @Override
     public void edit(String review) {
-        User user = Globals.currentUser;
+        User user = Global.currentUser;
         String prevReview = this.review;
         if (!isDeleted) {
             if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {

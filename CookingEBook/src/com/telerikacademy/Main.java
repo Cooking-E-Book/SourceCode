@@ -66,7 +66,7 @@ public class Main {
             System.out.println(Security.users.get(i).getName());
         }
 
-        System.out.println(Globals.currentUser.getUsername());
+        System.out.println(Global.currentUser.getUsername());
 
         Security.logOut();
 
@@ -74,19 +74,25 @@ public class Main {
 
         Security.logIn("pavel", "pass");
         
-        Comment ms = new Comment("This is one of my favorite recipes I have ever tried! Thank you for sharing!");
-        
+        Comment ms = new Comment(1,"This is one of my favorite recipes I have ever tried! Thank you for sharing!");
+	
+				System.out.println(ms.getRecipeId());
         System.out.println(ms.getTimestamp());
         System.out.println(ms.getAuthor().getUsername());
         System.out.println(ms.getComment());
         System.out.println(ms.getLikes());
-
+	
+				Comment ms1 = new Comment(2,"This recipe rules!!!");
+	
+				System.out.println(ms1.getRecipeId());
+				
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
         
         ms.like();
         System.out.println(ms.getLikes());
         ms.delete();
+				System.out.println(ms.getRecipeId());
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
@@ -94,13 +100,13 @@ public class Main {
         ms.dislike();
         System.out.println(ms.getDislikes());
 
-        Comment rp = new Comment("This is an awful recipe! How could anyone post it here?!");
+        Comment rp = new Comment(1,"This is an awful recipe! How could anyone post it here?!");
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
 
-        Comment rp1 = new Comment("Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
-        Comment rp2 = new Comment("Pepi, tick-tack!");
+        Comment rp1 = new Comment(1,"Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        Comment rp2 = new Comment(1,"Pepi, tick-tack!");
 
         ms.addReply(rp);
         ms.addReply(rp1);
@@ -114,7 +120,8 @@ public class Main {
 
         ms.delete();
 
-        Comment ddd = new Comment("Recipe was total failure!");
+        Comment ddd = new Comment(3,"Recipe was total failure!");
+				System.out.println(ddd.getRecipeId());
         ddd.delete();
 
         Security.logOut();
@@ -126,7 +133,7 @@ public class Main {
         Security.logIn("Pepi", "passwordPepi");
         ms.edit("Can we use chicken instead of pork for this recipe?");
 
-        Review rv = new Review("This is a professionally made dish!");
+        Review rv = new Review(1,"This is a professionally made dish!");
 
         Security.logIn("Vladi", "passwordVladi");
         ms.edit("Best recipe ever! 10x!");
@@ -139,14 +146,14 @@ public class Main {
 
         System.out.println(rv.rate());
 
-        UnitConverter uc = new UnitConverter(Unit.TEACUP, 1, Unit.TABLESPOON);
+        UnitConverter uc = new UnitConverter(Unit.TEACUP, -1, Unit.TABLESPOON);
         System.out.println(uc.convert());
 
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
     
-        Recipe rcp = new Recipe("Stake", Globals.currentUser, "Description");
-        Recipe rcp1 = new Recipe("Stake", Globals.currentUser, "Description");
+        Recipe rcp = new Recipe("Stake", Global.currentUser, "Description");
+        Recipe rcp1 = new Recipe("Stake", Global.currentUser, "Description");
         HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  rcp, 200, HeatTreatedDish.HeatTreatType.BAKING);
     
         System.out.println(htd);

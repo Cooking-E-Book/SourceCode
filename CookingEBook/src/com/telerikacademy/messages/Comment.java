@@ -1,13 +1,11 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.Globals;
+import com.telerikacademy.Global;
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.interfaces.Readable;
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
 import com.telerikacademy.users.User;
-import com.telerikacademy.users.Visitor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +17,8 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	private int dislikes;
 	private boolean isDeleted;
 	
-	public Comment(String comment) {
-		super();
+	public Comment(int recipeId, String comment) {
+		super(recipeId);
 		this.comment = comment;
 		likes = 0;
 		dislikes = 0;
@@ -44,13 +42,9 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 		replies.add(reply);
 	}
 	
-	/*public boolean isDeletedCheck() {
-		return isDeleted;
-	}*/
-	
 	@Override
 	public void like() {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		if (isDeleted) {
 			String log = String.format("\"%s\" cannot be liked because the message is already deleted!", comment);
 			System.out.println(log);
@@ -68,7 +62,7 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	
 	@Override
 	public void dislike() {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		if (isDeleted) {
 			String log = String.format("\"%s\" cannot be disliked because the message is already deleted!", comment);
 			System.out.println(log);
@@ -87,7 +81,7 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	// modify to be deleted only by admin and/ or author
 	@Override
 	public void delete() {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		if (!isDeleted) {
 			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
 				String log = String.format("%s deleted \"%s\"", user.getUsername(), comment);
@@ -108,7 +102,7 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	
 	@Override
 	public void edit(String comment) {
-		User user = Globals.currentUser;
+		User user = Global.currentUser;
 		String prevComment = this.comment;
 		if (!isDeleted) {
 			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
