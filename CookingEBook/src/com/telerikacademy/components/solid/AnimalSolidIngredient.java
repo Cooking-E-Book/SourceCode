@@ -12,16 +12,6 @@ public class AnimalSolidIngredient extends SolidIngredient {
         this.setSource(animalSource);
     }
 
-    private void setSource(AnimalSource plantSource) {
-        if (!(plantSource.equals(AnimalSource.AMPHIBIANS) ||
-                plantSource.equals(AnimalSource.BIRDS) ||
-                plantSource.equals(AnimalSource.MAMMALS) ||
-                plantSource.equals(AnimalSource.REPTILES))) {
-            throw new NoSuchAnimalSourceException();
-        }
-        this.animalSource = animalSource;
-    }
-
     @Override
     public String getSource() {
         return this.animalSource.toString();
@@ -31,5 +21,14 @@ public class AnimalSolidIngredient extends SolidIngredient {
     public String toString() {
         return super.toString().concat(String.format( "%s%n", this.getSource() ));
     }
-
+    
+    private void setSource(AnimalSource plantSource) {
+        if (!(plantSource.equals(AnimalSource.AMPHIBIANS) ||
+                plantSource.equals(AnimalSource.BIRDS) ||
+                plantSource.equals(AnimalSource.MAMMALS) ||
+                plantSource.equals(AnimalSource.REPTILES))) {
+            throw new NoSuchAnimalSourceException();
+        }
+        this.animalSource = animalSource;
+    }
 }
