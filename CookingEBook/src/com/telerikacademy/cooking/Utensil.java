@@ -1,5 +1,7 @@
 package com.telerikacademy.cooking;
 
+import com.telerikacademy.Global;
+
 public class Utensil {
     private String name;
     private String type;
@@ -15,5 +17,10 @@ public class Utensil {
 
     public String getType() {
         return type;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s%n", this.getName(), this.getType());
     }
 }
