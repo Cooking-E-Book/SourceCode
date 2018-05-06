@@ -6,7 +6,6 @@ import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.interfaces.Sourceable;
 
 public abstract class Ingredient implements Component, Sourceable {
-    private static int ingredientCounter = 1;
     private String name;
     private Unit unit;
     private Double quantity;

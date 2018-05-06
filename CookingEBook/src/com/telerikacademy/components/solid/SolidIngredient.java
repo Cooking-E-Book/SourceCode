@@ -18,14 +18,14 @@ public abstract class SolidIngredient extends Ingredient {
         return unit;
     }
 
-    @Override
+    public abstract String getSource();
+    
+     @Override
     protected void setUnit(Unit unit) {
         if (!(unit.equals(Unit.GRAM) || unit.equals(Unit.KILOGRAM) || unit.equals(Unit.COUNT))) {
             throw new NoSuchSolidMeasurementException();
         }
         this.unit = unit;
     }
-
-    public abstract String getSource();
 
 }

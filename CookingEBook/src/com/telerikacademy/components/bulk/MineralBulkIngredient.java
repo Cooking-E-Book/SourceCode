@@ -14,13 +14,6 @@ public class MineralBulkIngredient extends BulkIngredient {
         this.setSource( mineralSource );
     }
 
-    private void setSource(MineralSource mineralSource) {
-        if (!(mineralSource.equals(MineralSource.SALТ) || mineralSource.equals(MineralSource.SODA))) {
-            throw new NoSuchMineralSourceException("Minerals");
-        }
-        this.mineralSource = mineralSource;
-    }
-
     @Override
     public String getSource() {
         return this.mineralSource.toString();
@@ -29,6 +22,13 @@ public class MineralBulkIngredient extends BulkIngredient {
     @Override
     public String toString() {
         return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+    
+     private void setSource(MineralSource mineralSource) {
+        if (!(mineralSource.equals(MineralSource.SALТ) || mineralSource.equals(MineralSource.SODA))) {
+            throw new NoSuchMineralSourceException("Minerals");
+        }
+        this.mineralSource = mineralSource;
     }
 
 }

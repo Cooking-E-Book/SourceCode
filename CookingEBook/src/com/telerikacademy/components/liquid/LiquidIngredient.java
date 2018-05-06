@@ -17,7 +17,9 @@ public abstract class LiquidIngredient  extends Ingredient {
         return unit;
     }
 
-    @Override
+    public abstract String getSource();
+    
+     @Override
     protected void setUnit(Unit unit) {
         if (!(unit.equals(Unit.MILLILITER) || unit.equals(Unit.LITER)
                 || unit.equals(Unit.TEACUP) || unit.equals( Unit.TABLESPOON ))) {
@@ -25,7 +27,5 @@ public abstract class LiquidIngredient  extends Ingredient {
         }
         this.unit = unit;
     }
-
-    public abstract String getSource();
 
 }
