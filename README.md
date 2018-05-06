@@ -33,7 +33,7 @@ E. **Ingredient** – represented by a name, quantity, measurement unit, energy 
 
 F.   **Message** – has an author and a timestamp, and is used for communication between users. Depending on its specific purpose in the communication process, it is assigned to several categories:
   1. **Comment** – used by laymen (amateur cooks) to express opinions about a given recipe and as replies to other comments. Each has an author, a timestamp, and a body. Other of its features include number of likes, dislikes, replies and an indicator whether it has been deleted. If deleted, no action can be performed upon it. Only its author or an administrator of the cookbook can delete/ edit it.
-  2. **Review** – used by **Author** (i.e., chefs) to express opinions about other authors&#39; recipes. They have same characteristics as of **Comment** but can be also rated based on the number of likes and dislikes posted by **Subscriber**.
+  2. **Review** – used by **Author** (i.e., chefs) to express opinions about other authors&#39; recipes. They have same characteristics as of **Comment** except that they cannot be replied to and can be also rated based on the number of likes and dislikes posted by **Subscriber**.
   3. **Summary** – used by **Author** (i.e., chefs) to summarize his/ her recipe and facilitates the decision-making process of readers when deciding whether to read the full recipe or continue browsing other recipes. Has same properties as **Review**, but different purpose.
 
   The cookbook also contains:
