@@ -1,6 +1,8 @@
 package com.telerikacademy.messages;
 
 import com.telerikacademy.Global;
+import com.telerikacademy.exceptions.messages.NoSuchMessageExists;
+import com.telerikacademy.exceptions.user.UserAccessDeniedException;
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
@@ -22,11 +24,10 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
     }
     
     @Override
-    public void like() {
+    public void like() throws NoSuchMessageExists, UserAccessDeniedException {
         User user = Global.currentUser;
         if (isDeleted) {
-            String log = String.format("\"%s\" cannot be liked because the review is already deleted!", review);
-            System.out.println(log);
+            throw new NoSuchMessageExists(review);
         }
         else if (user instanceof Admin || user instanceof Author) {
             String log = String.format("%s liked: \"%s\"", user.getUsername(), review);
@@ -34,17 +35,15 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
             likes++;
         }
         else {
-            String log = String.format("%s is a visitor. In order to like, please first sign up or log into your profile!", user.getUsername());
-            System.out.println(log);
+            throw new UserAccessDeniedException(user.getUsername());
         }
     }
     
     @Override
-    public void dislike() {
+    public void dislike() throws NoSuchMessageExists, UserAccessDeniedException {
         User user = Global.currentUser;
         if (isDeleted) {
-            String log = String.format("\"%s\" cannot be disliked because the review is already deleted!", review);
-            System.out.println(log);
+            throw new NoSuchMessageExists(review);
         }
         else if (user instanceof Admin || user instanceof Author) {
             String log = String.format("%s disliked: \"%s\"", user.getUsername(), review);
@@ -52,14 +51,13 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
             dislikes++;
         }
         else {
-            String log = String.format("%s is a visitor. In order to dislike, please first sign up or log into your profile!", user.getUsername());
-            System.out.println(log);
+            throw new UserAccessDeniedException(user.getUsername());
         }
     }
     
     // modify to be deleted only by admin and/ or author
     @Override
-    public void delete() {
+    public void delete() throws NoSuchMessageExists, UserAccessDeniedException {
         User user = Global.currentUser;
         if (!isDeleted) {
             if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
@@ -68,18 +66,16 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
                 isDeleted = true;
             }
             else {
-                String log = String.format("%s does not have the rights to delete this review!", user.getUsername());
-                System.out.println(log);
+                throw new UserAccessDeniedException(user.getUsername());
             }
         }
         else {
-            System.out.printf("Comment \"%s\": already deleted!", review);
-            System.out.println();
+            throw new NoSuchMessageExists(review);
         }
     }
     
     @Override
-    public void edit(String review) {
+    public void edit(String review) throws NoSuchMessageExists, UserAccessDeniedException {
         User user = Global.currentUser;
         String prevReview = this.review;
         if (!isDeleted) {
@@ -89,13 +85,11 @@ public class Review extends Message implements Likable, Dislikable, Editable, De
                 System.out.println(log);
             }
             else {
-                String log = String.format("%s does not have the rights to edit this review!", user.getUsername());
-                System.out.println(log);
+                throw new UserAccessDeniedException(user.getUsername());
             }
         }
         else {
-            String log = String.format("Review \"%s\": already deleted!", this.review);
-            System.out.println(log);
+            throw new NoSuchMessageExists(this.review);
         }
     }
     

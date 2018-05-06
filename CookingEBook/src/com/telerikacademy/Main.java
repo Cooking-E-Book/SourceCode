@@ -58,7 +58,8 @@ public class Main {
         Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
         Security.register("Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
         Security.register("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
-
+	
+			Security.logOut();
         // Exception Test - working
 //        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
 
@@ -67,9 +68,7 @@ public class Main {
         }
 
         System.out.println(Global.currentUser.getUsername());
-
-        Security.logOut();
-
+        
         // Vladi's code (testing classes' functionality):
 
         Security.logIn("pavel", "pass");
@@ -95,6 +94,8 @@ public class Main {
 				System.out.println(ms.getRecipeId());
 
         Security.logOut();
+        
+        
         Security.logIn("Pepi", "passwordPepi");
 
         ms.dislike();
