@@ -14,5 +14,4 @@ public class Global {
     public static int INGREDIENT_ID = 1;
 
 
-
 }
