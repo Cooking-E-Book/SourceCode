@@ -36,7 +36,7 @@ public class RecipeCreator {
         Component sugar, potato, milk, ghee, mavaCrumbled, almonds = null;
         try{
             this.updateConstants();
-            Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", Global.currentUser, "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");
+            Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");
             sugar = new PlantBulkIngredient( "Sugar", 2.0,  158, Unit.TEACUP, Sourceable.PlantSource.FRUIT);
             String sugarAmount = "" + sugar.getQuantity() + sugar.getUnit().toString();
             gajar_halwa.addIngredient( sugarAmount, sugar );
@@ -101,7 +101,7 @@ public class RecipeCreator {
         Component rice, water, salt = null;
         try{
             this.updateConstants();
-            Recipe basmati_rice = new Recipe("Basmati Rice", Global.currentUser, "Serves: 9\t Pressure Cooking Time 15 minute, in 5 Litre pressure cooker");
+            Recipe basmati_rice = new Recipe("Basmati Rice", "Serves: 9\t Pressure Cooking Time 15 minute, in 5 Litre pressure cooker");
             rice = new PlantBulkIngredient( "Basmati rice washed", 3.0,  178, Unit.TEACUP, Sourceable.PlantSource.GRAIN);
             String riceAmount = "" + rice.getQuantity() + rice.getUnit().toString();
             basmati_rice.addIngredient( riceAmount, rice );

@@ -1,8 +1,11 @@
 package com.telerikacademy.cooking;
 
 import com.telerikacademy.Global;
+import com.telerikacademy.exceptions.user.UserAccessDeniedException;
 import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.messages.Comment;
+import com.telerikacademy.users.Admin;
+import com.telerikacademy.users.Author;
 import com.telerikacademy.users.User;
 
 import java.awt.*;
@@ -26,15 +29,19 @@ public class Recipe {
     private List<Comment> comments;
     private Timestamp recipeAdded;
 
-    public Recipe(String title, User author, String description) {
-        this.setId();
-        this.title = title;
-        this.author = author;
-        this.description = description;
-        steps = new LinkedList<>();
-        recipe = new HashMap<>();
-        comments = new ArrayList<>();
-        this.recipeAdded = new Timestamp(System.currentTimeMillis());
+    public Recipe(String title, String description) {
+        if (Global.currentUser instanceof Author || Global.currentUser instanceof Admin) {
+            this.setId();
+            this.title = title;
+            this.author = Global.currentUser;
+            this.description = description;
+            steps = new LinkedList<>();
+            recipe = new HashMap<>();
+            comments = new ArrayList<>();
+            this.recipeAdded = new Timestamp(System.currentTimeMillis());
+        } else {
+            throw new UserAccessDeniedException("Current user has no permission to create recipes");
+        }
     }
 
 
