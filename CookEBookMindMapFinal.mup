@@ -1,0 +1,848 @@
+{
+  "formatVersion": 3,
+  "id": "root",
+  "ideas": {
+    "2": {
+      "title": "Message (abstract class)",
+      "id": 137,
+      "attr": {
+        "position": [
+          -2465.9999389648438,
+          44.06670379638672,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Comment",
+          "id": 138,
+          "ideas": {
+            "1": {
+              "title": "Readable (Replies)",
+              "id": 259,
+              "attr": {
+                "style": {
+                  "background": "#FFCC00"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "width": 58
+            }
+          }
+        },
+        "2": {
+          "title": "Review",
+          "id": 140,
+          "ideas": {
+            "1": {
+              "title": "Ratable",
+              "id": 258,
+              "attr": {
+                "style": {
+                  "background": "#FFCC00"
+                }
+              }
+            }
+          }
+        },
+        "0.5": {
+          "title": "Summary",
+          "id": 139,
+          "ideas": {
+            "1": {
+              "title": "Ratable",
+              "id": 260,
+              "attr": {
+                "style": {
+                  "background": "#FFCC00"
+                }
+              }
+            }
+          },
+          "attr": {
+            "position": [
+              172,
+              -67.06659698486328,
+              1
+            ]
+          }
+        },
+        "-1": {
+          "title": "Likable",
+          "id": 254,
+          "attr": {
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        },
+        "-2": {
+          "title": "Dislikable",
+          "id": 255,
+          "attr": {
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        },
+        "-3": {
+          "title": "Deletable",
+          "id": 256,
+          "attr": {
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        },
+        "-13": {
+          "title": "Editable",
+          "id": 257,
+          "attr": {
+            "position": [
+              179.99998474121094,
+              86.33336639404297,
+              2
+            ],
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        },
+        "-23": {
+          "title": "UserAccessDeniedException",
+          "id": 262,
+          "attr": {
+            "position": [
+              186.19999504089355,
+              148.26677703857422,
+              3
+            ],
+            "style": {
+              "background": "#FF0000"
+            }
+          }
+        },
+        "-33": {
+          "title": "NoSuchMessageExists",
+          "id": 261,
+          "attr": {
+            "position": [
+              199.99999237060547,
+              203.33342742919922,
+              4
+            ],
+            "style": {
+              "background": "#FF0000"
+            }
+          }
+        }
+      }
+    },
+    "3": {
+      "title": "Help",
+      "id": 162,
+      "attr": {
+        "position": [
+          -2400.0665893554688,
+          612.9334030151367,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "ContactInfo",
+          "id": 163,
+          "ideas": {}
+        },
+        "11": {
+          "title": "FAQ",
+          "id": 166,
+          "ideas": {
+            "1": {
+              "title": "Question",
+              "id": 167
+            },
+            "2": {
+              "title": "Answer",
+              "id": 168
+            }
+          },
+          "attr": {
+            "position": [
+              52.00006103515625,
+              56.86675262451172,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "4": {
+      "title": "Enumerations",
+      "id": 169,
+      "attr": {
+        "position": [
+          -2512,
+          -594.9999923706055,
+          1
+        ],
+        "style": {
+          "background": "#99CC00"
+        }
+      },
+      "ideas": {
+        "1": {
+          "title": "DishCategory",
+          "id": 171
+        },
+        "2": {
+          "title": "TemperatureScale",
+          "id": 175
+        },
+        "3": {
+          "title": "UserType",
+          "id": 177
+        },
+        "4": {
+          "title": "HeatTreatType",
+          "id": 285
+        },
+        "-1": {
+          "title": "SubscriptionPlan",
+          "id": 173,
+          "attr": {}
+        },
+        "-2": {
+          "title": "Unit",
+          "id": 176
+        },
+        "-3": {
+          "title": "MechanicalTreatType",
+          "id": 284
+        }
+      }
+    },
+    "5": {
+      "title": "Exception Handlers",
+      "id": 178,
+      "attr": {
+        "position": [
+          -1676.2666664123535,
+          -446.9999771118164,
+          1
+        ],
+        "style": {
+          "background": "#FF0000"
+        }
+      },
+      "ideas": {
+        "1": {
+          "title": "IncompatibleUnitTypes",
+          "id": 179,
+          "ideas": {}
+        },
+        "2": {
+          "title": "NegativeNumberUnitConversion",
+          "id": 185
+        },
+        "3": {
+          "title": "RecipeAlreadyExists",
+          "id": 187
+        },
+        "4": {
+          "title": "DuplicatUserException",
+          "id": 198,
+          "ideas": {}
+        },
+        "5": {
+          "title": "UserAccessDeniedException",
+          "id": 202
+        },
+        "-1": {
+          "title": "NoSuchMeasurementException (abstract class)",
+          "id": 180,
+          "ideas": {
+            "2": {
+              "title": "NoSuchBulkMeasurementException",
+              "id": 182
+            },
+            "3": {
+              "title": "NoSuchLiquidMeasurementException",
+              "id": 183
+            },
+            "4": {
+              "title": "NoSuchSolidMeasurementException",
+              "id": 184
+            }
+          }
+        },
+        "-2": {
+          "title": "NoSuchMessageExists",
+          "id": 186
+        },
+        "-3": {
+          "title": "NoSuchSourceException (abstract class)",
+          "id": 189,
+          "ideas": {
+            "1": {
+              "title": "NoSuchAnimalSourceException",
+              "id": 191
+            },
+            "2": {
+              "title": "NoSuchMineralSourceException",
+              "id": 193
+            },
+            "3": {
+              "title": "NoSuchMushroomSourceException",
+              "id": 194
+            },
+            "4": {
+              "title": "NoSuchPlantSourceException",
+              "id": 195,
+              "ideas": {}
+            }
+          }
+        },
+        "-4": {
+          "title": "InvalidUsernameException",
+          "id": 201
+        },
+        "-5": {
+          "title": "NoSuchTreatmentException",
+          "id": 203
+        }
+      }
+    },
+    "6": {
+      "title": "Interfaces",
+      "id": 205,
+      "attr": {
+        "position": [
+          -2473.9999389648438,
+          -308.00000762939453,
+          1
+        ],
+        "style": {
+          "background": "#FFCC00"
+        }
+      },
+      "ideas": {
+        "1": {
+          "title": "Security",
+          "id": 206
+        },
+        "2": {
+          "title": "Convertible",
+          "id": 209
+        },
+        "3": {
+          "title": "Dislikable",
+          "id": 212
+        },
+        "4": {
+          "title": "Likable",
+          "id": 214
+        },
+        "5": {
+          "title": "Readable",
+          "id": 216
+        },
+        "-1": {
+          "title": "Component",
+          "id": 208
+        },
+        "-2": {
+          "title": "Deletable",
+          "id": 211
+        },
+        "-3": {
+          "title": "Editable",
+          "id": 213
+        },
+        "-4": {
+          "title": "Ratable",
+          "id": 215
+        },
+        "-5": {
+          "title": "Sourceable",
+          "id": 217
+        }
+      }
+    },
+    "7": {
+      "title": "Calculations",
+      "id": 219,
+      "attr": {
+        "position": [
+          -2553.800033569336,
+          399.9333724975586,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "TemperatureConverter",
+          "id": 221,
+          "ideas": {
+            "1": {
+              "title": "TemperatureScale",
+              "id": 281,
+              "attr": {
+                "style": {
+                  "background": "#99CC00"
+                }
+              }
+            },
+            "2": {
+              "title": "Convertible",
+              "id": 290,
+              "attr": {
+                "style": {
+                  "background": "#FFCC00"
+                }
+              }
+            }
+          }
+        },
+        "11": {
+          "title": "UnitConverter",
+          "id": 222,
+          "ideas": {
+            "1": {
+              "title": "Unit",
+              "id": 282,
+              "attr": {
+                "style": {
+                  "background": "#99CC00"
+                }
+              }
+            },
+            "2": {
+              "title": "Convertible",
+              "id": 289,
+              "attr": {
+                "style": {
+                  "background": "#FFCC00"
+                }
+              }
+            }
+          },
+          "attr": {
+            "position": [
+              138.19998168945312,
+              64.9333724975586,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "8": {
+      "title": "Ingredient (abstract class)",
+      "id": 224,
+      "attr": {
+        "position": [
+          -1478.7999267578125,
+          387.5333786010742,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "SolidIngredient (abstract class)",
+          "id": 225,
+          "ideas": {
+            "1": {
+              "title": "AnimalSolidIngredient",
+              "id": 234,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchAnimalSourceException",
+                  "id": 271,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "2": {
+              "title": "MushroomSolidIngredient",
+              "id": 235,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchMushroomSourceException",
+                  "id": 270,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": "PlantSolidIngredient",
+              "id": 236,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchPlantSourceException",
+                  "id": 269,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "4": {
+              "title": "NoSuchSolidMeasurementException",
+              "id": 268,
+              "attr": {
+                "style": {
+                  "background": "#FF0000"
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "title": "BulkIngredient (abstract class)",
+          "id": 227,
+          "ideas": {
+            "1": {
+              "title": "MineralBulkIngredient",
+              "id": 228,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchMineralSourceException",
+                  "id": 273,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "2": {
+              "title": "PlantBulkIngredient",
+              "id": 230,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchPlantSourceException",
+                  "id": 274,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": "NoSuchBulkMeasurementException",
+              "id": 272,
+              "attr": {
+                "style": {
+                  "background": "#FF0000"
+                }
+              }
+            }
+          }
+        },
+        "3": {
+          "title": "Unit",
+          "id": 288,
+          "attr": {
+            "style": {
+              "background": "#99CC00"
+            }
+          }
+        },
+        "-1": {
+          "title": "LiquidIngredient (abstract class)",
+          "id": 226,
+          "ideas": {
+            "1": {
+              "title": "AnimalLiquidIngredient",
+              "id": 231,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchAnimalSourceException",
+                  "id": 276,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "2": {
+              "title": "MineralLiquidIngredient",
+              "id": 232,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchMineralSourceException",
+                  "id": 277,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": "PlantLiquidIngredient",
+              "id": 233,
+              "ideas": {
+                "1": {
+                  "title": "NoSuchPlantSourceException",
+                  "id": 278,
+                  "attr": {
+                    "style": {
+                      "background": "#FF0000"
+                    }
+                  }
+                }
+              }
+            },
+            "4": {
+              "title": "NoSuchLiquidMeasurementException",
+              "id": 275,
+              "attr": {
+                "style": {
+                  "background": "#FF0000"
+                }
+              }
+            }
+          }
+        },
+        "-2": {
+          "title": "Component",
+          "id": 266,
+          "attr": {
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        },
+        "-12": {
+          "title": "Sourceable",
+          "id": 267,
+          "attr": {
+            "position": [
+              96.88323896484376,
+              113.33342742919922,
+              1
+            ],
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        }
+      }
+    },
+    "9": {
+      "title": "Cooking",
+      "id": 237,
+      "attr": {
+        "position": [
+          -1729.6666259765625,
+          25.93335723876953,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Dish (abstract class)",
+          "id": 238,
+          "ideas": {
+            "1": {
+              "title": "HeatTreatedDish",
+              "id": 239,
+              "ideas": {
+                "1": {
+                  "title": "HeatTreatType",
+                  "id": 286,
+                  "attr": {
+                    "style": {
+                      "background": "#99CC00"
+                    }
+                  }
+                }
+              }
+            },
+            "2": {
+              "title": "MechanicalTreatedDish",
+              "id": 241,
+              "ideas": {
+                "1": {
+                  "title": "MechanicalTreatType",
+                  "id": 287,
+                  "attr": {
+                    "style": {
+                      "background": "#99CC00"
+                    }
+                  }
+                }
+              }
+            },
+            "3": {
+              "title": "DishCategory",
+              "id": 280,
+              "attr": {
+                "style": {
+                  "background": "#99CC00"
+                }
+              }
+            }
+          }
+        },
+        "2": {
+          "title": "Step",
+          "id": 243
+        },
+        "-1": {
+          "title": "Recipe",
+          "id": 242
+        },
+        "-2": {
+          "title": "Utensil",
+          "id": 244
+        }
+      }
+    },
+    "10": {
+      "title": "Users (abstract class)",
+      "id": 245,
+      "attr": {
+        "position": [
+          -1171.9998779296875,
+          1.7999954223632812,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Visitor",
+          "id": 246
+        },
+        "2": {
+          "title": "Admin",
+          "id": 248
+        },
+        "12": {
+          "title": "Author",
+          "id": 247,
+          "attr": {}
+        },
+        "13": {
+          "title": "UserType",
+          "id": 279,
+          "attr": {
+            "style": {
+              "background": "#99CC00"
+            }
+          }
+        },
+        "-2": {
+          "title": "Security",
+          "id": 263,
+          "attr": {
+            "style": {
+              "background": "#FFCC00"
+            }
+          }
+        },
+        "-3": {
+          "title": "DuplicateUserException",
+          "id": 264,
+          "attr": {
+            "style": {
+              "background": "#FF0000"
+            }
+          }
+        },
+        "-4": {
+          "title": "InvalidUsernameException",
+          "id": 265,
+          "attr": {
+            "style": {
+              "background": "#FF0000"
+            }
+          }
+        },
+        "-5": {
+          "title": "SubscriptionPlan",
+          "id": 283,
+          "attr": {
+            "style": {
+              "background": "#99CC00"
+            }
+          }
+        }
+      }
+    },
+    "11": {
+      "title": "Global",
+      "id": 249,
+      "attr": {
+        "position": [
+          -2385.2666625976562,
+          815.0667037963867,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Contains global variables (e.g., currentUser, recipeId, etc.)",
+          "id": 293
+        }
+      }
+    },
+    "12": {
+      "title": "Main",
+      "id": 250,
+      "attr": {
+        "position": [
+          -2143.2666015625,
+          823.0667037963867,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Used for project scenario presentation in front of examination committee",
+          "id": 291
+        }
+      }
+    },
+    "13": {
+      "title": "CookBook",
+      "id": 253,
+      "attr": {
+        "position": [
+          -1943.5332641601562,
+          852.6667404174805,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "Gathers together the functionality of all project's classes (in progress). Preserves events into lists (e.g., list of comments, recipes, users registered, reviews, summaries, etc.)",
+          "id": 292
+        }
+      }
+    }
+  },
+  "title": "Message (abstract class)",
+  "links": []
+}
