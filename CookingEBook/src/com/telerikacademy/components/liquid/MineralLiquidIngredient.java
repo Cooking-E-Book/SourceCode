@@ -13,13 +13,6 @@ public class MineralLiquidIngredient extends LiquidIngredient {
         this.setSource( mineralSource );
     }
 
-    private void setSource(MineralSource mineralSource) {
-        if (!mineralSource.equals(MineralSource.WATER)) {
-            throw new NoSuchMineralSourceException("Source", "Water");
-        }
-        this.mineralSource = mineralSource;
-    }
-
     @Override
     public String getSource() {
         return this.mineralSource.toString();
@@ -28,6 +21,13 @@ public class MineralLiquidIngredient extends LiquidIngredient {
     @Override
     public String toString() {
         return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+    
+    private void setSource(MineralSource mineralSource) {
+        if (!mineralSource.equals(MineralSource.WATER)) {
+            throw new NoSuchMineralSourceException("Source", "Water");
+        }
+        this.mineralSource = mineralSource;
     }
 
 }

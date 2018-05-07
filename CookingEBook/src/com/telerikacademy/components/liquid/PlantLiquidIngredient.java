@@ -18,6 +18,11 @@ public class PlantLiquidIngredient extends LiquidIngredient {
         return this.plantSource.toString();
     }
 
+    @Override
+    public String toString() {
+        return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+
     private void setSource(PlantSource plantSource) {
         if (!(plantSource.equals(PlantSource.FRUIT) ||
                 plantSource.equals(PlantSource.GRAIN) ||

@@ -13,14 +13,6 @@ public class MushroomIngredient extends SolidIngredient {
         this.setSource( mushroomSource );
     }
 
-    private void setSource(MushroomSource mushroomSource) {
-        if (!(mushroomSource.equals(MushroomSource.CULTIVATED) ||
-                mushroomSource.equals(MushroomSource.WILD))) {
-            throw new NoSuchMushroomSourceException();
-        }
-        this.mushroomSource = mushroomSource;
-    }
-
     @Override
     public String getSource() {
         return this.mushroomSource.toString();
@@ -29,6 +21,14 @@ public class MushroomIngredient extends SolidIngredient {
     @Override
     public String toString() {
         return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+    
+    private void setSource(MushroomSource mushroomSource) {
+        if (!(mushroomSource.equals(MushroomSource.CULTIVATED) ||
+                mushroomSource.equals(MushroomSource.WILD))) {
+            throw new NoSuchMushroomSourceException();
+        }
+        this.mushroomSource = mushroomSource;
     }
 
 }

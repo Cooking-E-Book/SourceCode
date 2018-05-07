@@ -1,11 +1,15 @@
 package com.telerikacademy.cooking;
 
+import com.telerikacademy.Global;
 import com.telerikacademy.enumerations.DishCategory;
+import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.users.User;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 public abstract class Dish {
 
@@ -15,10 +19,10 @@ public abstract class Dish {
     private List<User> users;// some users who set the rating after testing
     private Double rating;
 
-    public Dish(DishCategory category, Recipe recipe, Timestamp time) {
+    public Dish(DishCategory category, Recipe recipe) {
         this.category = category;
         this.recipe = recipe;
-        this.time = time;
+        this.time = new Timestamp(System.currentTimeMillis());
         this.users = new ArrayList<>(  );
     }
 
@@ -46,4 +50,26 @@ public abstract class Dish {
         this.time = time;
     }
 
+    private String printIngredients(){
+        StringBuilder sb = new StringBuilder(  );
+        Map<String, Component> recipe = this.recipe.getRecipe();
+        for (Component component : recipe.values()) {
+            sb.append( component );
+        }
+        return sb.toString();
+    }
+
+    private String printSteps(){
+        StringBuilder sb = new StringBuilder(  );
+        Queue<Step> steps = this.recipe.getSteps();
+        for (Step step : steps) {
+            sb.append( step.toString() );
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s%n%s%nSteps:%n%s%n%n", this.getRecipe().getTitle(), this.getCategory(), this.printIngredients(), this.printSteps());
+    }
 }

@@ -1,13 +1,19 @@
 package com.telerikacademy.messages;
 
+import com.telerikacademy.Global;
+import com.telerikacademy.exceptions.messages.NoSuchMessageExists;
+import com.telerikacademy.exceptions.user.UserAccessDeniedException;
 import com.telerikacademy.interfaces.*;
 import com.telerikacademy.interfaces.Readable;
 import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
 import com.telerikacademy.users.User;
-import com.telerikacademy.users.Visitor;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Comment extends Message implements Likable, Dislikable, Editable, Deletable, Readable {
@@ -18,9 +24,8 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	private int dislikes;
 	private boolean isDeleted;
 	
-	public Comment(User author, String comment) {
-		super(author);
-		super.getTimestamp();
+	public Comment(int recipeId, String comment) {
+		super(recipeId);
 		this.comment = comment;
 		likes = 0;
 		dislikes = 0;
@@ -44,39 +49,42 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 		replies.add(reply);
 	}
 	
-	/*public boolean isDeletedCheck() {
-		return isDeleted;
-	}*/
-	
 	@Override
-	public void like(User user) {
-		if (user instanceof Admin || user instanceof Author) {
+	public void like() throws NoSuchMessageExists, UserAccessDeniedException {
+		User user = Global.currentUser;
+		if (isDeleted) {
+			throw new NoSuchMessageExists(comment);
+		}
+		else if (user instanceof Admin || user instanceof Author) {
 			String log = String.format("%s liked: \"%s\"", user.getUsername(), comment);
 			System.out.println(log);
 			likes++;
 		}
 		else {
-			String log = String.format("%s is a visitor. In order to like, please sign up or log in your profile first!", user.getUsername());
-			System.out.println(log);
+			throw new UserAccessDeniedException(user.getUsername());
 		}
 	}
 	
 	@Override
-	public void dislike(User user) {
-		if (user instanceof Admin || user instanceof Author) {
+	public void dislike() throws NoSuchMessageExists, UserAccessDeniedException{
+		User user = Global.currentUser;
+		if (isDeleted) {
+			throw new NoSuchMessageExists(comment);
+		}
+		else if (user instanceof Admin || user instanceof Author) {
 			String log = String.format("%s disliked: \"%s\"", user.getUsername(), comment);
 			System.out.println(log);
 			dislikes++;
 		}
 		else {
-			String log = String.format("%s is a visitor. In order to dislike, please sign up or log in your profile first!", user.getUsername());
-			System.out.println(log);
+			throw new UserAccessDeniedException(user.getUsername());
 		}
 	}
 	
 	// modify to be deleted only by admin and/ or author
 	@Override
-	public void delete(User user) {
+	public void delete() {
+		User user = Global.currentUser;
 		if (!isDeleted) {
 			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
 				String log = String.format("%s deleted \"%s\"", user.getUsername(), comment);
@@ -85,18 +93,17 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 				replies.remove(this);
 			}
 			else {
-				String log = String.format("%s does not have the rights to delete this message!", user.getUsername());
-				System.out.println(log);
+				throw new UserAccessDeniedException(user.getUsername());
 			}
 		}
 		else {
-			System.out.printf("Comment \"%s\": already deleted!", comment);
-			System.out.println();
+			throw new NoSuchMessageExists(comment);
 		}
 	}
 	
 	@Override
-	public void edit(User user, String comment) {
+	public void edit(String comment) {
+		User user = Global.currentUser;
 		String prevComment = this.comment;
 		if (!isDeleted) {
 			if (user.getUsername().equals(this.getAuthor().getUsername()) || user instanceof Admin) {
@@ -105,13 +112,11 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 				System.out.println(log);
 			}
 			else {
-				String log = String.format("%s does not have the rights to edit this comment!", user.getUsername());
-				System.out.println(log);
+				throw new UserAccessDeniedException(user.getUsername());
 			}
 		}
 		else {
-			String log = String.format("Comment \"%s\": already deleted!", this.comment);
-			System.out.println(log);
+			throw new NoSuchMessageExists(comment);
 		}
 	}
 	
@@ -119,7 +124,7 @@ public class Comment extends Message implements Likable, Dislikable, Editable, D
 	@Override
 	public void readReplies() {
 		for (Comment reply : replies) {
-			if (reply.isDeleted == false) {
+			if (!reply.isDeleted) {
 				System.out.printf("%s: %s wrote: \"%s\"", reply.getTimestamp(), reply.getAuthor().getUsername(), reply.getComment());
 				System.out.println();
 			}

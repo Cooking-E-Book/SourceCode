@@ -18,11 +18,15 @@ public class AnimalLiquidIngredient extends LiquidIngredient {
         return this.animalSource.toString();
     }
 
+    @Override
+    public String toString() {
+        return super.toString().concat(String.format( "%s%n", this.getSource() ));
+    }
+
     private void setSource(AnimalSource animalSource) {
         if (!animalSource.equals(AnimalSource.MAMMALS)) {
             throw new NoSuchAnimalSourceException("Mammals");
         }
         this.animalSource = animalSource;
     }
-
 }

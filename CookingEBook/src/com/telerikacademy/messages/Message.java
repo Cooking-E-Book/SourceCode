@@ -1,29 +1,35 @@
 package com.telerikacademy.messages;
 
-import com.telerikacademy.interfaces.Deletable;
-import com.telerikacademy.interfaces.Dislikable;
-import com.telerikacademy.interfaces.Editable;
-import com.telerikacademy.interfaces.Likable;
+import com.telerikacademy.Global;
 import com.telerikacademy.users.User;
-
-import java.sql.Time;
-import java.sql.Timestamp;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public abstract class Message {
     
-    private User author;
-    private Timestamp timestamp;
+    private User author = Global.currentUser;
+    private int recipeId;
+    //private Timestamp timestamp;
+    private String timestamp;
     
-    public Message(User author) {
-        this.author = author;
-        timestamp = new Timestamp(System.currentTimeMillis());
+    public Message(int recipeId) {
+        this.recipeId = recipeId;
+        //timestamp = new Timestamp(System.currentTimeMillis());
+        getTimestamp();
     }
     
     public User getAuthor() {
         return author;
     }
     
-    public Timestamp getTimestamp() {
+    public int getRecipeId() {
+        return recipeId;
+    }
+    
+    public String getTimestamp() {
+        Date curDate = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        String timestamp = format.format(curDate);
         return timestamp;
     }
     
