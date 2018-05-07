@@ -8,6 +8,8 @@ import com.telerikacademy.users.Admin;
 import com.telerikacademy.users.Author;
 import com.telerikacademy.users.User;
 
+import java.sql.Timestamp;
+
 public class Summary extends Message implements Likable, Dislikable, Editable, Deletable, Ratable {
 	
 	private String summary;
@@ -21,6 +23,18 @@ public class Summary extends Message implements Likable, Dislikable, Editable, D
 		likes = 0;
 		dislikes = 0;
 		isDeleted = false;
+	}
+	
+	public String getSummary() {
+		return summary;
+	}
+	
+	public int getLikes() {
+		return likes;
+	}
+	
+	public int getDislikes() {
+		return dislikes;
 	}
 	
 	public void like() throws NoSuchMessageExists, UserAccessDeniedException {

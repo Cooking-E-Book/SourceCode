@@ -4,25 +4,26 @@ import java.util.ArrayList;
 
 public class Help {
 	
-	
-	private ArrayList<FAQ> FAQ;
+	private ArrayList<FAQ> FAQs;
 	private ContactInfo contactInfo;
 	
 	public Help(ContactInfo contactInfo) {
 		this.contactInfo = contactInfo;
-		FAQ = new ArrayList<>();
-	}
-	
-	public void setContactInfo(ContactInfo contactInfo) {
-		this.contactInfo = contactInfo;
+		FAQs = new ArrayList<>();
 	}
 	
 	public ContactInfo getContactInfo() {
 		return contactInfo;
 	}
 	
-	// set some form of FAQ verification using try catch & exception handler
 	public void addFAQ(FAQ faq) {
-		FAQ.add(faq);
+		FAQs.add(faq);
+	}
+	
+	public void readFAQs() {
+		for (FAQ faq : FAQs) {
+			System.out.printf("Question: \"%s\":\nAnswer: \"%s\"", faq.getQuestion(), faq.getAnswer());
+			System.out.println();
+		}
 	}
 }

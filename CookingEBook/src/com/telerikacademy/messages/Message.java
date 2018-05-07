@@ -2,17 +2,20 @@ package com.telerikacademy.messages;
 
 import com.telerikacademy.Global;
 import com.telerikacademy.users.User;
-import java.sql.Timestamp;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public abstract class Message {
     
     private User author = Global.currentUser;
     private int recipeId;
-    private Timestamp timestamp;
+    //private Timestamp timestamp;
+    private String timestamp;
     
     public Message(int recipeId) {
         this.recipeId = recipeId;
-        timestamp = new Timestamp(System.currentTimeMillis());
+        //timestamp = new Timestamp(System.currentTimeMillis());
+        getTimestamp();
     }
     
     public User getAuthor() {
@@ -23,7 +26,10 @@ public abstract class Message {
         return recipeId;
     }
     
-    public Timestamp getTimestamp() {
+    public String getTimestamp() {
+        Date curDate = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        String timestamp = format.format(curDate);
         return timestamp;
     }
     
