@@ -13,6 +13,6 @@ public class Answer {
 
 	@Override
 	public String toString() {
-		return answer.toString();
+		return answer;
 	}
 }
