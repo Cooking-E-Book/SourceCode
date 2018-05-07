@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 public abstract class Dish {
 
@@ -58,8 +59,17 @@ public abstract class Dish {
         return sb.toString();
     }
 
+    private String printSteps(){
+        StringBuilder sb = new StringBuilder(  );
+        Queue<Step> steps = this.recipe.getSteps();
+        for (Step step : steps) {
+            sb.append( step.toString() );
+        }
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
-        return String.format("%s, %s%n%s", this.getRecipe().getTitle(), this.getCategory(), this.printIngredients());
+        return String.format("%s, %s%n%s%nSteps:%n%s%n%n", this.getRecipe().getTitle(), this.getCategory(), this.printIngredients(), this.printSteps());
     }
 }

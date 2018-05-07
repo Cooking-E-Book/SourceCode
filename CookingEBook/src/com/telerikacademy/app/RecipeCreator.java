@@ -1,8 +1,10 @@
 package com.telerikacademy.app;
 
 import com.telerikacademy.Global;
+import com.telerikacademy.components.bulk.MineralBulkIngredient;
 import com.telerikacademy.components.bulk.PlantBulkIngredient;
 import com.telerikacademy.components.liquid.AnimalLiquidIngredient;
+import com.telerikacademy.components.liquid.MineralLiquidIngredient;
 import com.telerikacademy.components.solid.PlantSolidIngredient;
 import com.telerikacademy.cooking.HeatTreatedDish;
 import com.telerikacademy.cooking.Recipe;
@@ -24,13 +26,20 @@ public class RecipeCreator {
     private  HashMap<Integer, Recipe> recipesByRecipeId = new HashMap<>(  );
     private StringBuilder output = new StringBuilder(  );
 
+    private void updateConstants(){
+        Global.INGREDIENT_ID = Global.DEFAULT_VALUE;
+        Global.STEP_ID = Global.DEFAULT_VALUE;;
+        Global.UTENSIL_ID = Global.DEFAULT_VALUE;;
+    }
+
     public String createGajarHalwa() throws RecipeAlreadyExists {
-        Component rise, potato, milk, ghee, mavaCrumbled, almonds = null;
+        Component sugar, potato, milk, ghee, mavaCrumbled, almonds = null;
         try{
+            this.updateConstants();
             Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", Global.currentUser, "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");
-            rise = new PlantBulkIngredient( "Sugar", 2.0,  158, Unit.TEACUP, Sourceable.PlantSource.FRUIT);
-            String riseAmount = "" + rise.getQuantity() + rise.getUnit().toString();
-            gajar_halwa.addIngredient( riseAmount, rise );
+            sugar = new PlantBulkIngredient( "Sugar", 2.0,  158, Unit.TEACUP, Sourceable.PlantSource.FRUIT);
+            String sugarAmount = "" + sugar.getQuantity() + sugar.getUnit().toString();
+            gajar_halwa.addIngredient( sugarAmount, sugar );
 
             potato = new PlantSolidIngredient( "Red carrots", 1.75, 324, Unit.KILOGRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
             String potatoAmount = "" + potato.getQuantity() + potato.getUnit().toString();
@@ -68,9 +77,66 @@ public class RecipeCreator {
             secondStep.add(pressureCooker);
             thirdStep.add(pressureCooker);
             fourthStep.add(pressureCooker);
+            gajar_halwa.addStep( firstStep );
+            gajar_halwa.addStep( secondStep );
+            gajar_halwa.addStep( thirdStep );
+            gajar_halwa.addStep( fourthStep );
             output.append( gajar_halwa ).append( htd );
-            System.out.println(gajar_halwa);
-            System.out.println(htd);
+             //System.out.println(gajar_halwa);
+             //System.out.println(htd);
+            return output.toString();
+
+        } catch (NoSuchMeasurementException e){
+            throw new NoSuchBulkMeasurementException();
+        } catch (NoSuchPlantSourceException e){
+            throw new NoSuchPlantSourceException();
+        } catch (NoSuchAnimalSourceException e){
+            throw new NoSuchAnimalSourceException();
+        } catch (RecipeAlreadyExists recipeAlreadyExists) {
+            throw new RecipeAlreadyExists();
+        }
+    }
+
+    public String createBasmatiRice() throws RecipeAlreadyExists {
+        Component rice, water, salt = null;
+        try{
+            this.updateConstants();
+            Recipe basmati_rice = new Recipe("Basmati Rice", Global.currentUser, "Serves: 9\t Pressure Cooking Time 15 minute, in 5 Litre pressure cooker");
+            rice = new PlantBulkIngredient( "Basmati rice washed", 3.0,  178, Unit.TEACUP, Sourceable.PlantSource.GRAIN);
+            String riceAmount = "" + rice.getQuantity() + rice.getUnit().toString();
+            basmati_rice.addIngredient( riceAmount, rice );
+            salt = new MineralBulkIngredient( "Salt", 1.5, 24, Unit.TEASPOON, Sourceable.MineralSource.SALТ);
+            String saltAmount = "" + salt.getQuantity() + salt.getUnit().toString();
+            basmati_rice.addIngredient( saltAmount, salt );
+            water = new MineralLiquidIngredient( "Water", 3.0, 14, Unit.TEACUP, Sourceable.MineralSource.WATER);
+            String waterAmount = "" + water.getQuantity() + water.getUnit().toString();
+            basmati_rice.addIngredient( waterAmount, water );
+            if (recipesByRecipeId.containsKey( basmati_rice.getId() )) {
+                throw new RecipeAlreadyExists();
+            } else {
+                recipesByRecipeId.put( basmati_rice.getId(), basmati_rice );
+            }
+
+            Utensil pressureCooker = new Utensil( "Pressure cooker", "5 Litre, from stainless steel" );
+            Utensil ladle = new Utensil( "Ladle" , "Wood ladle");
+            System.out.println(pressureCooker);
+            Step firstStep = new Step( "Pour water into cooker. Bring to boil on high heat. Add salt and rice. Stir\n", 2.0 );
+            Step secondStep = new Step( "Close cooker. Bring to full pressure on high heat. Reduce heat and cook for 3 minutes.\n", 3.0 );
+            Step thirdStep = new Step( "Remove cooker from heat. Allow to cool naturally for 5 minutes. Press finger-tip control/lift vent weight lightly to release pressure.\n\n", 5.0 );
+            Step fourthStep = new Step( "Open cooker. Fluff up rice gently with a fork to separate grains.\n", 1.0 );
+            HeatTreatedDish htd = new HeatTreatedDish(DishCategory.MAIN_COURSE,  basmati_rice, 100, HeatTreatedDish.HeatTreatType.BOILING);
+            firstStep.add(pressureCooker);
+            firstStep.add(ladle);
+            secondStep.add(pressureCooker);
+            thirdStep.add(pressureCooker);
+            fourthStep.add(pressureCooker);
+            basmati_rice.addStep( firstStep );
+            basmati_rice.addStep( secondStep );
+            basmati_rice.addStep( thirdStep );
+            basmati_rice.addStep( fourthStep );
+            output.append( basmati_rice ).append( htd );
+            //System.out.println(basmati_rice);
+            //System.out.println(htd);
             return output.toString();
 
         } catch (NoSuchMeasurementException e){

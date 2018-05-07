@@ -52,7 +52,8 @@ public class CookBook {
     private Help help;
     private RecipeCreator recipeCreator;
     private RecipeBox recipeBox;
-    
+
+
     public CookBook() {
         users = new ArrayList<>();
         recipes = new ArrayList<>();
@@ -61,6 +62,12 @@ public class CookBook {
         reviews = new ArrayList<>();
         contactInfo = new ContactInfo("CookBook", "+359888111111", "CookBook@CookBook.com");
         help = new Help(contactInfo);
+        recipeCreator = new RecipeCreator();
+        recipeBox = new RecipeBox();
+    }
+
+    public RecipeCreator getRecipeCreator() {
+        return recipeCreator;
     }
     
     public void addFAQ(String question, String answer) {
@@ -373,13 +380,7 @@ public class CookBook {
         }
     }
     
-    public void addRecipe() throws RecipeAlreadyExists{
-        //RecipeCreator recipeCreator = new RecipeCreator();
-        try{recipeBox.writeRecipe( "recipes/Cook book.txt", recipeCreator.createGajarHalwa() );
-            //recipeCreator.createGajarHalwa();
-        } catch (RecipeAlreadyExists e){
-            throw new RecipeAlreadyExists();
-        }
+    public void addRecipe(String recipe){
+        recipeBox.writeRecipe( Global.COOK_BOOK, recipe );
     }
-
 }

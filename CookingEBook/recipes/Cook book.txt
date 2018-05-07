@@ -1,0 +1,64 @@
+Recipe 1. Gajar Halwa (Carrot Pudding), Author -> com.telerikacademy.users.Author@46d56d67
+Serves: 12	 Pressure Cooking Time 40 minute, in 5 Litre pressure cooker Gajar Halwa (Carrot Pudding), MAIN_COURSE
+1. Sugar
+Quantity -> 2.0 TEACUP
+Kcal -> 158
+Source -> FRUIT
+2. Mava crumbled
+Quantity -> 400.0 GRAM
+Kcal -> 328
+Source -> GRAIN
+3. Ghee
+Quantity -> 7.0 TABLESPOON
+Kcal -> 158
+Source -> MAMMALS
+4. Red carrots
+Quantity -> 1.75 KILOGRAM
+Kcal -> 324
+Source -> ROOT_VEGETABLE
+5. Milk
+Quantity -> 0.25 TEACUP
+Kcal -> 89
+Source -> MAMMALS
+6. Almonds
+Quantity -> 20.0 COUNT
+Kcal -> 224
+Source -> FRUIT
+
+Steps:
+Step 1. Time -> 2.0 minutes, Utensils: Pressure cooker, Ladle
+Put carrots and milk into cooker
+Step 2. Time -> 15.0 minutes, Utensils: Pressure cooker
+Close cooker. Bring to full pressure on high heat(15 minutes). Remove cooker immediately from heat.
+Press finger-tip control/lift vent weight lightly to release pressure. Open cooker.
+Step 3. Time -> 15.0 minutes, Utensils: Pressure cooker
+Place open cooker with carrots and milk on high heat. Add sugar.
+Cook till liquid dries up (approximately 15 minutes), stirring occasionally. Add mava and ghee.
+Step 4. Time -> 10.0 minutes, Utensils: Pressure cooker
+Cook till ghee shows separately (approximately 10 minutes), stirring constantly. Serve hot, garnished with almonds
+
+
+Recipe 2. Basmati Rice, Author -> com.telerikacademy.users.Author@29774679
+Serves: 9	 Pressure Cooking Time 15 minute, in 5 Litre pressure cooker Basmati Rice, MAIN_COURSE
+1. Water
+Quantity -> 3.0 TEACUP
+Kcal -> 14
+Source -> WATER
+2. Salt
+Quantity -> 1.5 TEASPOON
+Kcal -> 24
+Source -> SALТ
+
+Steps:
+Step 1. Time -> 2.0 minutes, Utensils: Pressure cooker, Ladle
+Pour water into cooker. Bring to boil on high heat. Add salt and rice. Stir
+Step 2. Time -> 3.0 minutes, Utensils: Pressure cooker
+Close cooker. Bring to full pressure on high heat. Reduce heat and cook for 3 minutes.
+Step 3. Time -> 5.0 minutes, Utensils: Pressure cooker
+Remove cooker from heat. Allow to cool naturally for 5 minutes. Press finger-tip control/lift vent weight lightly to release pressure.
+
+Step 4. Time -> 1.0 minutes, Utensils: Pressure cooker
+Open cooker. Fluff up rice gently with a fork to separate grains.
+
+
+

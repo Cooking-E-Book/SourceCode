@@ -150,8 +150,8 @@ public class Main {
         
         cookBook.addFAQ("How to register?", "Go to registration form and follow the instructions.");
         cookBook.addFAQ("Are the authors of your recipes professionally trained chefs?", "Yes, all of our recipe contributors are professional cooks with extensive work experience in the art of cooking.");
-    
-        cookBook.addRecipe(); //method must be changed if truly new recipes are to be added (not just GajarHalwa)
+
+        cookBook.addRecipe(cookBook.getRecipeCreator().createGajarHalwa()); //method must be changed if truly new recipes are to be added (not just GajarHalwa)
         
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
@@ -159,7 +159,8 @@ public class Main {
         cookBook.readHelp();
     
         cookBook.addComment(1, "A lovely recipe!");
-        cookBook.addRecipe(); //method must be changed if truly new recipes are to be added (not just GajarHalwa)
+
+        cookBook.addRecipe(cookBook.getRecipeCreator().createBasmatiRice()); //method must be changed if truly new recipes are to be added (not just GajarHalwa)
     
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
@@ -171,12 +172,6 @@ public class Main {
         
         cookBook.likeComment( "Vladi", "2018/05/07");
         cookBook.dislikeComment( "Pepi", "2018/05/07" );
-        //RecipeBox box = new RecipeBox();
-        // Gajar Halwa
-        try{
-           cookBook.addRecipe();
-        } catch (RecipeAlreadyExists e){
-            throw new RecipeAlreadyExists();
-        }
+
     }
 }
