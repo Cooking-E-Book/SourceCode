@@ -77,7 +77,7 @@ public class Main {
 
         ms.delete();
         Comment ms2 = new Comment(3,"Recipe was total failure!");
-				System.out.println(ms2.getRecipeId());
+	System.out.println(ms2.getRecipeId());
         ms2.delete();
         Security.logOut();
         
