@@ -1,6 +1,7 @@
 package com.telerikacademy.interfaces;
 
 import com.telerikacademy.Global;
+import com.telerikacademy.app.CookBook;
 import com.telerikacademy.enumerations.UserType;
 import com.telerikacademy.exceptions.user.DuplicateUserException;
 import com.telerikacademy.exceptions.user.InvalidUsernameException;

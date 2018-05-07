@@ -11,4 +11,8 @@ public class Subscriber extends User implements Security {
 
     }
 
+    @Override
+    public UserType getUserType() {
+        return UserType.SUBSCRIBER;
+    }
 }

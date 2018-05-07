@@ -20,4 +20,9 @@ public class Author extends Subscriber implements Security {
         }
     }
 
+    @Override
+    public UserType getUserType() {
+        return UserType.AUTHOR;
+    }
+
 }

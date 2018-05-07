@@ -45,4 +45,9 @@ public class Visitor extends User implements Security {
     public String getPassword(String token) {
         throw new InvalidUsernameException("Visitor cannot have password");
     }
+
+    @Override
+    public UserType getUserType() {
+        return null;
+    }
 }

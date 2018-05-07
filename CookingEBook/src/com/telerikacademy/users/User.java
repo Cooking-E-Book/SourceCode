@@ -58,6 +58,6 @@ public abstract class User implements Security {
         }
     }
 
-
+    public abstract UserType getUserType();
 
 }

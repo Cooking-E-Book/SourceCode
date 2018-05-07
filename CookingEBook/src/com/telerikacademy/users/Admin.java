@@ -9,4 +9,9 @@ public class Admin extends Author {
                                                 // Thanx :)
     }
 
+    @Override
+    public UserType getUserType() {
+        return UserType.ADMIN;
+    }
+
 }

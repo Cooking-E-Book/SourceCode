@@ -164,6 +164,29 @@ public class Main {
         
         
         // Cook Book
+        Security.logOut();
 
+        Security.register(UserType.SUBSCRIBER,"gosho", "passwordgosho", "Georgi Ivanov", "joro@gmail.com");
+
+        // Log in as Pepi
+        Security.logIn("Pepi", "passwordPepi");
+
+        // List All Authors
+        cookBook.listAuthors();
+
+        // List All Subscribers
+        cookBook.listSubscribers();
+
+        // List Recipes
+        cookBook.listRecipes();
+
+        // List User comments
+        cookBook.listUserComments(Global.currentUser);
+
+        // List User recipes
+        cookBook.listUserRecipes(Global.currentUser);
+
+        // List User reviews
+        cookBook.listUserReviews(Global.currentUser);
     }
 }

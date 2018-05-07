@@ -13,6 +13,7 @@ import com.telerikacademy.cooking.Utensil;
 import com.telerikacademy.enumerations.DishCategory;
 import com.telerikacademy.enumerations.TemperatureScale;
 import com.telerikacademy.enumerations.Unit;
+import com.telerikacademy.enumerations.UserType;
 import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
 import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
 import com.telerikacademy.exceptions.recipes.RecipeAlreadyExists;
@@ -27,9 +28,7 @@ import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Message;
 import com.telerikacademy.messages.Review;
 import com.telerikacademy.messages.Summary;
-import com.telerikacademy.users.Admin;
-import com.telerikacademy.users.User;
-import com.telerikacademy.users.Visitor;
+import com.telerikacademy.users.*;
 
 import java.nio.channels.Channel;
 import java.sql.Time;
@@ -42,8 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CookBook {
-    
-    private List<User> users;
+
     private List<Recipe> recipes;
     private List<Comment> comments;
     private List<Summary> summaries;
@@ -55,7 +53,6 @@ public class CookBook {
 
 
     public CookBook() {
-        users = new ArrayList<>();
         recipes = new ArrayList<>();
         comments = new ArrayList<>();
         summaries = new ArrayList<>();
@@ -383,4 +380,73 @@ public class CookBook {
     public void addRecipe(String recipe){
         recipeBox.writeRecipe( Global.COOK_BOOK, recipe );
     }
+
+    public void listAuthors() {
+        System.out.println("Authors: ");
+        for (int i = 0; i < Security.users.size(); i++) {
+            if (Security.users.get(i).getUserType().equals(UserType.AUTHOR)) {
+                System.out.println(Security.users.get(i).getName());
+            }
+        }
+        System.out.println("------------");
+    }
+
+    public void listSubscribers() {
+        System.out.println("Subscribers: ");
+        for (int i = 0; i < Security.users.size(); i++) {
+            if (Security.users.get(i).getUserType().equals(UserType.SUBSCRIBER)) {
+                System.out.println(Security.users.get(i).getName());
+            }
+        }
+        System.out.println("------------");
+    }
+
+    public void listUserComments(User user) {
+        System.out.println(user.getName() + " Comments");
+        for (int i = 0; i < comments.size(); i++) {
+            if (comments.get(i).getAuthor().equals(user)) {
+                System.out.println(comments.get(i).getComment());
+            }
+        }
+        System.out.println("------------");
+    }
+
+    public void listUserReviews(User user) {
+        System.out.println(user.getName() + " Reviews");
+        for (int i = 0; i < reviews.size(); i++) {
+            if (reviews.get(i).getAuthor().equals(user)) {
+                System.out.println(reviews.get(i).getReview());
+            }
+        }
+        System.out.println("------------");
+    }
+
+    public void listUserRecipes(User user) {
+        System.out.println(user.getName() + " Recipes");
+        for (int i = 0; i < recipes.size(); i++) {
+            if (recipes.get(i).getAuthor().equals(user)) {
+                System.out.println("Author: " + recipes.get(i).getAuthor());
+                System.out.println("Id: " + recipes.get(i).getId());
+                System.out.println("Title: " + recipes.get(i).getTitle());
+                System.out.println("Description: " + recipes.get(i).getDescription());
+                System.out.println("Steps: " + recipes.get(i).getSteps());
+
+            }
+        }
+        System.out.println("------------");
+    }
+
+    public void listRecipes() {
+        System.out.println("All Recipes");
+        for (int i = 0; i < recipes.size(); i++) {
+            System.out.println("Author: " + recipes.get(i).getAuthor());
+            System.out.println("Id: " + recipes.get(i).getId());
+            System.out.println("Title: " + recipes.get(i).getTitle());
+            System.out.println("Description: " + recipes.get(i).getDescription());
+            System.out.println("Steps: " + recipes.get(i).getSteps());
+        }
+        System.out.println("------------");
+    }
+
+
 }
