@@ -1,15 +1,23 @@
 package com.telerikacademy;
 
+import com.telerikacademy.app.CookBook;
+import com.telerikacademy.app.RecipeCreator;
 import com.telerikacademy.calculations.TemperatureConverter;
 import com.telerikacademy.calculations.UnitConverter;
 import com.telerikacademy.components.bulk.PlantBulkIngredient;
 import com.telerikacademy.components.liquid.AnimalLiquidIngredient;
 import com.telerikacademy.components.solid.PlantSolidIngredient;
+import com.telerikacademy.cooking.Dish;
+import com.telerikacademy.cooking.HeatTreatedDish;
+import com.telerikacademy.cooking.Recipe;
+import com.telerikacademy.enumerations.DishCategory;
 import com.telerikacademy.enumerations.TemperatureScale;
 import com.telerikacademy.enumerations.Unit;
 import com.telerikacademy.exceptions.measurement.NoSuchBulkMeasurementException;
 import com.telerikacademy.exceptions.measurement.NoSuchMeasurementException;
+import com.telerikacademy.exceptions.recipes.RecipeAlreadyExists;
 import com.telerikacademy.exceptions.source.NoSuchPlantSourceException;
+import com.telerikacademy.interfaces.Dislikable;
 import com.telerikacademy.interfaces.Security;
 import com.telerikacademy.interfaces.Sourceable;
 import com.telerikacademy.io.RecipeBox;
@@ -21,27 +29,13 @@ import com.telerikacademy.users.Author;
 import com.telerikacademy.users.User;
 import com.telerikacademy.users.Visitor;
 
-public class Main {
-    
-    public static void main(String[] args) {
-        // Oxana's code:
-        /*RecipeBox box = new RecipeBox();
-        Component rise, potato, milk = null;
-        try{
-//            bulk = new BulkIngredient( "Rise", 1.5,  158, Unit.COUNT);
-//            System.out.println(bulk);
-            rise = new PlantBulkIngredient( "Rise", 1.5,  158, Unit.TEACUP, Sourceable.PlantSource.GRAIN);
-            potato = new PlantSolidIngredient( "Red Potato", 500.0, 108, Unit.GRAM, Sourceable.PlantSource.ROOT_VEGETABLE );
-            milk = new AnimalLiquidIngredient( "Milk", 1.0,  308, Unit.LITER,Sourceable.AnimalSource.MAMMALS );
-           System.out.println(rise);
-            System.out.println(potato);
-            System.out.println(milk);
+import java.text.ParseException;
 
-        } catch (NoSuchMeasurementException e){
-            throw new NoSuchBulkMeasurementException();
-        } catch (NoSuchPlantSourceException e){
-            throw new NoSuchPlantSourceException();
-        }*/
+public class Main {
+
+    public static void main(String[] args) throws RecipeAlreadyExists, ParseException {
+
+
 
         // Pavel's code (testing register, login, logout of Author)
         // Info:
@@ -53,6 +47,7 @@ public class Main {
         Security.register("Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
         Security.register("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
 
+        Security.logOut();
         // Exception Test - working
 //        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
 
@@ -60,72 +55,85 @@ public class Main {
             System.out.println(Security.users.get(i).getName());
         }
 
-        System.out.println(Globals.currentUser.getUsername());
-
-        Security.logOut();
+        System.out.println(Global.currentUser.getUsername());
 
         // Vladi's code (testing classes' functionality):
 
         Security.logIn("pavel", "pass");
-        
-        Comment ms = new Comment(Globals.currentUser, "This is one of my favorite recipes I have ever tried! Thank you for sharing!");
-        
+
+        Comment ms = new Comment(1,"This is of my favorite recipes I have ever tried! Thank you for sharing!");
+
+        System.out.println(ms.getRecipeId());
         System.out.println(ms.getTimestamp());
         System.out.println(ms.getAuthor().getUsername());
         System.out.println(ms.getComment());
         System.out.println(ms.getLikes());
 
+        ms.edit( "This is one of my favorite soups I have ever tried! Thanks!" );
+
+        System.out.println(ms.getTimestamp());
+
+        Comment ms1 = new Comment(2,"This recipe rules!!!");
+
+        System.out.println(ms1.getRecipeId());
+
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
-        
-        ms.like(Globals.currentUser);
+
+        ms.like();
         System.out.println(ms.getLikes());
+        //ms.delete();
+        System.out.println(ms.getRecipeId());
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
 
-        ms.dislike(Globals.currentUser);
+        ms.dislike();
         System.out.println(ms.getDislikes());
 
-        Comment rp = new Comment(Globals.currentUser, "This is an awful recipe! How could anyone post it here?!");
+        Comment rp = new Comment(1,"This is an awful recipe! How could anyone post it here?!");
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
 
-        Comment rp1 = new Comment(Globals.currentUser, "Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        Comment rp1 = new Comment(1,"Pepi, I think you are delusional! Next time before posting any message take your purple pills!");
+        Comment rp2 = new Comment(1,"Pepi, tick-tack!");
 
         ms.addReply(rp);
         ms.addReply(rp1);
-        rp.delete(Globals.currentUser);
-        rp.delete(Globals.currentUser);
+        ms.addReply(rp2);
+        //rp.delete();
+        rp1.delete();
         ms.readReplies();
 
         Security.logOut();
         Security.logIn("pavel", "pass");
 
-        ms.delete(Globals.currentUser);
+        ms.delete();
 
-        Comment ddd = new Comment(Globals.currentUser, "Recipe was total failure!");
-        ddd.delete(Globals.currentUser);
+        Comment ddd = new Comment(3,"Recipe was total failure!");
+        System.out.println(ddd.getRecipeId());
+        ddd.delete();
 
         Security.logOut();
         Security.logIn("Vladi", "passwordVladi");
-        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
+        //ms.like();
+        //ms.edit("Best recipe ever! 10x!");
 
         Security.logOut();
         Security.logIn("Pepi", "passwordPepi");
-        ms.edit(Globals.currentUser, "Can we use chicken instead of pork for this recipe?");
+        //ms.edit("Can we use chicken instead of pork for this recipe?");
 
-        Review rv = new Review(Globals.currentUser, "This is a professionally made dish!");
+        Review rv = new Review(1,"This is a professionally made dish!");
 
         Security.logIn("Vladi", "passwordVladi");
-        ms.edit(Globals.currentUser, "Best recipe ever! 10x!");
-        rv.like(Globals.currentUser);
+        //ms.edit("Best recipe ever! 10x!");
+        rv.like();
 
         Security.logOut();
         Security.logIn("pavel", "pass");
-        rv.like(Globals.currentUser);
-        
+        rv.like();
+
 
         System.out.println(rv.rate());
 
@@ -135,11 +143,35 @@ public class Main {
         TemperatureConverter tc = new TemperatureConverter(TemperatureScale.FAHRENHEIT, 32, TemperatureScale.CELSIUS);
         System.out.println(tc.convert());
 
+        CookBook cookBook = new CookBook();
 
+        // we should know which author is Admin, which one is Author, and which one is Subscriber
+        Security.logIn("pavel", "pass");
 
+        cookBook.addFAQ("How to register?", "Go to registration form and follow the instructions.");
+        cookBook.addFAQ("Are the authors of your recipes professionally trained chefs?", "Yes, all of our recipe contributors are professional cooks with extensive work experience in the art of cooking.");
 
+        cookBook.addRecipe(cookBook.getRecipeCreator().createGajarHalwa()); //method must be changed if truly new recipes are to be added (not just GajarHalwa)
 
+        Security.logOut();
+        Security.logIn("Vladi", "passwordVladi");
 
+        cookBook.readHelp();
+
+        cookBook.addComment(1, "A lovely recipe!");
+
+        cookBook.addRecipe(cookBook.getRecipeCreator().createBasmatiRice()); //method must be changed if truly new recipes are to be added (not just GajarHalwa)
+
+        Security.logOut();
+        Security.logIn("Pepi", "passwordPepi");
+
+        cookBook.addComment(2, "Not bad, but I would rather not try it again!");
+
+        Security.logOut();
+        Security.logIn("pavel", "pass");
+
+        cookBook.likeComment( "Vladi", "2018/05/07");
+        cookBook.dislikeComment( "Pepi", "2018/05/07" );
 
     }
 }
