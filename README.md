@@ -10,7 +10,8 @@ II. **Team list:**
 
 III. URL of Git repository: https://github.com/Cooking-E-Book/SourceCode
 
-IV. **Project purpose:** (mind map presentation: https://app.mindmup.com/map/_free/2018/05/e015311051f611e8bebe45807166142e)
+IV. **Project purpose:** 
+(mind map presentation: https://app.mindmup.com/map/_free/2018/05/e015311051f611e8bebe45807166142e)
 
 Create an electronic cookbook with recipes for all kinds of dishes and beverages. This cookbook can be viewed and edited by several types   of users and possesses several characteristics all of which are described in more detail below:
 
