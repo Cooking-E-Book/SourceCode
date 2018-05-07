@@ -6,14 +6,8 @@ import com.telerikacademy.interfaces.Security;
 
 public class Visitor extends User implements Security {
 
-    private final UserType userType = UserType.VISITOR;
-
     public Visitor() {
 
-    }
-
-    public UserType getUserType() {
-        return userType;
     }
 
     @Override
@@ -50,15 +44,5 @@ public class Visitor extends User implements Security {
     @Override
     public String getPassword(String token) {
         throw new InvalidUsernameException("Visitor cannot have password");
-    }
-
-    @Override
-    public void changePassword(String oldPassword, String newPassword) {
-        throw new InvalidUsernameException("Visitor cannot have password");
-    }
-
-    @Override
-    public void editUser(String username, String name, String email) {
-        throw new InvalidUsernameException("Visitor cannot be edited");
     }
 }

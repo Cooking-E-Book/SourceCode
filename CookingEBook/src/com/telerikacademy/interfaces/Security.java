@@ -81,17 +81,31 @@ public interface Security {
         Global.currentUser = new Visitor();
     }
 
-    void changePassword(String oldPassword, String newPassword);
+    static void changePassword(String oldPassword, String newPassword) {
+        if (Global.currentUser instanceof Visitor) {
+            throw new UserAccessDeniedException("Visitor does not have password");
+        } else {
+            if (oldPassword.equals(Global.currentUser.password)) {
+                Global.currentUser.password = newPassword;
+            }
+        }
+    }
 
-    void editUser(String username, String name, String email);
+    static void editUser(String username, String name, String email) {
+        if (Global.currentUser instanceof Visitor) {
+            throw new UserAccessDeniedException("Visitor cannot be edited");
+        } else {
+            Global.currentUser.username = username;
+            Global.currentUser.name = name;
+            Global.currentUser.email = email;
+        }
+    }
 
     static boolean userExists(ArrayList<User> users, String newUser) {
         return users.stream()
                 .anyMatch(user -> user.getUsername().equals(newUser));
     }
 
-//    void adminEditOtherUser(String username, String name, String email);
-//
 //    void adminDeleteOtherUser(User user);
 
 }

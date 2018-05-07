@@ -147,5 +147,16 @@ public class Main {
         Security.logIn("pavel", "pass");
         cookBook.likeComment( "Vladi", "2018/05/07");
         cookBook.dislikeComment( "Pepi", "2018/05/07" );
+
+
+        // Test Security User methods
+
+        Security.changePassword("pass", "passPavel");
+
+        System.out.println(Global.currentUser.password);
+
+        Security.editUser("pavel", "Pavel Ignatov Ignatov", "lepaff@gmai.com");
+
+        System.out.println(Global.currentUser.getName());
     }
 }

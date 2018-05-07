@@ -5,7 +5,7 @@ import com.telerikacademy.interfaces.Security;
 
 public abstract class User implements Security {
 
-    String username;
+    public String username;
 
     public String password;
     public String name;
