@@ -13,9 +13,12 @@ public interface Security {
 
     ArrayList<User> users = new ArrayList<>();
 
-    static void mainAdmin() {
+    static void createMainAdmin() {
         User mainAdmin = new Admin("admin", "adminPass", "Main Administrator", "admin@example.com");
         users.add(mainAdmin);
+        Global.currentUser = mainAdmin;
+        System.out.println("Couldn't create new Admin, since no main admin exists");
+        System.out.println("Main admin created and logged in");
     }
 
     static void register(UserType userType, String username, String password, String name, String email) {
@@ -33,12 +36,16 @@ public interface Security {
                 users.add(user);
                 Global.currentUser = user;
             } else if (userType.equals(UserType.ADMIN)) {
-                if (Global.currentUser instanceof Admin) {
-                    User user = new Admin(username, password, name, email);
-                    users.add(user);
-                    Global.currentUser = user;
+                if (userExists(users, "admin")) {
+                    if (Global.currentUser instanceof Admin) {
+                        User user = new Admin(username, password, name, email);
+                        users.add(user);
+                        Global.currentUser = user;
+                    } else {
+                        throw new UserAccessDeniedException("Only Admin can create new admins");
+                    }
                 } else {
-                    throw new UserAccessDeniedException("Only Admin can create new admins");
+                    createMainAdmin();
                 }
             }
 
@@ -78,9 +85,9 @@ public interface Security {
 
     void editUser(String username, String name, String email);
 
-    static boolean userExists(ArrayList<User> users, String otherItem) {
+    static boolean userExists(ArrayList<User> users, String newUser) {
         return users.stream()
-                .anyMatch(user -> user.getUsername().equals(otherItem));
+                .anyMatch(user -> user.getUsername().equals(newUser));
     }
 
 //    void adminEditOtherUser(String username, String name, String email);

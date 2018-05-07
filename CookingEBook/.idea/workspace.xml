@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0240e17-36c8-4cfd-a817-19cf0c2ec612" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Subscriber.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/recipes/Cook book.txt" afterPath="$PROJECT_DIR$/recipes/Cook book.txt" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/Global.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/Global.java" />
       <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/Main.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/enumerations/UserType.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/enumerations/UserType.java" />
       <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/User.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java" afterPath="$PROJECT_DIR$/src/com/telerikacademy/users/Visitor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -44,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1264">
-              <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="-131">
+              <caret line="124" column="42" lean-forward="false" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -57,8 +51,8 @@
       <file leaf-file-name="CookBook.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/app/CookBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
-              <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -136,15 +130,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Security.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Security.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-445">
-              <caret line="26" column="55" lean-forward="true" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+            <state relative-caret-position="161">
+              <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2900#2901#0" expanded="true" />
-                <element signature="e#2950#2951#0" expanded="true" />
+                <element signature="e#3255#3256#0" expanded="true" />
+                <element signature="e#3305#3306#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,8 +184,9 @@
         <option value="$PROJECT_DIR$/src/com/telerikacademy/users/Author.java" />
         <option value="$PROJECT_DIR$/src/com/telerikacademy/enumerations/UserType.java" />
         <option value="$PROJECT_DIR$/src/com/telerikacademy/users/Subscriber.java" />
-        <option value="$PROJECT_DIR$/src/com/telerikacademy/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/telerikacademy/app/CookBook.java" />
         <option value="$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java" />
+        <option value="$PROJECT_DIR$/src/com/telerikacademy/Main.java" />
       </list>
     </option>
   </component>
@@ -484,7 +479,7 @@
         <state relative-caret-position="6690">
           <caret line="446" column="112" lean-forward="false" selection-start-line="446" selection-start-column="112" selection-end-line="446" selection-end-column="112" />
           <folding>
-            <marker date="1525699727556" expanded="true" signature="38221:38238" ph="..." />
+            <marker date="1525700697088" expanded="true" signature="37317:37334" ph="..." />
           </folding>
         </state>
       </provider>
@@ -611,31 +606,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1264">
-          <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/app/CookBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/interfaces/Security.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-445">
-          <caret line="26" column="55" lean-forward="true" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        <state relative-caret-position="161">
+          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
-            <element signature="e#2950#2951#0" expanded="true" />
+            <element signature="e#3255#3256#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/telerikacademy/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="124" column="42" lean-forward="false" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

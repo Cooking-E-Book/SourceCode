@@ -22,6 +22,9 @@ public class Main {
         Security.register(UserType.AUTHOR,"pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
         Security.register(UserType.AUTHOR,"Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
         Security.register(UserType.AUTHOR,"Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
+        // Will not create the new admin, will create the default admin and login
+        Security.register(UserType.ADMIN,"test", "test", "test", "test@gmail.com");
+
 
         // Log out from last registered user
 	    Security.logOut();
@@ -119,7 +122,7 @@ public class Main {
         // we should know which author is Admin, which one is Author, and which one is Subscriber
         
         // Log in as Pavel
-        Security.logIn("pavel", "pass");
+        Security.logIn("admin", "adminPass");
         
         cookBook.addFAQ("How to register?", "Go to registration form and follow the instructions.");
         cookBook.addFAQ("Are the authors of your recipes professionally trained chefs?", "Yes, all of our recipe contributors are professional cooks with extensive work experience in the art of cooking.");
