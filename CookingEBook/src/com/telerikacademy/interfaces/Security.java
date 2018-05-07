@@ -1,24 +1,47 @@
 package com.telerikacademy.interfaces;
 
 import com.telerikacademy.Global;
+import com.telerikacademy.enumerations.UserType;
 import com.telerikacademy.exceptions.user.DuplicateUserException;
 import com.telerikacademy.exceptions.user.InvalidUsernameException;
-import com.telerikacademy.users.Author;
-import com.telerikacademy.users.Visitor;
+import com.telerikacademy.exceptions.user.UserAccessDeniedException;
+import com.telerikacademy.users.*;
 
 import java.util.ArrayList;
 
 public interface Security {
 
-    ArrayList<Author> users = new ArrayList<>();
+    ArrayList<User> users = new ArrayList<>();
 
-    static void register(String username, String password, String name, String email) {
+    static void mainAdmin() {
+        User mainAdmin = new Admin("admin", "adminPass", "Main Administrator", "admin@example.com");
+        users.add(mainAdmin);
+    }
+
+    static void register(UserType userType, String username, String password, String name, String email) {
         if (userExists(users, username)) {
             throw new DuplicateUserException(String.format("Username \"%s\" already exists.", username));
+        } else if(username.equals("visitor") || username.equals("admin")) {
+            throw new InvalidUsernameException("Wrong Username.");
         } else {
-            Author author = new Author(username, password, name, email);
-            users.add(author);
-            Global.currentUser = author;
+            if (userType.equals(UserType.SUBSCRIBER)) {
+                User user = new Subscriber(username, password, name, email);
+                users.add(user);
+                Global.currentUser = user;
+            } else if (userType.equals(UserType.AUTHOR)) {
+                User user = new Author(username, password, name, email);
+                users.add(user);
+                Global.currentUser = user;
+            } else if (userType.equals(UserType.ADMIN)) {
+                if (Global.currentUser instanceof Admin) {
+                    User user = new Admin(username, password, name, email);
+                    users.add(user);
+                    Global.currentUser = user;
+                } else {
+                    throw new UserAccessDeniedException("Only Admin can create new admins");
+                }
+            }
+
         }
     }
 
@@ -29,7 +52,7 @@ public interface Security {
             // Todo: change to lambda
             boolean validUsername = false;
             for (int i = 0; i < users.size(); i++) {
-                Author user = users.get(i);
+                User user = users.get(i);
                 if (user.getUsername().equals(username)) {
                     Global.currentUser = user;
                     validUsername = true;
@@ -41,21 +64,21 @@ public interface Security {
                     break;
                 }
             }
-            if (!validUsername) {
-                throw new InvalidUsernameException("Wrong Username");
-            }
+//            if (!validUsername) {
+//                throw new InvalidUsernameException("Wrong Username");
+//            }
         }
     }
 
     static void logOut() {
-        Global.currentUser = new Visitor("visitor");
+        Global.currentUser = new Visitor();
     }
 
     void changePassword(String oldPassword, String newPassword);
 
     void editUser(String username, String name, String email);
 
-    static boolean userExists(ArrayList<Author> users, String otherItem) {
+    static boolean userExists(ArrayList<User> users, String otherItem) {
         return users.stream()
                 .anyMatch(user -> user.getUsername().equals(otherItem));
     }

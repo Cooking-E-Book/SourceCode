@@ -5,6 +5,7 @@ import com.telerikacademy.calculations.TemperatureConverter;
 import com.telerikacademy.calculations.UnitConverter;
 import com.telerikacademy.enumerations.TemperatureScale;
 import com.telerikacademy.enumerations.Unit;
+import com.telerikacademy.enumerations.UserType;
 import com.telerikacademy.exceptions.recipes.RecipeAlreadyExists;
 import com.telerikacademy.interfaces.Security;
 import com.telerikacademy.messages.Comment;
@@ -18,12 +19,12 @@ public class Main {
         // Visitor cannot comment or create recipes, does not have name and email, can only read recipes
 
         // Register users
-        Security.register("pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
-        Security.register("Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
-        Security.register("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
+        Security.register(UserType.AUTHOR,"pavel", "pass", "Pavel Ignatov", "lepaff@gmail.com");
+        Security.register(UserType.AUTHOR,"Vladi", "passwordVladi", "Vladimir Georgiev", "vladig1984@gmail.com");
+        Security.register(UserType.AUTHOR,"Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
 
         // Log out from last registered user
-	Security.logOut();
+	    Security.logOut();
 			  
         // Testing message and user class functionality
         
@@ -31,24 +32,25 @@ public class Main {
         Security.logIn("pavel", "pass");
         
         Comment ms = new Comment(1,"This is of my favorite recipes I have ever tried! Thank you for sharing!");
-	System.out.println(ms.getRecipeId());
+	    System.out.println(ms.getRecipeId());
         System.out.println(ms.getTimestamp());
         System.out.println(ms.getAuthor().getUsername());
         System.out.println(ms.getComment());
         System.out.println(ms.getLikes());
         ms.edit( "This is one of my favorite soups I have ever tried! Thanks!" );
         System.out.println(ms.getTimestamp());
-	Comment ms1 = new Comment(2,"This recipe rules!!!");
-	System.out.println(ms1.getRecipeId());
+	    Comment ms1 = new Comment(2,"This recipe rules!!!");
+	    System.out.println(ms1.getRecipeId());
         Security.logOut();
         
         // Log in as Vladi:
         Security.logIn("Vladi", "passwordVladi");
+        System.out.println(Global.currentUser.getUsername());
         
         ms.like();
         System.out.println(ms.getLikes());
         //ms.delete(); // throws exception because Vladi is not the author of ms and has no rights to delete it
-				System.out.println(ms.getRecipeId());
+        System.out.println(ms.getRecipeId());
         Security.logOut();
         
         // Log in as Pepi:
@@ -77,7 +79,7 @@ public class Main {
 
         ms.delete();
         Comment ms2 = new Comment(3,"Recipe was total failure!");
-	System.out.println(ms2.getRecipeId());
+        System.out.println(ms2.getRecipeId());
         ms2.delete();
         Security.logOut();
         

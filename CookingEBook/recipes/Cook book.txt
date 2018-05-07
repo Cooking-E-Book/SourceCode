@@ -1,4 +1,4 @@
-Recipe 1. Gajar Halwa (Carrot Pudding), Author -> com.telerikacademy.users.Author@46d56d67
+Recipe 1. Gajar Halwa (Carrot Pudding), Author -> com.telerikacademy.users.Author@6e8cf4c6
 Serves: 12	 Pressure Cooking Time 40 minute, in 5 Litre pressure cooker Gajar Halwa (Carrot Pudding), MAIN_COURSE
 1. Sugar
 Quantity -> 2.0 TEACUP
@@ -38,7 +38,7 @@ Step 4. Time -> 10.0 minutes, Utensils: Pressure cooker
 Cook till ghee shows separately (approximately 10 minutes), stirring constantly. Serve hot, garnished with almonds
 
 
-Recipe 2. Basmati Rice, Author -> com.telerikacademy.users.Author@29774679
+Recipe 2. Basmati Rice, Author -> com.telerikacademy.users.Author@12edcd21
 Serves: 9	 Pressure Cooking Time 15 minute, in 5 Litre pressure cooker Basmati Rice, MAIN_COURSE
 1. Water
 Quantity -> 3.0 TEACUP

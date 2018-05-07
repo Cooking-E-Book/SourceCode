@@ -7,7 +7,7 @@ public class Global {
 
     // Global variables
 
-    public static User currentUser = new Visitor("visitor");
+    public static User currentUser = new Visitor();
     public static int RECIPE_ID = 1;
     public static int STEP_ID = 1;
     public static int UTENSIL_ID = 1;

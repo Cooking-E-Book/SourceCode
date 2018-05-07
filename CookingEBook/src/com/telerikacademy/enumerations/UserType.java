@@ -2,6 +2,6 @@ package com.telerikacademy.enumerations;
 
 public enum UserType {
 
-    VISITOR, AUTHOR, ADMIN
+    VISITOR, SUBSCRIBER, AUTHOR, ADMIN
 
 }
