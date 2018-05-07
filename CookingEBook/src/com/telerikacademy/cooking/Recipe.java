@@ -93,8 +93,6 @@ public class Recipe {
         return String.format( "Recipe %s. %s, Author -> %s%n%s ", this.getId(), this.getTitle(), this.getAuthor(),
                 this.getDescription() );
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 022c7383bc18c14390bf14195ad25c2203a349c2
+
