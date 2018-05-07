@@ -23,7 +23,7 @@ public class Main {
         Security.register("Pepi", "passwordPepi", "Petar Petrov", "pepi@gmail.com");
 
         // Log out from last registered user
-			  Security.logOut();
+	Security.logOut();
 			  
         // Testing message and user class functionality
         
@@ -31,15 +31,15 @@ public class Main {
         Security.logIn("pavel", "pass");
         
         Comment ms = new Comment(1,"This is of my favorite recipes I have ever tried! Thank you for sharing!");
-				System.out.println(ms.getRecipeId());
+	System.out.println(ms.getRecipeId());
         System.out.println(ms.getTimestamp());
         System.out.println(ms.getAuthor().getUsername());
         System.out.println(ms.getComment());
         System.out.println(ms.getLikes());
         ms.edit( "This is one of my favorite soups I have ever tried! Thanks!" );
         System.out.println(ms.getTimestamp());
-				Comment ms1 = new Comment(2,"This recipe rules!!!");
-				System.out.println(ms1.getRecipeId());
+	Comment ms1 = new Comment(2,"This recipe rules!!!");
+	System.out.println(ms1.getRecipeId());
         Security.logOut();
         
         // Log in as Vladi:
