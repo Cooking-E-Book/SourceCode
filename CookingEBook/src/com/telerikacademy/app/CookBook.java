@@ -22,6 +22,7 @@ import com.telerikacademy.interfaces.Component;
 import com.telerikacademy.interfaces.Likable;
 import com.telerikacademy.interfaces.Security;
 import com.telerikacademy.interfaces.Sourceable;
+import com.telerikacademy.io.RecipeBox;
 import com.telerikacademy.messages.Comment;
 import com.telerikacademy.messages.Message;
 import com.telerikacademy.messages.Review;
@@ -49,6 +50,8 @@ public class CookBook {
     private List<Review> reviews;
     private ContactInfo contactInfo;
     private Help help;
+    private RecipeCreator recipeCreator;
+    private RecipeBox recipeBox;
     
     public CookBook() {
         users = new ArrayList<>();
@@ -372,9 +375,8 @@ public class CookBook {
     
     public void addRecipe() throws RecipeAlreadyExists{
         //RecipeCreator recipeCreator = new RecipeCreator();
-        try{
-            RecipeCreator rs = new RecipeCreator();
-            rs.createGajarHalwa();
+        try{recipeBox.writeRecipe( "recipes/Cook book.txt", recipeCreator.createGajarHalwa() );
+            //recipeCreator.createGajarHalwa();
         } catch (RecipeAlreadyExists e){
             throw new RecipeAlreadyExists();
         }

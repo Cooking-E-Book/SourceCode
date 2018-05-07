@@ -22,8 +22,9 @@ import java.util.HashMap;
 
 public class RecipeCreator {
     private  HashMap<Integer, Recipe> recipesByRecipeId = new HashMap<>(  );
+    private StringBuilder output = new StringBuilder(  );
 
-    public void createGajarHalwa() throws RecipeAlreadyExists {
+    public String createGajarHalwa() throws RecipeAlreadyExists {
         Component rise, potato, milk, ghee, mavaCrumbled, almonds = null;
         try{
             Recipe gajar_halwa = new Recipe("Gajar Halwa (Carrot Pudding)", Global.currentUser, "Serves: 12\t Pressure Cooking Time 40 minute, in 5 Litre pressure cooker");
@@ -67,8 +68,10 @@ public class RecipeCreator {
             secondStep.add(pressureCooker);
             thirdStep.add(pressureCooker);
             fourthStep.add(pressureCooker);
+            output.append( gajar_halwa ).append( htd );
             System.out.println(gajar_halwa);
             System.out.println(htd);
+            return output.toString();
 
         } catch (NoSuchMeasurementException e){
             throw new NoSuchBulkMeasurementException();

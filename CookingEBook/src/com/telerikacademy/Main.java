@@ -174,8 +174,7 @@ public class Main {
         //RecipeBox box = new RecipeBox();
         // Gajar Halwa
         try{
-            RecipeCreator rs = new RecipeCreator();
-            rs.createGajarHalwa();
+           cookBook.addRecipe();
         } catch (RecipeAlreadyExists e){
             throw new RecipeAlreadyExists();
         }

@@ -7,7 +7,6 @@ import java.io.*;
 public class RecipeBox extends JFrame {
 
     private final JFrame frame = new JFrame();
-    public static String user = "NoName";
 
     public RecipeBox() {
         JPanel panel = new JPanel();
@@ -31,19 +30,6 @@ public class RecipeBox extends JFrame {
         panel.add(enterButt, 1);
         frame.add(panel);
 
-        File file = new File("recipes/Gajar Halwa.txt");
-        PrintWriter printWriter = null;
-
-        try {
-            printWriter = new PrintWriter(file);
-            printWriter.println("test");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            if (printWriter != null) {
-                printWriter.close();
-            }
-        }
 
 
 //        textField.addActionListener(new ActionListener() {
@@ -65,12 +51,20 @@ public class RecipeBox extends JFrame {
 //        });
     }
 
-    private void setUserName(String name) {
-        System.out.println(name);
-        if (name.equals("") || name.contains(" ")) {
-            user = "NoName";
-        } else {
-            user = name;
+    public void writeRecipe(String filepath, String output) {
+        File file = new File(filepath);
+        PrintWriter printWriter = null;
+
+        try {
+            printWriter = new PrintWriter(file);
+            printWriter.println(output);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (printWriter != null) {
+                printWriter.close();
+            }
         }
     }
+
 }
