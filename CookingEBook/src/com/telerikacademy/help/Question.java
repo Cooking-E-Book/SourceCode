@@ -10,4 +10,9 @@ public class Question {
 	public String getQuestion() {
 		return question;
 	}
+
+	@Override
+	public String toString() {
+		return question.toString();
+	}
 }

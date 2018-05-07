@@ -38,7 +38,7 @@ Step 4. Time -> 10.0 minutes, Utensils: Pressure cooker
 Cook till ghee shows separately (approximately 10 minutes), stirring constantly. Serve hot, garnished with almonds
 
 
-Recipe 2. Basmati Rice, Author -> com.telerikacademy.users.Author@7530d0a
+Recipe 2. Basmati Rice, Author -> com.telerikacademy.users.Author@12edcd21
 Serves: 9	 Pressure Cooking Time 15 minute, in 5 Litre pressure cooker Basmati Rice, MAIN_COURSE
 1. Water
 Quantity -> 3.0 TEACUP
