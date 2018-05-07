@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="373.0" y="315.0">com.telerikacademy.calculations.CaloriesCalculator</node>
+    <node x="571.0" y="470.0">com.telerikacademy.cooking.Utensil</node>
+    <node x="955.0" y="470.0">com.telerikacademy.Main</node>
+    <node x="191.5" y="160.0">com.telerikacademy.components.solid.SolidIngredient</node>
+    <node x="542.0" y="240.0">com.telerikacademy.components.bulk.PlantBulkIngredient</node>
+    <node x="778.25" y="80.0">com.telerikacademy.calculations.TemperatureConverter</node>
+    <node x="700.0" y="470.0">com.telerikacademy.cooking.Recipe</node>
+    <node x="899.0" y="240.0">com.telerikacademy.components.liquid.MineralLiquidIngredient</node>
+    <node x="137.5" y="315.0">com.telerikacademy.cooking.Dish</node>
+    <node x="966.25" y="80.0">com.telerikacademy.messages</node>
+    <node x="0.0" y="395.0">com.telerikacademy.cooking.MechanicalTreatedDish</node>
+    <node x="656.25" y="80.0">com.telerikacademy.components.Ingredient</node>
+    <node x="797.25" y="0.0">com.telerikacademy.interfaces</node>
+    <node x="175.0" y="240.0">com.telerikacademy.components.solid.MushroomIngredient</node>
+    <node x="295.0" y="470.0">com.telerikacademy.enumerations.UserType</node>
+    <node x="828.0" y="470.0">com.telerikacademy.Global</node>
+    <node x="1113.0" y="160.0">com.telerikacademy.components.liquid.LiquidIngredient</node>
+    <node x="714.0" y="240.0">com.telerikacademy.components.bulk.MineralBulkIngredient</node>
+    <node x="356.0" y="240.0">com.telerikacademy.components.solid.AnimalSolidIngredient</node>
+    <node x="0.0" y="240.0">com.telerikacademy.components.solid.PlantSolidIngredient</node>
+    <node x="1094.0" y="240.0">com.telerikacademy.components.liquid.AnimalLiquidIngredient</node>
+    <node x="1287.0" y="240.0">com.telerikacademy.components.liquid.PlantLiquidIngredient</node>
+    <node x="148.0" y="470.0">com.telerikacademy.help</node>
+    <node x="1112.0" y="315.0">com.telerikacademy.app.RecipeCreator</node>
+    <node x="0.0" y="470.0">com.telerikacademy.app.CookBook</node>
+    <node x="562.0" y="315.0">com.telerikacademy.enumerations.TemperatureScale</node>
+    <node x="437.0" y="470.0">com.telerikacademy.io</node>
+    <node x="932.0" y="315.0">com.telerikacademy.exceptions</node>
+    <node x="1191.0" y="470.0">com.telerikacademy.enumerations.Unit</node>
+    <node x="750.0" y="315.0">com.telerikacademy.enumerations.SubscriptionPlan</node>
+    <node x="192.0" y="395.0">com.telerikacademy.cooking.HeatTreatedDish</node>
+    <node x="1116.25" y="80.0">com.telerikacademy.calculations.UnitConverter</node>
+    <node x="644.75" y="160.0">com.telerikacademy.components.bulk.BulkIngredient</node>
+    <node x="1075.0" y="470.0">com.telerikacademy.cooking.Step</node>
+    <node x="1279.0" y="315.0">com.telerikacademy.enumerations.DishCategory</node>
+    <node x="530.25" y="80.0">com.telerikacademy.users</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.telerikacademy.components.solid.AnimalSolidIngredient" target="com.telerikacademy.components.solid.SolidIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="439.0" y="215.0" />
+      <point x="298.16666666666674" y="215.0" />
+      <point x="42.66666666666674" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.cooking.HeatTreatedDish" target="com.telerikacademy.cooking.Dish">
+      <point x="0.0" y="-15.0" />
+      <point x="260.0" y="370.0" />
+      <point x="190.75" y="370.0" />
+      <point x="17.75" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.liquid.MineralLiquidIngredient" target="com.telerikacademy.components.liquid.LiquidIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="986.5" y="215.0" />
+      <point x="1135.5" y="215.0" />
+      <point x="-45.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.liquid.AnimalLiquidIngredient" target="com.telerikacademy.components.liquid.LiquidIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.messages" target="com.telerikacademy.interfaces">
+      <point x="0.0" y="-15.0" />
+      <point x="1031.25" y="60.0" />
+      <point x="888.25" y="60.0" />
+      <point x="26.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.solid.PlantSolidIngredient" target="com.telerikacademy.components.solid.SolidIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="77.5" y="215.0" />
+      <point x="212.83333333333326" y="215.0" />
+      <point x="-42.66666666666674" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.solid.SolidIngredient" target="com.telerikacademy.components.Ingredient">
+      <point x="0.0" y="-15.0" />
+      <point x="255.5" y="135.0" />
+      <point x="673.25" y="135.0" />
+      <point x="-34.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.calculations.UnitConverter" target="com.telerikacademy.interfaces">
+      <point x="0.0" y="-15.0" />
+      <point x="1177.25" y="50.0" />
+      <point x="914.25" y="50.0" />
+      <point x="52.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.cooking.MechanicalTreatedDish" target="com.telerikacademy.cooking.Dish">
+      <point x="0.0" y="-15.0" />
+      <point x="86.0" y="370.0" />
+      <point x="155.25" y="370.0" />
+      <point x="-17.75" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.calculations.TemperatureConverter" target="com.telerikacademy.interfaces">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.solid.MushroomIngredient" target="com.telerikacademy.components.solid.SolidIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.bulk.BulkIngredient" target="com.telerikacademy.components.Ingredient">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.bulk.PlantBulkIngredient" target="com.telerikacademy.components.bulk.BulkIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="618.0" y="215.0" />
+      <point x="676.0" y="215.0" />
+      <point x="-31.25" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.liquid.PlantLiquidIngredient" target="com.telerikacademy.components.liquid.LiquidIngredient">
+      <point x="0.0" y="-15.0" />
+      <point x="1368.0" y="215.0" />
+      <point x="1225.5" y="215.0" />
+      <point x="45.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.Ingredient" target="com.telerikacademy.interfaces">
+      <point x="0.0" y="-15.0" />
+      <point x="707.25" y="60.0" />
+      <point x="836.25" y="60.0" />
+      <point x="-26.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.users" target="com.telerikacademy.interfaces">
+      <point x="0.0" y="-15.0" />
+      <point x="583.25" y="50.0" />
+      <point x="810.25" y="50.0" />
+      <point x="-52.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.liquid.LiquidIngredient" target="com.telerikacademy.components.Ingredient">
+      <point x="0.0" y="-15.0" />
+      <point x="1180.5" y="135.0" />
+      <point x="741.25" y="135.0" />
+      <point x="34.0" y="15.0" />
+    </edge>
+    <edge source="com.telerikacademy.components.bulk.MineralBulkIngredient" target="com.telerikacademy.components.bulk.BulkIngredient">
+      <point x="1.1368683772161603E-13" y="-15.0" />
+      <point x="796.5000000000001" y="215.0" />
+      <point x="738.5" y="215.0" />
+      <point x="31.25" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="803.625" y="1536.625" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
