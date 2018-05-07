@@ -1,6 +1,7 @@
 package com.telerikacademy;
 
 import com.telerikacademy.app.CookBook;
+import com.telerikacademy.app.RecipeCreator;
 import com.telerikacademy.calculations.TemperatureConverter;
 import com.telerikacademy.calculations.UnitConverter;
 import com.telerikacademy.enumerations.TemperatureScale;
@@ -128,6 +129,7 @@ public class Main {
         cookBook.addFAQ("Are the authors of your recipes professionally trained chefs?", "Yes, all of our recipe contributors are professional cooks with extensive work experience in the art of cooking.");
         cookBook.addFAQ("Can I change my password?", "Yes, please go to our password-change form!");
         cookBook.addRecipe(cookBook.getRecipeCreator().createGajarHalwa());
+        
         Security.logOut();
         
         // Log in as Vladi
@@ -136,6 +138,7 @@ public class Main {
         cookBook.readHelp();
         cookBook.addComment(1, "A lovely recipe!");
         cookBook.addRecipe(cookBook.getRecipeCreator().createBasmatiRice());
+
         Security.logOut();
         
         // Log in as Pepi
@@ -158,5 +161,9 @@ public class Main {
         Security.editUser("pavel", "Pavel Ignatov Ignatov", "lepaff@gmai.com");
 
         System.out.println(Global.currentUser.getName());
+        
+        
+        // Cook Book
+
     }
 }

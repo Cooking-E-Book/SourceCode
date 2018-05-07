@@ -57,28 +57,25 @@ public interface Security {
             throw new InvalidUsernameException("Wrong Username.");
         } else {
             // Todo: change to lambda
-            boolean validUsername = false;
             for (int i = 0; i < users.size(); i++) {
                 User user = users.get(i);
                 if (user.getUsername().equals(username)) {
                     Global.currentUser = user;
-                    validUsername = true;
                     if (user.getPassword("security").equals(password)) {
                         Global.currentUser = user;
+                        System.out.println(user.getName() + " logged in");
                     } else {
                         throw new InvalidUsernameException("Wrong Password");
                     }
                     break;
                 }
             }
-//            if (!validUsername) {
-//                throw new InvalidUsernameException("Wrong Username");
-//            }
         }
     }
 
     static void logOut() {
         Global.currentUser = new Visitor();
+        System.out.println("Logged out, current user - Visitor");
     }
 
     static void changePassword(String oldPassword, String newPassword) {
